@@ -64,18 +64,18 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center  bg-slate-400"
+      className="min-h-screen flex items-center justify-center "
       // style={{ perspective: "800px" }}
     >
       <div
-        className="container w-1/2 flex justify-center items-center bg-red-100"
+        className="container w-1/2 flex justify-center items-center "
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="card min-h-[80vh] w-[35rem] px-[5rem] rounded-3xl p-10 shadow-lg border-2 "
-          style={{ transformStyle: "preserve-3d" }}
+          className="card min-h-[80vh] w-[35rem] px-[5rem] rounded-3xl p-10 shadow-neon_blue border-2 border-blue-300 "
+          style={{ transformStyle: "preserve-3d" }}                         
           // style={{
           //   transform: isHovering
           //     ? "rotateY(-80deg) rotateX(40deg) "
