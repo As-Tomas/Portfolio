@@ -74,7 +74,7 @@ const ProjectCard = ({ project }) => {
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="card min-h-[80vh] w-[35rem] px-[5rem] rounded-3xl p-10 shadow-neon_blue border-2 border-blue-300 "
+          className="card min-h-[80vh] w-[35rem] px-[5rem] rounded-3xl p-10 shadow-neon_indigo border-2 border-indigo-300 "
           style={{ transformStyle: "preserve-3d" }}                         
           // style={{
           //   transform: isHovering
