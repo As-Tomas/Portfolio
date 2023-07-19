@@ -1,95 +1,141 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-
 const ProjectCard = ({ project }) => {
   const [isHovering, setIsHovering] = useState(false);
-  const handleMouseEnter = () => setIsHovering(true);
-  const handleMouseLeave = () => setIsHovering(false);
+  const [isHoveringIco, setIsHoveringIco] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  
+  //Moving Animation Event
+  const handleMouseMove = (e) => {
+    const card = document.querySelector(".card");
+    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+
+    if (isHovering) {
+      card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+      //title.style.transform = ` translateZ(200px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    }
+  };
+
+  //Animate In
+  const handleMouseEnter = () => {
+    const card = document.querySelector(".card");
+    const picture = document.querySelector(".picture");
+    const title = document.querySelector(".title");
+    const description = document.querySelector(".description");
+    card.style.transition = "all 0.1s ease";
+    picture.style.transform = "translateZ(100px) ";
+    title.style.transform = " translateZ(150px) translateY(-100px)";
+    description.style.transform = "translateZ(200px) translateY(-100px)";
+    setIsHovering(true);
+  };
+
+  //Animate Out
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    const card = document.querySelector(".card");
+    const title = document.querySelector(".title");
+    const picture = document.querySelector(".picture");
+    const description = document.querySelector(".description");
+    card.style.transition = "all 0.5s ease";
+    card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    picture.style.transition = "all 0.3s ease";
+    picture.style.transform = "translateZ(0px) rotateZ(0deg)";
+    title.style.transition = "all 0.3s ease";
+    title.style.transform = " translateZ(0px) translateY(0px) ";
+    description.style.transition = "all 0.3s ease";
+    description.style.transform = " translateZ(0px) translateY(0px) ";
+  };
+
+  const handleMouseEnterIco = () => {
+    setIsHoveringIco(true);
+    const ico = document.querySelector(".ico");
+    ico.style.transition = "all 0.1s ease";
+  };
+
+  const handleMouseLeaveIco = () => {
+    setIsHoveringIco(false);
+    const ico = document.querySelector(".ico");
+    ico.style.transition = "all 0.5s ease";
+    ico.style.transform = `rotateY(0deg) rotateX(0deg)`;
+  };
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className="min-h-screen flex items-center justify-center  bg-slate-400"
+      // style={{ perspective: "800px" }}
     >
-      <div className="w-1/2 flex justify-center items-center">
+      <div
+        className="container w-1/2 flex justify-center items-center bg-red-100"
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <div
-          className={`transform preserve-3d min-h-[80vh] w-[35rem] rounded-3xl p-10 shadow-md ${
-            isHovering ? "transition-none" : "transition-all duration-500 ease-out"
-          }`}
-          style={{
-            transform: isHovering
-              ? "rotateY(-10deg) rotateX(5deg)"
-              : "rotateY(10deg) rotateX(0deg)",
-          }}
+          className="card min-h-[80vh] w-[35rem] px-[5rem] rounded-3xl p-10 shadow-lg border-2 "
+          style={{ transformStyle: "preserve-3d" }}
+          // style={{
+          //   transform: isHovering
+          //     ? "rotateY(-80deg) rotateX(40deg) "
+          //     : "rotateY(0deg) rotateX(0deg)",
+          // }}
         >
-          <div className="min-h-[35vh] flex items-center justify-center">
+          <div className="picture min-h-[35vh] flex items-center justify-center">
             <div
-              className="w-[20rem] relative z-2 transition-transform duration-750 ease-out"
-              style={{
-                transform: isHovering
-                  ? "translateZ(200px) rotateZ(-45deg)"
-                  : "translateZ(0px) rotateZ(0deg)",
-              }}
-            >
-              <img src="./src/data/adidas.png" alt="adidas" />
-            </div>
-            <div
-              className="w-[15rem] h-[15rem] bg-gradient-to-r from-[rgba(245, 70, 66, 0.75)] to-[rgba(8, 83, 156, 0.75)] absolute border-2 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1"
-              style={{
-                transform: isHovering ? "translateZ(150px)" : "translateZ(0px)",
-              }}
+              className="circle z-0 w-[15rem] h-[15rem] bg-gradient-to-r from-blue-300 to-red-300  absolute border-2 rounded-full"
+              
             ></div>
+
+            <img
+              className="z-10 w-[20rem] relative  transition-transform duration-750 ease-out"
+              src={project.image}
+              alt={project.name}
+            />
           </div>
-          <div className="text-center">
+          <div
+            className="info text-center"
+            style={{ transformStyle: "preserve-3d" }}
+          >
             <h1
-              className={`text-3xl font-bold ${
-                isHovering ? "transform translateZ(125px)" : "transform translateZ(0px)"
-              }`}
+              className="title text-3xl font-bold"
             >
-              Adidas ZX
+              {project.name}
             </h1>
             <h3
-              className={`text-lg py-8 text-gray-600 font-light ${
-                isHovering ? "transform translateZ(100px)" : "transform translateZ(0px)"
-              }`}
+              className="description text-lg py-8 text-gray-600 font-light "
             >
-              FUTURE-READY TRAINERS WITH WRAPPED BOOST FOR EXCEPTION COMFORT.
+              {project.description}
             </h3>
+
             <div
-              className={`flex justify-between ${
-                isHovering ? "transform translateZ(75px)" : "transform translateZ(0px)"
-              }`}
+              className="ico flex justify-around "
+              onMouseEnter={handleMouseEnterIco}
+              onMouseLeave={handleMouseLeaveIco}
             >
-              <button className="py-2 px-8 bg-transparent border-2 border-[#585858] rounded-full font-bold text-[#585858] hover:bg-[#585858] hover:text-white focus:outline-none">
-                39
-              </button>
-              <button className="py-2 px-8 bg-transparent border-2 border-[#585858] rounded-full font-bold text-[#585858] hover:bg-[#585858] hover:text-white focus:outline-none">
-                40
-              </button>
-              <button className="py-2 px-8 bg-[#585858] rounded-full font-bold text-white">
-                42
-              </button>
-              <button className="py-2 px-8 bg-transparent border-2 border-[#585858] rounded-full font-bold text-[#585858] hover:bg-[#585858] hover:text-white focus:outline-none">
-                44
-              </button>
+              {project.technologies.slice(0, 4).map((technology, index) => (
+                <img
+                  key={index}
+                  src={technology}
+                  alt={`Tech ${index + 1}`}
+                  className={`h-20 w-20 transition-transform ${
+                    isHoveringIco && hoveredIndex === index ? "scale-150" : ""
+                  }`}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                />
+              ))}
             </div>
+
             <div className="mt-20">
               <button className="w-full py-4 bg-[#f54642] rounded-full font-bold text-white">
-                Purchase
+                GitHub
               </button>
             </div>
           </div>
         </div>
       </div>
-    
-
-      {/* <img src={project.image} alt={project.name} />
-      <h2>{project.name}</h2>
-      <p>{project.description}</p>
-      <p>Price: ${project.price}</p>
-      <p>Category: {project.category}</p> */}
     </div>
   );
 };

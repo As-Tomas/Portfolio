@@ -1,9 +1,9 @@
 
 import ProjectCard from '../ProjectCard/ProjectCard'
-import projectData from '../../data/Projects'
+import projectData from '../../data/ProjectsData'
 
 const Main = () => {
-    const selectedProject = projectData.find((project) => project.id === 1);
+    const selectedProject = projectData.find((project) => project.id === 2);
 
   return (
     <div>
