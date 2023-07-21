@@ -7,6 +7,7 @@ const ProjectCard = ({ project }) => {
   const [imgPreviewIndex, setImgPreviewIndex] = useState(null);
   const [imgBorders, setimgBorders] = useState("");
   
+  // Preview image positions
   const translations = [[0],[-100, 100],[-170, -10, 170]];
   const hoverTranslations = [[0],[-100, 100],[-150, -10, 150]];
 
