@@ -31,16 +31,13 @@ const Footer = () => {
           </div>
         </section>
       </footer>
-      <footer
-        id="back"
+      <div
         className=" z-30 h-40  w-full overflow-hidden before:absolute before:left-[-100%] rounded-t-2xl  
       before:w-full before:h-40 before:content-'' before:bg-gradient-to-br before:transform before:rotate-45 before:from-transparent before:via-[rgba(255,255,255,0.3)]
       before:to-transparent before:transition-all before:duration-500 before:group-hover:left-[100%]"
-      >
-      </footer>
+      ></div>
     </div>
   );
 };
 
 export default Footer;
-
