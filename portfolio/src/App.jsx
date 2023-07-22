@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className=' bg-gradient-to-tl  from-teal-300 to-cyan-400'>
         <Header/>
         <Main/>
         <Footer/>
