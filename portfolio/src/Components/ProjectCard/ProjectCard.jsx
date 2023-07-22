@@ -11,14 +11,27 @@ const ProjectCard = ({ project }) => {
   const translations = [[0],[-100, 100],[-170, -10, 170]];
   const hoverTranslations = [[0],[-100, 100],[-150, -10, 150]];
 
-  //Moving Animation Event for card
+  //Moving Animation Event for card 
+  // const handleMouseMove = (e) => {
+  //   const card = document.querySelector(".card");
+  //   const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+  //   const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+
+  //   if (isHovering) {
+  //     card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;      
+  //   }
+  // };
   const handleMouseMove = (e) => {
+    const bodyCardDiv = document.querySelector(".body-card-div");
     const card = document.querySelector(".card");
-    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+    const rect = bodyCardDiv.getBoundingClientRect();
+
+    const xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
+    const yAxis = ((rect.height / 0.8 - (e.pageY - rect.top)) / 25)* -1;
 
     if (isHovering) {
-      card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;      
+      card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+      //console.log(`perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`);
     }
   };
 
@@ -112,7 +125,7 @@ const ProjectCard = ({ project }) => {
 
         imgElements.forEach((imgElement, i) => {
           if (index === i) {
-            imgElement.style.transform = `translateZ(220px) translateY(0px) translateX(${hoverTranslations[childCount-1][i]}px) scale(1.5) rotateX(-15deg)`;  
+            imgElement.style.transform = `translateZ(220px) translateY(0px) translateX(${hoverTranslations[childCount-1][i]}px) scale(1.2) rotateX(15deg)`;  
             //console.log("translated:", hoverTranslations[childCount-1][i]);     
           } else {
             imgElement.style.transform = `translateZ(1${childCount-i}0px) translateY(-100px) translateX(${translations[childCount-1][i]}px)`;            
@@ -138,7 +151,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div
-      className=" flex items-center justify-center "
+      className="body-card-div flex items-center justify-center "
       // style={{ perspective: "800px" }}
     >
       <div
