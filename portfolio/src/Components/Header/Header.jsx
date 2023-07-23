@@ -52,7 +52,7 @@ const Header = () => {
        
         
       </header>
-      <div className="absolute top-0 left-0 w-full overflow-x-hidden h-16 before:absolute before:top-0 before:left-[-100%] rounded-2xl
+      <div className=" fixed top-0 left-0 w-full overflow-x-hidden h-16 before:absolute before:top-0 before:left-[-100%] rounded-2xl
    before:w-full before:h-full before:content-'' before:bg-gradient-to-r before:from-transparent before:via-[rgba(255,255,255,0.3)] 
    before:to-transparent before:transition-all before:duration-500 before:group-hover:left-[130%]"
       >
