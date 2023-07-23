@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = (props) => {
+  const project = props.project
+  const indexProp = props.index;
   const [isHovering, setIsHovering] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [imgPreviewIndex, setImgPreviewIndex] = useState(null);
@@ -21,10 +23,11 @@ const ProjectCard = ({ project }) => {
   //     card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;      
   //   }
   // };
+
   const handleMouseMove = (e) => {
     const bodyCardDiv = document.querySelector(".body-card-div");
-    const card = document.querySelector(".card");
-    const rect = bodyCardDiv.getBoundingClientRect();
+    const card = document.querySelector(`.card${indexProp}`);
+    const rect = card.getBoundingClientRect();
 
     const xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
     const yAxis = ((rect.height / 0.8 - (e.pageY - rect.top)) / 25)* -1;
@@ -40,11 +43,11 @@ const ProjectCard = ({ project }) => {
     setIsHovering(true);    
     setimgBorders("shadow-neon_purple");
     
-    const card = document.querySelector(".card");
-    const title = document.querySelector(".title");
-    const description = document.querySelector(".description");
-    const ico = document.querySelector(".ico");
-    const buttons = document.querySelector(".buttons");
+    const card = document.querySelector(`.card${indexProp}`);
+    const title = document.querySelector(`.title${indexProp}`);
+    const description = document.querySelector(`.description${indexProp}`);
+    const ico = document.querySelector(`.ico${indexProp}`);
+    const buttons = document.querySelector(`.buttons${indexProp}`);
     
     card.style.transition = "all 0.1s ease";
     title.style.transform = " translateZ(150px) translateY(-20px)";
@@ -53,15 +56,11 @@ const ProjectCard = ({ project }) => {
     buttons.style.transform = "translateZ(170px) translateY(-25px)";
 
     //for pictures
-    const parentElement = document.querySelector(".pictures");
+    const parentElement = document.querySelector(`.pictures${indexProp}`);
     if (parentElement) {
-      const imgElements = parentElement.querySelectorAll("img");
+      const imgElements = parentElement.querySelectorAll(`#image${indexProp}`);
       const childCount = imgElements.length;
-     //console.log("Number of children:", childCount);
-     //console.log("translations[i]:", translations[childCount-1][1]);
       if (imgElements.length >= 0) {
-        //console.log("translations:", translations);
-        //console.log("translations[i]:", translations[childCount-1][0]);
 
         imgElements.forEach((imgElement, i) => {
           imgElement.style.transform = `translateZ(1${childCount-i}0px) translateY(-50px) translateX(${translations[childCount-1][i]}px)`;
@@ -76,12 +75,12 @@ const ProjectCard = ({ project }) => {
   const handleMouseLeave = () => {
     setIsHovering(false);
     setimgBorders(null);
-    const card = document.querySelector(".card");
-    const title = document.querySelector(".title");
-    const pictures = document.querySelector(".pictures");
-    const description = document.querySelector(".description");
-    const ico = document.querySelector(".ico");
-    const buttons = document.querySelector(".buttons");
+    const card = document.querySelector(`.card${indexProp}`);
+    const title = document.querySelector(`.title${indexProp}`);
+    const pictures = document.querySelector(`.pictures${indexProp}`);
+    const description = document.querySelector(`.description${indexProp}`);
+    const ico = document.querySelector(`.ico${indexProp}`);
+    const buttons = document.querySelector(`.buttons${indexProp}`);
 
     card.style.transition = "all 0.5s ease";
     card.style.transform = `rotateY(0deg) rotateX(0deg)`;
@@ -95,58 +94,50 @@ const ProjectCard = ({ project }) => {
     buttons.style.transition = "all 0.3s ease";
     buttons.style.transform = "translateZ(0px) translateY(0px)";
 
-    //for pictures
-      const parentElement = document.querySelector(".pictures");
-      if (parentElement) {
-        const imgElements = parentElement.querySelectorAll("img");
-        if (imgElements.length >= 0) {  
-          imgElements.forEach((imgElement) => {
-            imgElement.style.transform = "translateZ(0px) translateY(0px) translateX(0px)";
-          });  
-        } 
-      } 
+    //for pictures      
+      const imgElements = document.querySelectorAll(`#image${indexProp}`); // redudant code no need to select each
+      if (imgElements.length >= 0) {  
+        imgElements.forEach((imgElement) => {
+          imgElement.style.transform = "translateZ(0px) translateY(0px) translateX(0px)";
+        });  
+      }
   };
 
   const handleMouseLeaveIco = () => {
-    const ico = document.querySelector(".ico");
+    const ico = document.querySelector(`.ico${indexProp}`);
     ico.style.transition = "all 0.5s ease";
     ico.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
 
   const handleMouseEnterPreviewImg = (index) => {
     setImgPreviewIndex(index);
-    //console.log("index:", imgPreviewIndex);
-
-    const parentElement = document.querySelector(".pictures");
-    if (parentElement) {
-      const imgElements = parentElement.querySelectorAll("img");
-      const childCount = imgElements.length;
-      if (imgElements.length > 0) {
-
-        imgElements.forEach((imgElement, i) => {
-          if (index === i) {
-            imgElement.style.transform = `translateZ(220px) translateY(0px) translateX(${hoverTranslations[childCount-1][i]}px) scale(1.2) rotateX(15deg)`;  
-            //console.log("translated:", hoverTranslations[childCount-1][i]);     
-          } else {
-            imgElement.style.transform = `translateZ(1${childCount-i}0px) translateY(-100px) translateX(${translations[childCount-1][i]}px)`;            
+    const allImgElements = document.querySelectorAll(`#image${indexProp}`);
+    const imgElement = document.querySelector(`.imgPrev${index}`);
+    if (imgElement) {
+      const childCount = allImgElements.length;
+      allImgElements.forEach((imageEl, i) => {
+        if (imageEl === imgElement ) {
+          imgElement.style.transform = `translateZ(220px) translateY(0px) translateX(${hoverTranslations[childCount-1][i]}px) scale(1.2) rotateX(15deg)`;  
+          
+        }else {
+          if (allImgElements > 0) {
+            
+            imageEl.style.transform = `translateZ(1${childCount-i}0px) translateY(-100px) translateX(${translations[childCount-1][i]}px)`;            
           }
-        });
-
-      } 
+        }
+    });      
     } 
   };
+
   const handleMouseLeavePreviewImg = () => {
     setImgPreviewIndex(null);
-    const parentElement = document.querySelector(".pictures");
-      if (parentElement) {
-        const imgElements = parentElement.querySelectorAll("img");
+    const imgElements = document.querySelectorAll(`#image${indexProp}`);
         const childCount = imgElements.length;
         if (imgElements.length > 0) {  
           imgElements.forEach((imgElement, i) => {
             imgElement.style.transform = `translateZ(1${childCount-i}0px) translateY(-50px) translateX(${translations[childCount-1][i]}px)`;
           });  
-        } 
-      } 
+        }
   };
 
   return (
@@ -161,7 +152,7 @@ const ProjectCard = ({ project }) => {
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="card  w-[35rem] px-[3rem] py-[1rem] rounded-3xl shadow-neon_indigo border-2 border-indigo-300 "
+          className={`card${indexProp}  w-[35rem] px-[3rem] py-[1rem] rounded-3xl shadow-neon_indigo border-2 border-indigo-300 `}
           style={{ transformStyle: "preserve-3d" }}
           // style={{
           //   transform: isHovering
@@ -170,7 +161,7 @@ const ProjectCard = ({ project }) => {
           // }}
         >
           <div
-            className="pictures min-h-[25vh] flex items-center justify-center"
+            className={`pictures${indexProp} min-h-[25vh] flex items-center justify-center`}
             style={{ transformStyle: "preserve-3d" }}
             //onMouseEnter={handleMouseEnterPreviewImg}
           >
@@ -178,14 +169,15 @@ const ProjectCard = ({ project }) => {
 
             {project.images.slice(0, 4).map((image, index) => (
               <img
-                key={index}
+                key={index + "" + indexProp}
                 src={image}
-                alt={`image ${index + 1}`}
+                //alt={`image ${index + 1 + indexProp}`}
+                id={`image${indexProp}`}
                 className={`border-1 border-purple-300  rounded-lg absolute  w-[12rem] transition-transform duration-750 ease-out ${imgBorders} ${
-                  imgPreviewIndex === index ? "shadow-neon_blue border-blue-400 " : ""
+                  imgPreviewIndex === index + "" + indexProp ? "shadow-neon_blue border-blue-400 " : ""
                 }
-                  ${index === 0 ? `imgPrev${index} shadow-neon_purple` : `imgPrev${index} `}`}
-                onMouseEnter={() => handleMouseEnterPreviewImg(index)}
+                   ${index === 0 ? `imgPrev${index + "" + indexProp} shadow-neon_purple` : `imgPrev${index + "" + indexProp} `}`}
+                onMouseEnter={() => handleMouseEnterPreviewImg(index + "" + indexProp)}
                 onMouseLeave={() => handleMouseLeavePreviewImg()}
               />
             ))}
@@ -194,30 +186,30 @@ const ProjectCard = ({ project }) => {
             className="info text-center"
             style={{ transformStyle: "preserve-3d" }}
           >
-            <h1 className="title text-3xl font-bold">{project.name}</h1>
-            <h3 className="description text-sm  py-8 text-gray-600 font-light ">
+            <h1 className={`title${indexProp} text-3xl font-bold`}>{project.name}</h1>
+            <h3 className={`description${indexProp} text-sm  py-8 text-gray-600 font-light`}>
               {project.description}
             </h3>
 
             <div
-              className="ico flex justify-around "
+              className={`ico${indexProp} flex justify-around`}
               onMouseLeave={handleMouseLeaveIco}
             >
               {project.technologies.slice(0, 4).map((technology, index) => (
                 <img
-                  key={index}
+                  key={index + "" + indexProp}
                   src={technology}
                   alt={`Tech ${index + 1}`}
                   className={`h-[3rem] w-[3rem] transition-transform ${
-                    hoveredIndex === index ? "scale-150" : ""
+                    hoveredIndex === index + "" + indexProp ? "scale-150" : ""
                   }`}
-                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseEnter={() => setHoveredIndex(index + "" + indexProp)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 />
               ))}
             </div>
 
-            <div className="buttons mt-10">
+            <div className={`buttons${indexProp} mt-10`} >
               <button className="w-full py-4 bg-[#f54642] rounded-full font-bold text-white">
                 GitHub
               </button>

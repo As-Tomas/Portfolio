@@ -11,15 +11,21 @@ const Main = () => {
     <div>
         <About />
         <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
-        {selectedProject && <ProjectCard key={selectedProject.id} project={selectedProject} />}
+        {/* {selectedProject && <ProjectCard key={selectedProject.id} project={selectedProject} />} */}
+        <div className='flex flex-row'>
+
+        {projectData.map((project, index) => (
+          <div 
+          key={project.id}>
+        <ProjectCard key={project.id} project={project} index={index}  />
+          </div>
+      ))}
+        </div>
 
         <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
         <Technologies />
     
         <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
-        {/* {projectData.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))} */}
         
     </div>
   )
