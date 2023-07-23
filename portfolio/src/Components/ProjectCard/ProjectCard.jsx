@@ -152,7 +152,7 @@ const ProjectCard = (props) => {
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className={`card${indexProp}  w-[35rem] px-[3rem] py-[1rem] rounded-3xl shadow-neon_indigo border-2 border-indigo-300 `}
+          className={`card${indexProp}  w-[35rem] px-[3rem] py-[1rem] rounded-3xl shadow-neon_indigo border-2 border-indigo-300 bg-[rgba(255,255,255,0.1)] backdrop-blur-md `}
           style={{ transformStyle: "preserve-3d" }}
           // style={{
           //   transform: isHovering
