@@ -51,7 +51,7 @@ const ProjectCard = (props) => {
     
     card.style.transition = "all 0.1s ease";
     title.style.transform = " translateZ(150px) translateY(-20px)";
-    description.style.transform = "translateZ(200px) translateY(-20px)";
+    description.style.transform = "translateZ(200px) translateY(-50px)";
     ico.style.transform = "translateZ(180px) translateY(-20px)";
     buttons.style.transform = "translateZ(170px) translateY(-25px)";
 
