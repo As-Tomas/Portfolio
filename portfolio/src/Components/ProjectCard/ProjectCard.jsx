@@ -155,13 +155,13 @@ const ProjectCard = ({ project }) => {
       // style={{ perspective: "800px" }}
     >
       <div
-        className="container min-h-[70vh] w-1/2 flex justify-center items-center "
+        className="container min-h-[70vh] w-1/2 flex justify-center items-center  "
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="card  w-[35rem] px-[3rem] py-[1rem] rounded-3xl shadow-neon_indigo border-2 border-indigo-300 bg-[rgba(255,255,255,0.1)] backdrop-blur-md"
+          className="card  w-[35rem] px-[3rem] py-[1rem] rounded-3xl shadow-neon_indigo border-2 border-indigo-300  bg-[rgba(255,255,255,0.1)]  "
           style={{ transformStyle: "preserve-3d" }}
           // style={{
           //   transform: isHovering
