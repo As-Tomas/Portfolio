@@ -3,7 +3,7 @@ const About = () => {
     <section
       id="home"
       className="flex flex-col-reverse justify-center sm:flex-row p-6 items-center gap-8 mb-12
-       scroll-mt-40 widescreen:section-min-height tallscreen:section-min-height"
+       pt-20 scroll-mt-40 widescreen:section-min-height tallscreen:section-min-height"
     >
       <article>
         <h2 className="max-w-none text-4xl font-bold text-center sm:text-5xl sm:text-left text-slate-900 dark:text-white">
