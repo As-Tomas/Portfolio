@@ -155,20 +155,23 @@ const ProjectCard = ({ project }) => {
       // style={{ perspective: "800px" }}
     >
       <div
-        className="container min-h-[70vh] w-1/2 flex justify-center items-center  "
+        className="container min-h-[70vh] w-1/2 flex justify-center items-center "
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="card  w-[35rem] px-[3rem] py-[1rem] rounded-3xl shadow-neon_indigo border-2 border-indigo-300  bg-[rgba(255,255,255,0.1)]  "
-          style={{ transformStyle: "preserve-3d" }}
+          className="card w-[35rem] px-[3rem] py-[1rem] before:rounded-3xl before:block before:absolute before:-inset-1 before:backdrop-blur-md"
+          style={{ transformStyle: "preserve-3d",  }}
           // style={{
           //   transform: isHovering
           //     ? "rotateY(-80deg) rotateX(40deg) "
           //     : "rotateY(0deg) rotateX(0deg)",
           // }}
         >
+          <div className="card -mx-12 -my-4 rounded-3xl border-2 border-indigo-500 shadow-neon_indigo bg-[rgba(255,255,255,0.1)]"
+          style={{ transformStyle: "preserve-3d", }}>
+
           <div
             className="pictures min-h-[25vh] flex items-center justify-center"
             style={{ transformStyle: "preserve-3d" }}
@@ -222,6 +225,7 @@ const ProjectCard = ({ project }) => {
                 GitHub
               </button>
             </div>
+          </div>
           </div>
         </div>
       </div>
