@@ -1,0 +1,10 @@
+
+
+.section:nth-child(odd) {
+  flex-direction: row-reverse;
+  transform: translateX(0%);
+}
+.show-me {
+  transform: none;
+  opacity: 1;
+}

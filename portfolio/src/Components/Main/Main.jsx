@@ -1,8 +1,8 @@
 
 import ProjectCard from '../ProjectCard/ProjectCard'
 import projectData from '../../data/ProjectsData'
-import About from './Components/About';
-import Technologies from './Components/Technologies';
+import About from './Components/Content/About';
+import Technologies from './Components/Content/Technologies';
 import GlassPlate from './Components/GlassPlate';
 
 const Main = () => {

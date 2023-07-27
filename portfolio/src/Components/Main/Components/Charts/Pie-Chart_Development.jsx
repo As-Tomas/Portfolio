@@ -1,4 +1,3 @@
-
 import ReactECharts from 'echarts-for-react';
 
 const PieChartDevelopment = () => {
@@ -21,17 +20,9 @@ const PieChartDevelopment = () => {
         type: 'pie',
         radius: '70%',
         data: [
-          { value: 60, name: 'Coder', itemStyle: { color: ' #6CE5E8'}, label: { show: true } },
-          { value: 40, name: 'Desinger',  itemStyle: { color: '#2D8BBA' }, label: { show: true }},
+          { value: 60, name: 'Coder', itemStyle: { color: '#6CE5E8' }, label: { show: true, position: 'inside', formatter: '{b} - {c}%', fontWeight: 'bold' } },
+          { value: 40, name: 'Designer', itemStyle: { color: '#2D8BBA' }, label: { show: true, position: 'inside', formatter: '{b} - {c}%', fontWeight: 'bold' } },
         ],
-        label: {
-          show: true,
-          position: 'inside', // Display labels inside the pie chart slices
-          formatter: '{b} - {c}%', // {b} represents the name, {c} represents the value
-          textStyle: {
-            fontWeight: 'bold',
-          },
-        },
         emphasis: {
           itemStyle: {
             shadowBlur: 10,
@@ -43,9 +34,7 @@ const PieChartDevelopment = () => {
     ],
   };
 
-  return (
-    <ReactECharts option={option} style={{ height: '400px' }} />
-  );
+  return <ReactECharts option={option} style={{ height: '400px' }} />;
 };
 
 export default PieChartDevelopment;
