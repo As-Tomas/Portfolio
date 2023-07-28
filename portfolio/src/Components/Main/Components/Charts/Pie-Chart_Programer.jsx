@@ -1,10 +1,9 @@
 import ReactECharts from "echarts-for-react";
 
-const PieChartDevelopment = () => {
+const PieChartProgramer = () => {
   const option = {
     title: {
-      text: "Development",
-      // subtext: 'Fake Data',
+      text: "Stack Skills",
       left: "center",
     },
     tooltip: {
@@ -16,19 +15,16 @@ const PieChartDevelopment = () => {
         },
       },
     },
-    // legend: {
-    //   orient: 'horizontal',
-    //   left: 'left',
-    // },
+
     series: [
       {
-        name: "Development as",
+        name: "Stack Skills in",
         type: "pie",
         radius: "70%",
         data: [
           {
-            value: 80,
-            name: "Programer",
+            value: 60,
+            name: "Back-End",
             itemStyle: {
               color: "#6CE5E8",
               shadowBlur: 10,
@@ -44,8 +40,8 @@ const PieChartDevelopment = () => {
             },
           },
           {
-            value: 20,
-            name: "Designer",
+            value: 40,
+            name: "Front-End",
             itemStyle: {
               color: "#2D8BBA",
               shadowBlur: 10,
@@ -75,4 +71,4 @@ const PieChartDevelopment = () => {
   return <ReactECharts option={option} style={{ height: "300px" }} />;
 };
 
-export default PieChartDevelopment;
+export default PieChartProgramer;
