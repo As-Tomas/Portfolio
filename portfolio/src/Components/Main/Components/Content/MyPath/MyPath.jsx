@@ -15,10 +15,9 @@ const MyPath = () => {
     <div className="body  h-[90vh] w-full overflow-hidden overflow-y-scroll">
       <div className="container p-[2rem] pb-[400px] mx-auto max-w-3xl">
         <div className="topSection text-center py-[4rem] max-w-xl mx-auto">
-          <h1>Animated</h1>
+          <h1 className=" text-3xl">My path</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore,
-            ad.
+            Here you can see historical my life path how I find my passion an where I'm now.
           </p>
         </div>
 
@@ -35,11 +34,13 @@ const MyPath = () => {
           className={`flex relative z-10 my-12 p-4 border rounded-2xl items-center min-h-[300px] ${myElementIsVisible ? "flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ":" opacity-0  transform translate-x-[-50%] transition duration-700 ease-in "}section `}
           >
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.3%] top-[20%] transform translate-x-[-50%]"></div>
-            <div className="content w-[calc(50%-2rem)]">
-              <h2>Web</h2>
+            <div className="content w-[calc(50%-2rem)] text-right">
+              <h2 className=" text-2xl">Poker</h2>
+              <h3>2016 here my pasion began</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptates, quo?
+                Besides my daily work as office suport at evenings have been playing poker tournaments for many year, each month winings not bad salary supplement. 
+                But poker games takes a lot of time, and here came an IDEA, why not to automate my strategyies and save the time?!
+                Litle bit of google and found Deep mind pokerbot free source at Github coded by Python and here my pasion began!
               </p>
             </div>
           </div>
@@ -50,14 +51,11 @@ const MyPath = () => {
           >
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.7%] top-[20%] transform translate-x-[50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
-              <h2> Dew</h2>
+              <h2 className=" text-2xl"> WordPress / UiPath</h2>
+              <h3>2019</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Voluptate soluta non, illo sapiente exercitationem odio itaque
-                molestias voluptatum eaque facilis id repudiandae ex cumque
-                nihil dicta voluptatibus fugiat aliquam necessitatibus accusamus
-                dolorum obcaecati consequatur quos. Facere eveniet asperiores
-                quam dolor?
+                Found the gap in the local market and drop shiping become wery populars so started to learn WordPress and created web shop.
+                With help of UiPath made automations for product scraping and orders administration in WordPress. 
               </p>
             </div>
           </div>
@@ -68,13 +66,10 @@ const MyPath = () => {
           >
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.3%] top-[20%] transform translate-x-[-50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
-              <h2>Web Dev</h2>
+              <h2 className=" text-2xl">React-Native</h2>
+              <h3>2019</h3>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Provident tenetur aliquid vel quod ex. Exercitationem sequi
-                cumque amet error dolor unde qui et fugit, ratione ab? Nihil,
-                unde? Fuga deserunt inventore eos id voluptatibus, minima
-                officia assumenda saepe laborum molestiae.
+              Got an idea to create the APP and Phithon here does not fit, so took CS50's Mobile App Development with React Native online couses at HarvardX. 
               </p>
             </div>
           </div>
@@ -85,10 +80,10 @@ const MyPath = () => {
           >
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[47.4%] top-[20%] transform translate-x-[-50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
-              <h2>Back End</h2>
+              <h2 className=" text-2xl">Studies</h2>
+              <h3>2020</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptates, quo?
+              After many hours with Python, decided that I need grow and learn more about programing so began studies at SMK University of Applied Sciences
               </p>
             </div>
           </div>

@@ -5,10 +5,11 @@ export default {
   theme: {
     extend: {
       boxShadow: {
-        neon_purple: "0 0 5px theme('colors.purple.200'), 0 0 20px theme('colors.purple.700')",
+        neon_purple: "0 0 5px theme('colors.purple.200'), 0 0 10px theme('colors.purple.700')",
         neon_blue: "0 0 5px theme('colors.blue.700'),  0 0 10px theme('colors.blue.100'), 0 0 30px theme('colors.blue.700')",
         neon_indigo: "0 0 5px theme('colors.indigo.700'),  0 0 10px theme('colors.indigo.100'), 0 0 30px theme('colors.indigo.700')",
-      }
+      },
+      
     },
   },
   plugins: [
