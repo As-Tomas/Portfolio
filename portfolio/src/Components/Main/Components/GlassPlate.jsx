@@ -2,18 +2,35 @@ import { useState } from "react";
 import tempPic from "../../../data/DSC_8258_40.svg";
 import avatar from "../../../data/me.jpg";
 import About from "./Content/About";
-import PieChartDevelopment from "./Charts/Pie-Chart_Development";
 import MySkills from "./Content/MySkills";
 import Technologies from "./Content/Technologies";
 import MyPath from "./Content/MyPath/MyPath";
 
 const GlassPlate = () => {
-  const [activeComponent, setIsComponent] = useState(About);
+  const [activeComponent, setIsComponent] = useState('About');
 
   const toggleComponent = (component) => {
     setIsComponent(component);
   };
 
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case "About":
+        return <About />;
+      case "MySkills":
+        return <MySkills />;
+      case "MyPath":
+        return <MyPath />;
+      case "Technologies":
+        return <Technologies />;
+      case "ContactMe":
+        // return <ContactMe />; Uncomment this once you have the ContactMe component
+        return <MySkills />;
+      default:
+        return <About />;
+    }
+  };
+  
   return (
     <div
       className="body-card-div flex items-center justify-center "
@@ -96,11 +113,7 @@ const GlassPlate = () => {
               </button>
             </div>
             <div className="content flex-auto">
-              {activeComponent === "About" && <About />}
-              {activeComponent === "MySkills" && <MySkills />}
-              {activeComponent === "MyPath" && <MyPath />}
-              {activeComponent === "Technologies" && <Technologies />}
-              {activeComponent === "ContactMe" && <MySkills />}
+            {renderComponent()}
             </div>
           </section>
         </div>
