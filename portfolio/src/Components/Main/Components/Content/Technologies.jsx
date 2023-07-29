@@ -7,7 +7,7 @@ const Technologies = () => {
       <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">
         Known Technologies
       </h2>
-      <h3>SOFTWARE ENGINEER, BACK / FRONT END & APP DEVELOPER.</h3>
+      <h3>SOFTWARE ENGINEER, FULL-STACK DEVELOPER.</h3>
       <ul className="list-none mx-auto my-12 flex flex-wrap justify-center gap-8">
         <li className="flex-1 flex flex-col items-center border border-solid bg-gradient-to-br from-inherit to-inherit dark:bg-black py-6 px-2 rounded-2xl shadow-xl">
           <img
@@ -67,9 +67,9 @@ const Technologies = () => {
         <div >
           <h3 className="p-4 text-xl font-semibold">My main Design & Image Editing Tools  </h3>
           <div className="pb-10 flex flex-wrap justify-center gap-4">
-          <img className="w-20 h-20" src="./src/assets/blender.png" alt="Blender"  />
-          <img className="w-20 h-20" src="./src/assets/figma.svg" alt="Figma"  />
-          <img className="w-20 h-20" src="./src/assets/photoShop.svg" alt="PhotoShop"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/blender.png" alt="Blender"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/figma.svg" alt="Figma"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/photoShop.svg" alt="PhotoShop"  />
           </div>
         
         </div>
@@ -77,16 +77,16 @@ const Technologies = () => {
         <div >
           <h3 className="p-4 text-xl font-semibold">My main programing Languages </h3>
           <div className="pb-10 flex flex-wrap justify-center gap-4">
-          <img className="w-20 h-20" src="./src/assets/java.svg" alt="java"  />
-          <img className="w-20 h-20" src="./src/assets/js.svg" alt="js"  />
-          <img className="w-20 h-20" src="./src/assets/csharp.svg" alt="Csharp"  />
-          <img className="w-20 h-20" src="./src/assets/Cplus.svg" alt="Cplus"  />
-          <img className="w-20 h-20" src="./src/assets/python.svg" alt="python"  />
-          <img className="w-20 h-20" src="./src/assets/mongoDB.png" alt="mongoDB"  />
-          <img className="w-20 h-20" src="./src/assets/Microsoft_SQL_Server.png" alt="Microsoft SQL Server"  />
-          <img className="w-20 h-20" src="./src/assets/tailwind.svg" alt="tailwind"  />
-          <img className="w-20 h-20" src="./src/assets/html.svg" alt="html"  />
-          <img className="w-20 h-20" src="./src/assets/css.svg" alt="Css"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/java.svg" alt="java"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/js.svg" alt="js"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/csharp.svg" alt="Csharp"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/Cplus.svg" alt="Cplus"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/python.svg" alt="python"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/mongoDB.png" alt="mongoDB"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/Microsoft_SQL_Server.png" alt="Microsoft SQL Server"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/tailwind.svg" alt="tailwind"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/html.svg" alt="html"  />
+          <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/css.svg" alt="Css"  />
           </div>
         
         </div>
@@ -94,15 +94,15 @@ const Technologies = () => {
         <div >
         <h3 className="p-4 text-xl font-semibold">My main Development Environments  </h3>
         <div className="pb-10 flex flex-wrap justify-center gap-4">
-        <img className="w-20 h-20" src="./src/assets/dot_net.svg" alt="Dot_net"  />
-        <img className="w-20 h-20" src="./src/assets/visual_studio.png" alt="visual_studio"  />
-        <img className="w-20 h-20" src="./src/assets/vscode.svg" alt="vscode"  />        
-        <img className="w-20 h-20" src="./src/assets/android.png" alt="Android"  />
-        <img className="w-20 h-20" src="./src/assets/intellij.png" alt="intellij"  />
-        <img className="w-20 h-20" src="./src/assets/pcharm.png" alt="pcharm"  />
-        <img className="w-20 h-20" src="./src/assets/wordpress.svg" alt="wordpress"  />
-        <img className="w-20 h-20" src="./src/assets/react.svg" alt="react"  />
-        <img className="w-20 h-20" src="./src/assets/node.svg" alt="node"  />
+        <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/dot_net.svg" alt="Dot_net"  />
+        <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/visual_studio.png" alt="visual_studio"  />
+        <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/vscode.svg" alt="vscode"  />        
+        <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/android.png" alt="Android"  />
+        <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/intellij.png" alt="intellij"  />
+        <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/pcharm.png" alt="pcharm"  />
+        <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/wordpress.svg" alt="wordpress"  />
+        <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/react.svg" alt="react"  />
+        <img className="w-20 h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./src/assets/node.svg" alt="node"  />
         </div>
         
 
