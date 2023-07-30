@@ -7,7 +7,7 @@ import Technologies from "./Content/Technologies";
 import MyPath from "./Content/MyPath/MyPath";
 
 const GlassPlate = () => {
-  const [activeComponent, setIsComponent] = useState('About');
+  const [activeComponent, setIsComponent] = useState('AboutMe');
 
   const toggleComponent = (component) => {
     setIsComponent(component);
@@ -15,7 +15,7 @@ const GlassPlate = () => {
 
   const renderComponent = () => {
     switch (activeComponent) {
-      case "About":
+      case "AboutMe":
         return <About />;
       case "MySkills":
         return <MySkills />;
@@ -30,7 +30,10 @@ const GlassPlate = () => {
         return <About />;
     }
   };
-  
+
+  const isActive = (component) => activeComponent === component ? 'underline decoration-4 decoration-pink-500 bg-slate-200  ' : '';
+
+
   return (
     <div
       className="body-card-div flex items-center justify-center "
@@ -73,15 +76,15 @@ const GlassPlate = () => {
               </div>
               <div className="links flex flex-col">
                 <button
-                  className="flex "
-                  onClick={() => toggleComponent("About")}
+                  className={`flex whitespace-nowrap rounded-lg py-1 px-2 ${ isActive("AboutMe")}`}
+                  onClick={() => toggleComponent("AboutMe")}
                 >
                   <img className=" h-7" src=".\src\assets\staticSvg\search.svg" alt="" />
                   <h2>About Me</h2>
                 </button>
 
                 <button
-                  className="flex "
+                  className={`flex whitespace-nowrap rounded-lg py-1 px-2 ${ isActive("MyPath")}`}
                   onClick={() => toggleComponent("MyPath")}
                 >
                   <img className=" h-7" src=".\src\assets\staticSvg\search.svg" alt="" />
@@ -89,7 +92,7 @@ const GlassPlate = () => {
                 </button>
 
                 <button
-                  className="flex "
+                  className={`flex whitespace-nowrap rounded-lg py-1 px-2 ${ isActive("MySkills")}`}
                   onClick={() => toggleComponent("MySkills")}
                 >
                   <img className=" h-7" src=".\src\assets\staticSvg\search.svg" alt="" />
@@ -97,7 +100,7 @@ const GlassPlate = () => {
                 </button>
 
                 <button
-                  className="flex "
+                  className={`flex whitespace-nowrap rounded-lg py-1 px-2 ${ isActive("Technologies")}`}
                   onClick={() => toggleComponent("Technologies")}
                 >
                   <img className=" h-7" src=".\src\assets\staticSvg\search.svg" alt="" />
@@ -105,7 +108,7 @@ const GlassPlate = () => {
                 </button>
               </div>
               <button
-                className="flex "
+                className={`flex whitespace-nowrap rounded-lg py-1 px-2 ${ isActive("ContactMe")}`}
                 onClick={() => toggleComponent("ContactMe")}
               >
                 <img className=" h-7" src=".\src\assets\staticSvg\search.svg" alt="" />
