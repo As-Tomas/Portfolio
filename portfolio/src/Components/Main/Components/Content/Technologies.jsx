@@ -1,3 +1,6 @@
+import PieChartDevelopment from "../Charts/Pie-Chart_Development";
+import PieChartProgramer from "../Charts/Pie-Chart_Programer";
+
 const Technologies = () => {
   return (
     <section
@@ -8,6 +11,14 @@ const Technologies = () => {
         Known Technologies
       </h2>
       <h3>SOFTWARE ENGINEER, FULL-STACK DEVELOPER.</h3>
+      <div className=" pt-10 flex flex-wrap ">
+        <div className=" w-1/2">
+          <PieChartDevelopment />
+        </div>
+        <div className=" w-1/2">
+          <PieChartProgramer />
+        </div>
+      </div>
       <ul className="list-none mx-auto my-12 flex flex-wrap justify-center gap-8">
         <li className="flex-1 flex flex-col items-center border border-solid bg-gradient-to-br from-inherit to-inherit dark:bg-black py-6 px-2 rounded-2xl shadow-xl">
           <img
