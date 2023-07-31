@@ -38,7 +38,7 @@ const About = () => {
             learn more about me or discuss potential collaborations.
           </p>
         </div>
-
+        <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
         <div>
           <section className="py-10 ">
             <div className="py-5 flex items-center justify-center">
