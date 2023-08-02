@@ -1,4 +1,4 @@
-const Header = () => {
+const Header = ({ setContent }) => {
   return (
     
 
@@ -7,7 +7,11 @@ const Header = () => {
       items-center backdrop-blur-md border-b-2 rounded-b-2xl   border-[rgba(255,255,255,0.2)] z-10">        
          
          <h1 className="text-3xl font-medium">
-           <a href="#hero"> Portfolio</a>
+           <button href="#hero"
+            onClick={() => setContent('about')}
+            > 
+            Portfolio
+            </button>
          </h1>
          <div>
            <button
@@ -21,6 +25,7 @@ const Header = () => {
              <a
                href="#about"
                className="hover:text-indigo-700 hover:duration-200"
+               onClick={() => setContent('about')}
              >
                About
              </a>
@@ -28,8 +33,9 @@ const Header = () => {
              <a
                href="#Portfolio"
                className="hover:text-indigo-700 hover:duration-200"
+               onClick={() => setContent('projects')}
              >
-               Portfolio
+               Projects
              </a>
              
            </nav>
