@@ -1,28 +1,26 @@
-import { useState } from 'react'
-import Header from './Components/Header/Header'
-import Main from './Components/Main/Main'
-import Footer from './Components/Footer/Footer'
+import { useState } from "react";
+import Header from "./Components/Header/Header";
+import Main from "./Components/Main/Main";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
-  const [content, setContent] = useState('about')
+  const [content, setContent] = useState("about");
 
   return (
     <>
-      <div className=' min-h-screen flex flex-col bg-gradient-to-tl from-teal-300 to-cyan-400'
+      <div
+        className="initial  "
         // style={{ backgroundImage: `url(https://img.freepik.com/free-vector/abstract-blue-red-paper-cut-background-with-simple-shapes_8829-2520.jpg?w=1060&t=st=1690130003~exp=1690130603~hmac=be02e42313763296a7b2ca027bcf900b6d9d9fd851af8b294c959deb49b04d26)` }}
       >
-        <Header setContent={setContent}/>
-        <div className='pt-20 flex-grow h-[90vh] w-full overflow-hidden overflow-y-scroll'>
-        <Main content={content}/>          
+        <Header setContent={setContent} />
+        <div className="pt-20    ">
+          <Main content={content} />
         </div>
-        
 
-        <Footer/>
-        
+        <Footer />
       </div>
-      
     </>
-  )
+  );
 }
 
-export default App
+export default App;
