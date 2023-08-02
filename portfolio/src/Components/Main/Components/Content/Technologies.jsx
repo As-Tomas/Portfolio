@@ -5,7 +5,7 @@ const Technologies = () => {
   return (
     <section
       id="technologies"
-      className="p-6 my-12 text-center scroll-mt-20 widescreen:section-max-height tallscreen:section-min-height"
+      className="p-6 my-12 text-center scroll-mt-20  "
     >
       <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">
         Known Technologies

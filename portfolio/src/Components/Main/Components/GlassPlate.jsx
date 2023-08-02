@@ -6,8 +6,6 @@ import MySkills from "./Content/MySkills";
 import Technologies from "./Content/Technologies";
 import MyPath from "./Content/MyPath/MyPath";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 
 const GlassPlate = () => {
   const [activeComponent, setIsComponent] = useState("AboutMe");
@@ -44,9 +42,9 @@ const GlassPlate = () => {
       className="body-card-div h-full w-full flex  items-center justify-center "
       // style={{ perspective: "800px" }}
     >
-      <div className="container   flex  justify-center items-center ">
+      <div className="containe h-[70vh] w-[90vw] max-w-[1400px] ">
         <div
-          className="card w-full h-full max-h-full max-w-full bg-gradient-to-br backdrop-blur-md from-[rgba(255,255,255,0.7)] to--[rgba(255,255,255,0.3)] 
+          className="card w-full h-full max-h-full max-w-full  
           rounded-2xl before:rounded-2xl before:block before:absolute  "
           style={{ transformStyle: "preserve-3d" }}
           // style={{
@@ -67,10 +65,10 @@ const GlassPlate = () => {
             }}
           >
             <div
-              className="dashboard px-20 flex-1 flex flex-col items-center justify-evenly rounded-2xl before:rounded-2xl before:block before:absolute
+              className="dashboard px-20 flex-1 flex flex-col items-center justify-start space-y-20 rounded-2xl before:rounded-2xl before:block before:absolute
              bg-gradient-to-br backdrop-blur-md from-[rgba(255,255,255,0.7)] to--[rgba(255,255,255,0.3)]"
             >
-              <div className="user mx-auto flex flex-col items-center justify-evenly ">
+              <div className="ovner pt-10 mx-auto flex flex-col items-center justify-evenly ">
                 <img
                   src={avatar}
                   alt="Tomas Bance"
