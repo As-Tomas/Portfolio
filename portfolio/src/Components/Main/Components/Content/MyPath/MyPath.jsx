@@ -36,7 +36,7 @@ const MyPath = () => {
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.3%] top-[20%] transform translate-x-[-50%]"></div>
             <div className="content w-[calc(50%-2rem)] text-right">
               <h2 className=" text-2xl">Poker</h2>
-              <h3>2016 here my pasion began</h3>
+              <h3>2016 here my pasion began.</h3>
               <p>
                 Besides my daily work as office suport at evenings have been playing poker tournaments for many year, each month winings not bad salary supplement. 
                 But poker games takes a lot of time, and here came an IDEA, why not to automate my strategyies and save the time?!

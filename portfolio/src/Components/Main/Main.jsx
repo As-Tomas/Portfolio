@@ -18,7 +18,7 @@ const Main = () => {
         <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
         <Technologies />
      */}
-        <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
+        
         {/* {projectData.map((project) => (
         <ProjectCard key={project.id} project={project} />
       ))} */}

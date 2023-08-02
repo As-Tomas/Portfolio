@@ -17,36 +17,21 @@ const Header = () => {
              &#9776;
            </button>
            <nav className="hidden sm:block space-x-8 text-xl" aria-label="main">
-             <a
-               href="#home"
-               className="hover:text-indigo-700 hover:duration-200"
-             >
-               Home
-             </a>
+             
              <a
                href="#about"
                className="hover:text-indigo-700 hover:duration-200"
              >
                About
              </a>
-             <a
-               href="#technologies"
-               className="hover:text-indigo-700 hover:duration-200"
-             >
-               Techologies
-             </a>
+            
              <a
                href="#Portfolio"
                className="hover:text-indigo-700 hover:duration-200"
              >
                Portfolio
              </a>
-             <a
-               href="#contact"
-               className="hover:text-indigo-700 hover:duration-200"
-             >
-               Contact
-             </a>
+             
            </nav>
          </div>
        
