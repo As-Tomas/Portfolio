@@ -39,13 +39,13 @@ const GlassPlate = () => {
 
   return (
     <div
-      className="body-card-div h-full w-full flex  items-center justify-center "
+      className="body-card-div h-full w-full flex  items-center justify-center  "
       // style={{ perspective: "800px" }}
     >
-      <div className="containe h-[70vh] w-[90vw] max-w-[1400px] ">
+      <div className="container h-[75vh]  w-[90vw] max-w-[1400px]   ">
         <div
-          className="card w-full h-full max-h-full max-w-full  
-          rounded-2xl before:rounded-2xl before:block before:absolute  "
+          className="card h-[73vh]  w-[90vw]
+          rounded-2xl before:rounded-2xl before:block before:absolute   "
           style={{ transformStyle: "preserve-3d" }}
           // style={{
           //   transform: isHovering
@@ -54,7 +54,7 @@ const GlassPlate = () => {
           // }}
         >
           <section
-            className="card rounded-2xl shadow-neon_indigo flex "
+            className="card h-full  rounded-2xl shadow-neon_indigo flex "
             style={{
               transformStyle: "preserve-3d",
               backgroundImage: `url(${tempPic})`,
@@ -65,7 +65,7 @@ const GlassPlate = () => {
             }}
           >
             <div
-              className="dashboard px-10 md:px-20 flex-1 flex flex-col items-center justify-start space-y-20 rounded-2xl before:rounded-2xl before:block before:absolute
+              className="dashboard px-10 lg:px-20 flex-1 flex flex-col items-center justify-start space-y-20 text-base lg:text-lg  rounded-2xl before:rounded-2xl before:block before:absolute
              bg-gradient-to-br backdrop-blur-md from-[rgba(255,255,255,0.7)] to--[rgba(255,255,255,0.3)]"
             >
               <div className="ovner pt-10 mx-auto flex flex-col items-center justify-evenly ">
@@ -169,7 +169,7 @@ const GlassPlate = () => {
                 <h2>Contact Me</h2>
               </button>
             </div>
-            <div className="content flex-auto">{renderComponent()}</div>
+            <div className="content ">{renderComponent()}</div>
           </section>
         </div>
       </div>

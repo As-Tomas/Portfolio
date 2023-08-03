@@ -13,8 +13,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className=" justify-center items-center  
-       pt-10 scroll-mt-40 "
+      className="h-full w-full overflow-y-auto justify-center items-center pt-10 scroll-mt-40 "
     >
       <article>
         <h2 className=" text-3xl font-bold text-center text-slate-900 dark:text-white">
@@ -40,8 +39,8 @@ const About = () => {
         </div>
         <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
         <div>
-          <section className="py-10 ">
-            <div className="py-5 flex items-center justify-center">
+          <section className=" ">
+            <div className="pb-5 flex items-center justify-center">
               <div className="md:w-3/4 xl:w-1/2">
                 <div className="text-white bg-[#599397] rounded-lg p-5">
                   <FontAwesomeIcon

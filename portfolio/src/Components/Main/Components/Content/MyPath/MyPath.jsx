@@ -12,9 +12,9 @@ const MyPath = () => {
 
 
   return (
-    <div className="bodypath  h-[70vh] w-full overflow-y-auto ">
-      <div className="container p-[2rem] pb-[400px] mx-auto max-w-3xl">
-        <div className="topSection text-center py-[4rem] max-w-xl mx-auto">
+    <div className="mypath  h-full w-full overflow-y-auto ">
+      <div className="container p-[2rem] pb-[100px] mx-auto max-w-3xl">
+        <div className="topSection text-center py-[1rem] max-w-xl mx-auto">
           <h1 className=" text-3xl">My path</h1>
           <p>
             Here you can see historical my life path how I find my passion an where I'm now.
@@ -31,7 +31,7 @@ const MyPath = () => {
           ></div>
           <div
           ref={timelineRef}
-          className={`flex relative z-10 my-12 p-4 border rounded-2xl items-center min-h-[300px] ${myElementIsVisible ? "flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ":" opacity-0  transform translate-x-[-50%] transition duration-700 ease-in "}section `}
+          className={`flex relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisible ? "flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ":" opacity-0  transform translate-x-[-50%] transition duration-700 ease-in "}section `}
           >
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.3%] top-[20%] transform translate-x-[-50%]"></div>
             <div className="content w-[calc(50%-2rem)] text-right">
@@ -47,7 +47,7 @@ const MyPath = () => {
 
           <div
            ref={timelineReftwo}
-            className={`flex flex-row-reverse   relative z-10 my-12 p-4 border rounded-2xl items-center min-h-[300px] ${myElementIsVisibletwo ? "opacity-100   transform translate-x-[0%] transition duration-700 ease-in":"opacity-0   transform translate-x-[50%] transition duration-700 ease-in "}section `}
+            className={`flex flex-row-reverse   relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisibletwo ? "opacity-100   transform translate-x-[0%] transition duration-700 ease-in":"opacity-0   transform translate-x-[50%] transition duration-700 ease-in "}section `}
           >
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.7%] top-[20%] transform translate-x-[50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
@@ -62,7 +62,7 @@ const MyPath = () => {
 
           <div
           ref={timelineRefthree}
-            className={`flex relative z-10 my-12 p-4 border rounded-2xl items-center min-h-[300px] ${myElementIsVisiblethree ? "flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ":" opacity-0  transform translate-x-[-50%] transition duration-700 ease-in "}section `}
+            className={`flex relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisiblethree ? "flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ":" opacity-0  transform translate-x-[-50%] transition duration-700 ease-in "}section `}
           >
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.3%] top-[20%] transform translate-x-[-50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
@@ -76,9 +76,9 @@ const MyPath = () => {
 
           <div
           ref={timelineReffour}
-          className={`flex flex-row-reverse   relative z-10 my-12 p-4 border rounded-2xl items-center min-h-[300px] ${myElementIsVisiblefour ? "opacity-100   transform translate-x-[0%] transition duration-700 ease-in":"opacity-0   transform translate-x-[50%] transition duration-700 ease-in "}section `}
+          className={`flex flex-row-reverse   relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisiblefour ? "opacity-100   transform translate-x-[0%] transition duration-700 ease-in":"opacity-0   transform translate-x-[50%] transition duration-700 ease-in "}section `}
           >
-            <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[47.4%] top-[20%] transform translate-x-[-50%]"></div>
+            <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.7%] top-[20%] transform translate-x-[50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
               <h2 className=" text-2xl">Studies</h2>
               <h3>2020</h3>

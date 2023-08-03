@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="group relative overflow-hidden">
-      <footer className=" z-10 fixed bottom-0 h-24  w-full mx-auto text-white text-xl bg-[rgba(255,255,255,0.2)] backdrop-blur-md border-t-2 rounded-t-2xl border-[rgba(255,255,255,0.3)] ">
+      <footer className=" z-20 fixed bottom-0 h-24  w-full mx-auto text-white text-xl bg-[rgba(255,255,255,0.2)] backdrop-blur-md border-t-2 rounded-t-2xl border-[rgba(255,255,255,0.3)] ">
         <section className="max-w-4xl py-5 mx-auto p-4 flex  flex-row justify-between">
           <address>
           <a href="#contact" className="hover:opacity-90">
@@ -29,8 +29,8 @@ const Footer = () => {
         </section>
       </footer>
       <div
-        className=" z-20 h-24 fixed bottom-0 w-full overflow-hidden before:bottom-0 before:absolute before:left-[-100%] rounded-t-2xl  
-      before:w-full before:h-24 before:content-'' before:bg-gradient-to-br before:transform before:rotate-45 before:from-transparent before:via-[rgba(255,255,255,0.3)]
+        className=" z-10 h-24 fixed bottom-0 w-full overflow-hidden before:bottom-0 before:absolute before:left-[-100%] rounded-t-2xl  
+      before:w-full before:h-24 before:content-'' before:bg-gradient-to-r before:transform  before:from-transparent before:via-[rgba(255,255,255,0.3)]
       before:to-transparent before:transition-all before:duration-500 before:group-hover:left-[100%]"
       ></div>
     </div>
