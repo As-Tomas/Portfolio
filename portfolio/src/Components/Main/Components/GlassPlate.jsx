@@ -65,7 +65,7 @@ const GlassPlate = () => {
             }}
           >
             <div
-              className="dashboard px-20 flex-1 flex flex-col items-center justify-start space-y-20 rounded-2xl before:rounded-2xl before:block before:absolute
+              className="dashboard px-10 md:px-20 flex-1 flex flex-col items-center justify-start space-y-20 rounded-2xl before:rounded-2xl before:block before:absolute
              bg-gradient-to-br backdrop-blur-md from-[rgba(255,255,255,0.7)] to--[rgba(255,255,255,0.3)]"
             >
               <div className="ovner pt-10 mx-auto flex flex-col items-center justify-evenly ">

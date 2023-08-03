@@ -50,7 +50,7 @@ const About = () => {
                   />
 
                   <p className="leading-7">
-                    There is nothing impossible... Just question of will!
+                    There is nothing impossible... Just question of time and will!
                   </p>
 
                   <hr className="pb-2" />

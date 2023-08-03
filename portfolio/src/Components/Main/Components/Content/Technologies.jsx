@@ -5,17 +5,17 @@ const Technologies = () => {
   return (
     <section
       id="technologies"
-      className="p-6 my-12 text-center scroll-mt-20  "
+      className="p-6 text-center scroll-mt-20 h-[70vh] w-full overflow-y-auto  "
     >
       <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">
         Known Technologies
       </h2>
       <h3>SOFTWARE ENGINEER, FULL-STACK DEVELOPER.</h3>
-      <div className=" pt-10 flex flex-wrap ">
-        <div className=" w-1/2">
+      <div className=" pt-10 flex flex-wrap flex-col justify-center items-center md:flex-row">
+        <div className=" w-5/6 md:w-1/2">
           <PieChartDevelopment />
         </div>
-        <div className=" w-1/2">
+        <div className=" w-5/6 md:w-1/2">
           <PieChartProgramer />
         </div>
       </div>
