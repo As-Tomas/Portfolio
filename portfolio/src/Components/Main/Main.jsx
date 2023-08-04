@@ -1,5 +1,5 @@
 import { useState } from "react";
-import projectData from "../../data/ProjectsData";
+import projectData from "../../../public/assets/data/ProjectsData";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import ProjectsNav from "../ProjectCard/ProjectsNav";
 import GlassPlate from "./Components/GlassPlate";
