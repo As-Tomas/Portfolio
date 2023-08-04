@@ -1,26 +1,25 @@
 const Footer = () => {
   return (
     <div className="group relative overflow-hidden">
-      <footer className=" z-20 fixed bottom-0 h-24  w-full mx-auto text-white text-xl bg-[rgba(255,255,255,0.2)] backdrop-blur-md border-t-2 rounded-t-2xl border-[rgba(255,255,255,0.3)] ">
-        <section className="max-w-4xl py-5 mx-auto p-4 flex  flex-row justify-between">
+      <footer className=" z-20 fixed bottom-0 h-24  w-full mx-auto text-white text-lg sm:text-xl bg-[rgba(255,255,255,0.2)] backdrop-blur-md border-t-2 rounded-t-2xl border-[rgba(255,255,255,0.3)] ">
+        <section className="max-w-4xl  mx-auto p-2 pr-4 sm:p-4 flex  flex-row items-center justify-between">
           <address>
-          <a href="#contact" className="hover:opacity-90">
+            <a href="#contact" className=" sm:block hidden hover:opacity-90">
               Contact Me
             </a>
-            <br />
             
             <h2>
             Email:
             <a href="mailto:tomas.bance@gmail.com"> tomas.bance@gmail.com</a>
             </h2>
           </address>
-          <nav className="flex flex-col gap-2" aria-label="footer">
+          <nav className="flex flex-col sm:gap-1" aria-label="footer">
             <h2>
-            Phone: <a href="tel:+4796889383">(+47) 968 893 83</a>
+            Phone: 
+            <a href="tel:+4796889383"> (+47) 968 893 83</a>
             </h2>
-            
           </nav>
-          <div className="hidden md:flex flex-col sm:gap-2">
+          <div className="hidden md:flex flex-col sm:gap-1">
             <p className="text-right">
               Copyright &copy; <span id="year">2023</span>
             </p>
