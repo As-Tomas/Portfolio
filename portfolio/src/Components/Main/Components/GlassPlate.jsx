@@ -1,6 +1,6 @@
 import { useState } from "react";
-import tempPic from "../../../../public/assets/data/DSC_8258_40.svg";
-import avatar from "../../../../public/assets/data/me.jpg";
+import tempPic from "../../../../public/data/DSC_8258_40.svg";
+import avatar from "../../../../public/data/me.jpg";
 import About from "./Content/About";
 import MySkills from "./Content/MySkills";
 import Technologies from "./Content/Technologies";
