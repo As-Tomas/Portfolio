@@ -1,7 +1,37 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const ProjectCard = ({ project }) => {
+  // Add state variables for the gyroscope data
+  const [gyroX, setGyroX] = useState(0);
+  const [gyroY, setGyroY] = useState(0);
+
+  useEffect(() => {
+    // Define the event handler inside the useEffect hook
+    const handleDeviceOrientation = (event) => {
+      setGyroX(event.alpha);
+      setGyroY(event.beta);
+    };
+
+    // Add the event listener when the component mounts
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener("deviceorientation", handleDeviceOrientation);
+    }
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      if (window.DeviceOrientationEvent) {
+        window.removeEventListener("deviceorientation", handleDeviceOrientation);
+      }
+    };
+  }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
+
+
+
+
+
+  
   const [isHovering, setIsHovering] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [imgPreviewIndex, setImgPreviewIndex] = useState(null);
@@ -25,15 +55,22 @@ const ProjectCard = ({ project }) => {
     const bodyCardDiv = document.querySelector(".body-card-div");
     const card = document.querySelector(".card");
     const rect = bodyCardDiv.getBoundingClientRect();
-
-    const xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
-    const yAxis = ((rect.height / 2 - (e.pageY - rect.top)) / 25)* -1;
-
-    console.log(rect.top)
-
+  
+    let xAxis, yAxis;
+  
+    // Check if the user is on a mobile device
+    if (window.innerWidth < 768) {
+      // Use the gyroscope data
+      xAxis = gyroX / 25;
+      yAxis = gyroY / 25;
+    } else {
+      // Use the mouse position data
+      xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
+      yAxis = ((rect.height / 2 - (e.pageY - rect.top)) / 25) * -1;
+    }
+  
     if (isHovering) {
       card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-      //console.log(`perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`);
     }
   };
 
