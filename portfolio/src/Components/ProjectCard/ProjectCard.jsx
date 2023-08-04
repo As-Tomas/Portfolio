@@ -65,8 +65,8 @@ const ProjectCard = ({ project }) => {
         const rect = bodyCardDiv.getBoundingClientRect();
     
         // You might need to adjust these calculations depending on the desired effect
-        const xAxis = (rect.width / 2 - event.beta) / 25;
-        const yAxis = ((rect.height / 2 - event.gamma) / 25) * -1;
+        const xAxis = (rect.width / 0.5 - event.beta) / 25;
+        const yAxis = ((rect.height / 0.5 - event.gamma) / 25) * -1;
 
         const debugDiv = document.getElementById('debug');
 debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
