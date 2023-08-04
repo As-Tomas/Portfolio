@@ -1,35 +1,42 @@
-
-import ProjectCard from '../ProjectCard/ProjectCard'
-import projectData from '../../data/ProjectsData'
-import About from './Components/Content/About';
-import Technologies from './Components/Content/Technologies';
-import GlassPlate from './Components/GlassPlate';
+import { useState } from "react";
+import projectData from "../../data/ProjectsData";
+import ProjectCard from "../ProjectCard/ProjectCard";
+import ProjectsNav from "../ProjectCard/ProjectsNav";
+import GlassPlate from "./Components/GlassPlate";
 
 const Main = ({ content }) => {
-    const selectedProject = projectData.find((project) => project.id === 3);
+  const [selectedProjectId, setSelectedProjectId] = useState(projectData[0].id); 
+  
+  const handleProjectSelect = (index) => {
+    setSelectedProjectId(projectData[index].id);
+};
+
+  const selectedProject = projectData.find((project) => project.id === selectedProjectId);
+
 
   return (
     <div>
-      
-      {content === 'about' && <GlassPlate />}
-      {content === 'projects' && projectData.map((project) => (
-        <ProjectCard key={project.id} project={project} />))}
+      {content === "about" && <GlassPlate />}
+      {content === "projects" && (
+        <ProjectCard key={selectedProject.id} project={selectedProject} />
+      )}
+      <div className=" m-8 flex justify-center pb-5">
+        {content === "projects" ? <ProjectsNav onProjectSelect={handleProjectSelect} projectData={projectData}  /> : null}
+      </div>
 
-        {/* <About />
+      {/* <About />
         <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
         {selectedProject && <ProjectCard key={selectedProject.id} project={selectedProject} />}
 
         <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
         <Technologies />
      */}
-        
-        {/* {projectData.map((project) => (
+
+      {/* {projectData.map((project) => (
         <ProjectCard key={project.id} project={project} />
       ))} */}
-      
-        
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;
