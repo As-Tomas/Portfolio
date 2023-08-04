@@ -52,6 +52,36 @@ const ProjectCard = ({ project }) => {
   //   }
   // };
   const handleMouseMove = (e) => {
+
+
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener("deviceorientation", function(event) {
+        // event.alpha is the rotation around the z-axis (0 to 360)
+        // event.beta is the rotation around the x-axis (-180 to 180)
+        // event.gamma is the rotation around the y-axis (-90 to 90)
+    
+        const bodyCardDiv = document.querySelector(".body-card-div");
+        const card = document.querySelector(".card");
+        const rect = bodyCardDiv.getBoundingClientRect();
+    
+        // You might need to adjust these calculations depending on the desired effect
+        const xAxis = (rect.width / 2 - event.beta) / 25;
+        const yAxis = ((rect.height / 2 - event.gamma) / 25) * -1;
+
+        const debugDiv = document.getElementById('debug');
+debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
+    
+        if (isHovering) {
+          card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        }
+      }, true);
+    } else {
+      console.log("Sorry, your browser doesn't support Device Orientation");
+    }
+    
+    
+    
+    
     const bodyCardDiv = document.querySelector(".body-card-div");
     const card = document.querySelector(".card");
     const rect = bodyCardDiv.getBoundingClientRect();
