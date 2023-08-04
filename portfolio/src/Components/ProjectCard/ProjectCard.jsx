@@ -27,7 +27,9 @@ const ProjectCard = ({ project }) => {
     const rect = bodyCardDiv.getBoundingClientRect();
 
     const xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
-    const yAxis = ((rect.height / 0.8 - (e.pageY - rect.top)) / 25)* -1;
+    const yAxis = ((rect.height / 2 - (e.pageY - rect.top)) / 25)* -1;
+
+    console.log(rect.top)
 
     if (isHovering) {
       card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
@@ -221,7 +223,7 @@ const ProjectCard = ({ project }) => {
             </div>
 
             <div className="buttons mt-10">
-              <button className="w-full py-4 bg-[#f54642] rounded-full font-bold text-white">
+              <button className="w-2/3 py-4 bg-[#f54642] rounded-full font-bold text-white">
                 GitHub
               </button>
             </div>
