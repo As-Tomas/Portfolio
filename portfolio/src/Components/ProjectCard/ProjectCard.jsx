@@ -63,11 +63,16 @@ const ProjectCard = ({ project }) => {
       // Use the gyroscope data
       xAxis = gyroX / 25;
       yAxis = gyroY / 25;
+
+      
     } else {
       // Use the mouse position data
       xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
       yAxis = ((rect.height / 2 - (e.pageY - rect.top)) / 25) * -1;
     }
+    console.log('Gyroscope data:', xAxis, yAxis);
+    const debugDiv = document.getElementById('debug');
+debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
   
     if (isHovering) {
       card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
@@ -193,6 +198,7 @@ const ProjectCard = ({ project }) => {
       className="body-card-div flex items-center justify-center "
       // style={{ perspective: "800px" }}
     >
+      <div id="debug"></div>
       <div
         className="container min-h-[70vh] w-1/2 flex justify-center items-center "
         onMouseMove={handleMouseMove}
