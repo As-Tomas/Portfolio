@@ -65,8 +65,8 @@ const ProjectCard = ({ project }) => {
         const rect = bodyCardDiv.getBoundingClientRect();
     
         // You might need to adjust these calculations depending on the desired effect
-        const xAxis = (rect.width / 2 - event.beta) / 25;
-        const yAxis = ((rect.height / 4 - event.gamma) / 25) * -1;
+        const xAxis = (rect.width / 2 - event.beta) / 75;
+        const yAxis = ((rect.height / 4 - event.gamma) / 75) * -1;
 
         const debugDiv = document.getElementById('debug');
 debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
@@ -82,31 +82,31 @@ debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
     
     
     
-    const bodyCardDiv = document.querySelector(".body-card-div");
-    const card = document.querySelector(".card");
-    const rect = bodyCardDiv.getBoundingClientRect();
+//     const bodyCardDiv = document.querySelector(".body-card-div");
+//     const card = document.querySelector(".card");
+//     const rect = bodyCardDiv.getBoundingClientRect();
   
-    let xAxis, yAxis;
+//     let xAxis, yAxis;
   
-    // Check if the user is on a mobile device
-    if (window.innerWidth < 768) {
-      // Use the gyroscope data
-      xAxis = gyroX / 25;
-      yAxis = gyroY / 25;
+//     // Check if the user is on a mobile device
+//     if (window.innerWidth < 768) {
+//       // Use the gyroscope data
+//       xAxis = gyroX / 25;
+//       yAxis = gyroY / 25;
 
       
-    } else {
-      // Use the mouse position data
-      xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
-      yAxis = ((rect.height / 2 - (e.pageY - rect.top)) / 25) * -1;
-    }
-    console.log('Gyroscope data:', xAxis, yAxis);
-    const debugDiv = document.getElementById('debug');
-debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
+//     } else {
+//       // Use the mouse position data
+//       xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
+//       yAxis = ((rect.height / 2 - (e.pageY - rect.top)) / 25) * -1;
+//     }
+//     console.log('Gyroscope data:', xAxis, yAxis);
+//     const debugDiv = document.getElementById('debug');
+// debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
   
-    if (isHovering) {
-      card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-    }
+//     if (isHovering) {
+//       card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+//     }
   };
 
   //Animate In
