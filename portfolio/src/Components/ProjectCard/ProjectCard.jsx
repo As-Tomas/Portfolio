@@ -65,8 +65,8 @@ const ProjectCard = ({ project }) => {
         const rect = bodyCardDiv.getBoundingClientRect();
     
         // You might need to adjust these calculations depending on the desired effect
-        const xAxis = (rect.width / 2 - event.beta) / 75;
-        const yAxis = ((rect.height / 4 - event.gamma) / 75) * -1;
+        const xAxis = (rect.width / 2 - event.beta) / 5;
+        const yAxis = ((rect.height / 4 - event.gamma) / 5) * -1;
 
         const debugDiv = document.getElementById('debug');
 debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
@@ -228,7 +228,7 @@ debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
       className="body-card-div flex items-center justify-center "
       // style={{ perspective: "800px" }}
     >
-      <div id="debug"></div>
+      
       <div
         className="container min-h-[70vh] w-1/2 flex justify-center items-center "
         onMouseMove={handleMouseMove}

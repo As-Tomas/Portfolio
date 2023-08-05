@@ -26,6 +26,7 @@ const Footer = () => {
             <p className="text-right">All Rights Reserved</p>
           </div>
         </section>
+      <div id="debug"></div>
       </footer>
       <div
         className=" z-10 h-24 fixed bottom-0 w-full overflow-hidden before:bottom-0 before:absolute before:left-[-100%] rounded-t-2xl  
