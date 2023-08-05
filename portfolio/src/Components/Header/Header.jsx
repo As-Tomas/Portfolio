@@ -3,6 +3,16 @@ import { useState } from 'react';
 const Header = ({ setContent }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const hideMenu = (prop) =>{
+    console.log(prop === 'about')
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+    if (prop === 'about') {
+      setContent('about')
+    } else {
+      setContent('projects')
+    }
+  }
+
   return (
     
 
@@ -12,7 +22,7 @@ const Header = ({ setContent }) => {
          
          <h1 className=" text-2xl sm:text-3xl font-medium">
            <button href="#hero"
-            onClick={() => setContent('about')}
+            onClick={() => hideMenu('about')}
             > 
             Portfolio
             </button>
@@ -31,7 +41,7 @@ const Header = ({ setContent }) => {
              <a
                href="#about"
                className="hover:text-indigo-700 hover:duration-200"
-               onClick={() => setContent('about')}
+               onClick={() => hideMenu('about')}
              >
                About
              </a>
@@ -39,7 +49,7 @@ const Header = ({ setContent }) => {
              <a
                href="#Portfolio"
                className="hover:text-indigo-700 hover:duration-200"
-               onClick={() => setContent('projects')}
+               onClick={() => hideMenu('projects')}
              >
                Projects
              </a>
