@@ -65,14 +65,14 @@ const ProjectCard = ({ project }) => {
         const rect = bodyCardDiv.getBoundingClientRect();
     
         // You might need to adjust these calculations depending on the desired effect
-        const xAxis = (rect.width / 2 - event.beta) / 5;
-        const yAxis = ((rect.height / 4 - event.gamma) / 5) * -1;
+        const xAxis = (rect.width / 0.5 - event.beta) / 50;
+        const yAxis = ((rect.height / 0.9 - event.gamma) / 50) * -1;
 
         const debugDiv = document.getElementById('debug');
 debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
     
         if (isHovering) {
-          card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+          card.style.transform = `perspective(800px) rotateY(${yAxis}deg) rotateX(${xAxis}deg)`;
         }
       }, true);
     } else {
