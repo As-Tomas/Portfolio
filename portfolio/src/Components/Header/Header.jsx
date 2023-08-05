@@ -4,7 +4,6 @@ const Header = ({ setContent }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const hideMenu = (prop) =>{
-    console.log(prop === 'about')
     setIsMobileMenuOpen(!isMobileMenuOpen)
     if (prop === 'about') {
       setContent('about')
@@ -13,8 +12,7 @@ const Header = ({ setContent }) => {
     }
   }
 
-  return (
-    
+  return (   
 
     <div className="group  ">
       <header className=" z-30 fixed top-0 left-0 w-full  h-16 px-20 py-5 bg-[rgba(255,255,255,0.1)]  mx-auto p-4 flex justify-between 
@@ -55,8 +53,7 @@ const Header = ({ setContent }) => {
              </a>
              
            </nav>
-         </div>
-       
+         </div>       
         
       </header>
       <div className=" z-20 fixed backdrop-blur-md top-0 left-0 w-full overflow-x-hidden h-16 before:absolute before:top-0 before:left-[-100%] rounded-b-2xl

@@ -1,37 +1,8 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { useEffect } from "react";
+
 
 const ProjectCard = ({ project }) => {
-  // Add state variables for the gyroscope data
-  const [gyroX, setGyroX] = useState(0);
-  const [gyroY, setGyroY] = useState(0);
-
-  useEffect(() => {
-    // Define the event handler inside the useEffect hook
-    const handleDeviceOrientation = (event) => {
-      setGyroX(event.alpha);
-      setGyroY(event.beta);
-    };
-
-    // Add the event listener when the component mounts
-    if (window.DeviceOrientationEvent) {
-      window.addEventListener("deviceorientation", handleDeviceOrientation);
-    }
-
-    // Remove the event listener when the component unmounts
-    return () => {
-      if (window.DeviceOrientationEvent) {
-        window.removeEventListener("deviceorientation", handleDeviceOrientation);
-      }
-    };
-  }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
-
-
-
-
-
-  
   const [isHovering, setIsHovering] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [imgPreviewIndex, setImgPreviewIndex] = useState(null);
@@ -52,61 +23,19 @@ const ProjectCard = ({ project }) => {
   //   }
   // };
   const handleMouseMove = (e) => {
+    const bodyCardDiv = document.querySelector(".body-card-div");
+    const card = document.querySelector(".card");
+    const rect = bodyCardDiv.getBoundingClientRect();
 
+    const xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
+    const yAxis = ((rect.height / 2 - (e.pageY - rect.top)) / 25)* -1;
 
-    if (window.DeviceOrientationEvent) {
-      window.addEventListener("deviceorientation", function(event) {
-        // event.alpha is the rotation around the z-axis (0 to 360)
-        // event.beta is the rotation around the x-axis (-180 to 180)
-        // event.gamma is the rotation around the y-axis (-90 to 90)
-    
-        const bodyCardDiv = document.querySelector(".body-card-div");
-        const card = document.querySelector(".card");
-        const rect = bodyCardDiv.getBoundingClientRect();
-    
-        // You might need to adjust these calculations depending on the desired effect
-        const xAxis = (rect.width / 2 - event.beta) / 75;
-        const yAxis = ((rect.height / 4 - event.gamma) / 75) * -1;
+    console.log(rect.top)
 
-        const debugDiv = document.getElementById('debug');
-debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
-    
-        if (isHovering) {
-          card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        }
-      }, true);
-    } else {
-      console.log("Sorry, your browser doesn't support Device Orientation");
+    if (isHovering) {
+      card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+      //console.log(`perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`);
     }
-    
-    
-    
-    
-//     const bodyCardDiv = document.querySelector(".body-card-div");
-//     const card = document.querySelector(".card");
-//     const rect = bodyCardDiv.getBoundingClientRect();
-  
-//     let xAxis, yAxis;
-  
-//     // Check if the user is on a mobile device
-//     if (window.innerWidth < 768) {
-//       // Use the gyroscope data
-//       xAxis = gyroX / 25;
-//       yAxis = gyroY / 25;
-
-      
-//     } else {
-//       // Use the mouse position data
-//       xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
-//       yAxis = ((rect.height / 2 - (e.pageY - rect.top)) / 25) * -1;
-//     }
-//     console.log('Gyroscope data:', xAxis, yAxis);
-//     const debugDiv = document.getElementById('debug');
-// debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
-  
-//     if (isHovering) {
-//       card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-//     }
   };
 
   //Animate In
@@ -228,7 +157,6 @@ debugDiv.textContent = `Gyroscope data: ${xAxis}, ${yAxis}`;
       className="body-card-div flex items-center justify-center "
       // style={{ perspective: "800px" }}
     >
-      <div id="debug"></div>
       <div
         className="container min-h-[70vh] w-1/2 flex justify-center items-center "
         onMouseMove={handleMouseMove}
