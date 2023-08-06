@@ -5,23 +5,45 @@ import ProjectsNav from "../ProjectCard/ProjectsNav";
 import GlassPlate from "./Components/GlassPlate";
 
 const Main = ({ content }) => {
-  const [selectedProjectId, setSelectedProjectId] = useState(projectData[0].id); 
-  
+  const [selectedProjectId, setSelectedProjectId] = useState(projectData[0].id);
+
   const handleProjectSelect = (index) => {
     setSelectedProjectId(projectData[index].id);
-};
+  };
 
-  const selectedProject = projectData.find((project) => project.id === selectedProjectId);
+  const selectedProject = projectData.find(
+    (project) => project.id === selectedProjectId
+  );
 
+  // const whindoHeight = () => {
+  //   console.log(window.innerHeight)
+  //   if (window.innerHeight < 860) {
+
+  //   }
+  // }
 
   return (
     <div>
       {content === "about" && <GlassPlate />}
-      {content === "projects" && (
-        <ProjectCard key={selectedProject.id} project={selectedProject} />
-      )}
-      <div className=" m-8 flex justify-center pb-5">
-        {content === "projects" ? <ProjectsNav onProjectSelect={handleProjectSelect} projectData={projectData}  /> : null}
+
+      <div
+        className={`  `}
+      >
+        {content === "projects" && (
+          <ProjectCard key={selectedProject.id} project={selectedProject} />
+          )}
+
+        <div className="  pb-10 mt-5 bg-slate-800">
+          {window.innerHeight}
+          {window.innerHeight < 860 ? " true":" false"}
+          {content === "projects" ? (
+            <ProjectsNav
+             onProjectSelect={handleProjectSelect}
+             projectData={projectData}
+            />
+          ) : null}
+
+        </div>
       </div>
 
       {/* <About />

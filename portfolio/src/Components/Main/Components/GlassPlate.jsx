@@ -39,10 +39,10 @@ const GlassPlate = () => {
 
   return (
     <div
-      className="body-card-div h-full w-full flex  items-center justify-center  "
+      className="body-card-div h-full w-full flex  items-center justify-center bg-slate-200 "
       // style={{ perspective: "800px" }}
     >
-      <div className="container h-[75vh]  w-[90vw] max-w-[1400px]   ">
+      <div className="container h-[75vh]  w-[90vw] max-w-[1400px]  bg-slate-300 ">
         <div
           className="card h-[73vh]  w-[90vw]
           rounded-2xl before:rounded-2xl before:block before:absolute   "
@@ -65,18 +65,19 @@ const GlassPlate = () => {
             }}
           >
             <div
-              className="dashboard px-10 lg:px-20 flex-1 flex flex-col items-center justify-start space-y-20 text-base lg:text-lg  rounded-2xl before:rounded-2xl before:block before:absolute
+              className="dashboard px-1 sm:px-10 lg:px-20 flex-1 flex flex-col items-center justify-start space-y-20 text-base lg:text-lg  rounded-2xl before:rounded-2xl before:block before:absolute
              bg-gradient-to-br backdrop-blur-md from-[rgba(255,255,255,0.7)] to--[rgba(255,255,255,0.3)]"
             >
-              <div className="ovner pt-10 mx-auto flex flex-col items-center justify-evenly ">
+              <div className="me pt-10 mx-auto flex flex-col items-center justify-evenly ">
                 <img
                   src={avatar}
                   alt="Tomas Bance"
                   className=" w-1/3 h-1/9  rounded-full"
                 />
                 <h3 className=" font-bold"> Tomas Bance</h3>
-                <p>Full-Stack Developer</p>
+                <h4 className="text-center ">Full-Stack Developer</h4>
               </div>
+
               <div className="links flex flex-col">
                 <button
                   className={`flex whitespace-nowrap rounded-lg py-1 px-2 ${isActive(

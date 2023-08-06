@@ -9,7 +9,7 @@ import React, { useRef } from "react";
 
 export default function ProjectsNav({onProjectSelect, projectData}) {
   return (
-    <div>
+    <div className="mx-auto">
       
       <Dock onProjectSelect={onProjectSelect}>
       {projectData.map((project) => (
@@ -46,7 +46,8 @@ function Dock({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
     >
-      <ul className="mx-auto flex h-16 items-end gap-4 rounded-2xl bg-gray-700 px-4 pb-3">
+      <ul className=" flex  h-16 items-end gap-4 rounded-2xl backdrop-blur-md       
+      bg-gradient-to-t from-[rgba(255,255,255,0.7)] to-[rgba(255,255,255,0.3)]    px-4 pb-3">
         {!Array.isArray(children)
           ? children
           : children.map((node, index) => (
@@ -91,8 +92,8 @@ function AppIcon({
     <motion.div
       ref={ref}
       style={{ width }}
-      className={`aspect-square w-10 rounded-full bg-gray-100 ${
-        isActive ? "border-red-500 border-2 bg-gray-200   " : ""
+      className={`flex items-stretch p-2 overflow-hidden aspect-square w-10 rounded-full bg-gray-100 active:transform-gpu ${
+        isActive ? "border-red-500 border-2 bg-gray-200 " : ""
       }`}
       onClick={onClick}
     >

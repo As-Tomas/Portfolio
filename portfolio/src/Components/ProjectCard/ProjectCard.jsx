@@ -30,7 +30,6 @@ const ProjectCard = ({ project }) => {
     const xAxis = (rect.width / 2 - (e.pageX - rect.left)) / 25;
     const yAxis = ((rect.height / 2 - (e.pageY - rect.top)) / 25)* -1;
 
-    console.log(rect.top)
 
     if (isHovering) {
       card.style.transform = `perspective(800px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
@@ -158,7 +157,7 @@ const ProjectCard = ({ project }) => {
       // style={{ perspective: "800px" }}
     >
       <div
-        className="container min-h-[70vh] w-1/2 flex justify-center items-center "
+        className="container min-h-[70vh] w-11/12 sm:w-10/12 flex justify-center items-center "
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -176,7 +175,7 @@ const ProjectCard = ({ project }) => {
           style={{ transformStyle: "preserve-3d", }}>
 
           <div
-            className="pictures min-h-[25vh] flex items-center justify-center"
+            className={`pictures ${window.innerHeight < 860 ? " min-h-[10vh]":" min-h-[25vh]"} flex items-center justify-center`}
             style={{ transformStyle: "preserve-3d" }}
             //onMouseEnter={handleMouseEnterPreviewImg}
           >
@@ -187,7 +186,7 @@ const ProjectCard = ({ project }) => {
                 key={index}
                 src={image}
                 alt={`image ${index + 1}`}
-                className={`border-1 border-purple-300  rounded-lg absolute  w-[12rem] transition-transform duration-750 ease-out ${imgBorders} ${
+                className={`border-1 border-purple-300  rounded-lg absolute ${window.innerHeight < 860 ? " w-[8rem]":" w-[12rem]"}  transition-transform duration-750 ease-out ${imgBorders} ${
                   imgPreviewIndex === index ? "shadow-neon_blue border-blue-400 " : ""
                 }
                   ${index === 0 ? `imgPrev${index} shadow-neon_purple` : `imgPrev${index} `}`}
@@ -200,8 +199,8 @@ const ProjectCard = ({ project }) => {
             className="info text-center"
             style={{ transformStyle: "preserve-3d" }}
           >
-            <h1 className="title text-3xl font-bold">{project.name}</h1>
-            <h3 className="description text-sm  py-8 text-gray-600 font-light ">
+            <h1 className={`title font-bold ${window.innerHeight < 860 ? " text-2xl":" text-3xl"}`}  >{project.name}</h1>
+            <h3 className={`description py-8 text-gray-600 font-light ${window.innerHeight < 860 ? " text-xs":" text-sm"}`} >
               {project.description}
             </h3>
 
@@ -214,7 +213,7 @@ const ProjectCard = ({ project }) => {
                   key={index}
                   src={technology}
                   alt={`Tech ${index + 1}`}
-                  className={`h-[3rem] w-[3rem] transition-transform ${
+                  className={` ${window.innerHeight < 860 ? " h-[2rem]":" h-[3rem]"} transition-transform ${
                     hoveredIndex === index ? "scale-150" : ""
                   }`}
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -223,8 +222,8 @@ const ProjectCard = ({ project }) => {
               ))}
             </div>
 
-            <div className="buttons mt-10">
-              <button className="w-2/3 py-4 bg-[#f54642] rounded-full font-bold text-white">
+            <div className="buttons mt-10 mb-2">
+              <button className="w-2/3 py-4 bg-[#f54642] rounded-full font-bold text-white hover:scale-105">
                 GitHub
               </button>
             </div>

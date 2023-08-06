@@ -4,7 +4,10 @@ const Header = ({ setContent }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const hideMenu = (prop) =>{
-    setIsMobileMenuOpen(!isMobileMenuOpen)
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(!isMobileMenuOpen)
+    }
+    
     if (prop === 'about') {
       setContent('about')
     } else {
