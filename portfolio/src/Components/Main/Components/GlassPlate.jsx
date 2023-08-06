@@ -39,12 +39,12 @@ const GlassPlate = () => {
 
   return (
     <div
-      className="body-card-div h-full w-full flex  items-center justify-center bg-slate-200 "
+      className="body-card-div h-full w-full flex  items-center justify-center "
       // style={{ perspective: "800px" }}
     >
-      <div className="container h-[75vh]  w-[90vw] max-w-[1400px]  bg-slate-300 ">
+      <div className="container h-[75vh]  w-[90vw] max-w-[1400px]  ">
         <div
-          className="card h-[73vh]  w-[90vw]
+          className="card h-[73vh]  max-w-[90vw]
           rounded-2xl before:rounded-2xl before:block before:absolute   "
           style={{ transformStyle: "preserve-3d" }}
           // style={{

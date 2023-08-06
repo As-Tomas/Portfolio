@@ -13,7 +13,7 @@ const MyPath = () => {
 
   return (
     <div className="mypath  h-full w-full overflow-y-auto ">
-      <div className="container p-[2rem] pb-[100px] mx-auto max-w-3xl">
+      <div className="container p-[2rem] pb-[100px] mx-auto ">
         <div className="topSection text-center py-[1rem] max-w-xl mx-auto">
           <h1 className=" text-3xl">My path</h1>
           <p>
