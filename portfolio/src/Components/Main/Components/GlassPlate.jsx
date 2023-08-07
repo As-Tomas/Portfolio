@@ -41,7 +41,7 @@ const GlassPlate = () => {
     >
       <div className="container h-[75vh]  w-[90vw] max-w-[1400px]  ">
         <div
-          className="card h-[73vh]  max-w-[90vw]
+          className="card h-[73vh]  max-w-[90vw] backdrop-blur-md 
           rounded-2xl before:rounded-2xl before:block before:absolute   "
           style={{ transformStyle: "preserve-3d" }}
           // style={{
@@ -63,7 +63,7 @@ const GlassPlate = () => {
           >
             <div
               className="dashboard px-1 sm:px-10 lg:px-20 flex-1 flex flex-col items-center justify-evenly  space-y-10 text-base lg:text-lg  rounded-2xl before:rounded-2xl before:block before:absolute
-             bg-gradient-to-br backdrop-blur-md from-[rgba(255,255,255,0.7)] to--[rgba(255,255,255,0.3)]"
+             bg-gradient-to-br  from-[rgba(255,255,255,0.7)] to--[rgba(255,255,255,0.3)]"
             >
               <div className="me  mx-auto flex flex-col items-center justify-evenly ">
                 <img
