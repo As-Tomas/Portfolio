@@ -186,7 +186,7 @@ const ProjectCard = ({ project }) => {
                 key={index}
                 src={image}
                 alt={`image ${index + 1}`}
-                className={`border-1 border-purple-300  rounded-lg absolute ${window.innerHeight < 860 ? " w-[8rem]":" w-[12rem]"}  transition-transform duration-750 ease-out ${imgBorders} ${
+                className={`border-1 border-purple-300  rounded-lg absolute ${window.innerHeight < 860 ? " max-w-[8rem] max-h-[10rem]":" max-w-[12rem] max-h-[14rem]"}  transition-transform duration-750 ease-out ${imgBorders} ${
                   imgPreviewIndex === index ? "shadow-neon_blue border-blue-400 " : ""
                 }
                   ${index === 0 ? `imgPrev${index} shadow-neon_purple` : `imgPrev${index} `}`}
