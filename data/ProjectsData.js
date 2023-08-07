@@ -10,7 +10,7 @@ const productData = [{
     "id": 1,
     "name": "React Calculator",
     "description": "This is a recap of React and TailWind CSS themeing.",
-    "images": ["./data/Projects_Imgs/calc/calc2.png", "./data/Projects_Imgs/calc/calc1.png", "./data/Projects_Imgs/calc/calc3.png"],
+    "images": ["./data/Projects_Imgs/calc/calc3.png", "./data/Projects_Imgs/calc/calc1.png", "./data/Projects_Imgs/calc/calc2.png"],
     "technologies": ["./assets/react.svg", "./assets/tailwind.svg", "./assets/js.svg",],
     "links":["https://as-tomas.github.io/Calculator-App/"]
   },
@@ -28,15 +28,15 @@ const productData = [{
     "description": "Back-End Java project for creating monthly data base and importing products from CSV file. ",
     "images": ["./data/backEnd.jpg",],
     "technologies": ["./assets/java.svg","./assets/Microsoft_SQL_Server.png",],
-    "links":[""]
+    "links":["https://github.com/As-Tomas/ProductsImporterSQLServerAndManagemet"]
   },
   {
     "id": 4,
     "name": "Product Scraper",
     "description": "Node.js automated product scraper by using Chrome/Chromium high-level API with the library Puppeteer and storing it in CSV file. ",
     "images": ["./data/backEnd.jpg",],
-    "technologies": ["./assets/node.svg","./data/Projects_Imgs/puppeteerScraper/puppeteer.png",],
-    "links":[""]
+    "technologies": ["./assets/node.svg","./data/Projects_Imgs/puppeteerScraper/puppeteer.png","./assets/js.svg"],
+    "links":["https://github.com/As-Tomas/Product_Scraper_VVS"]
   },
   {
     "id": 5,
@@ -69,6 +69,14 @@ const productData = [{
     "images": ["./assets/staticSvg/photo.svg",],
     "technologies": ["./assets/java.svg", "./assets/android.png",],
     "links":["https://github.com/As-Tomas/Speed_Match_game"]
+  },
+  {
+    "id": 9,
+    "name": "PDF Invoice WP plugin ",
+    "description": "On customer request edited WooCommerce-PDF-Invoice template with extended table",
+    "images": ["./assets/staticSvg/photo.svg",],
+    "technologies": ["./assets/php.svg", "./assets/wordpress.png",],
+    "links":["https://github.com/As-Tomas/WooCommerce-PDF-Invoice-template-extended-table"]
   }
   
 ];
