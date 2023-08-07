@@ -2,7 +2,6 @@ import { useState } from "react";
 import tempPic from "../../../../public/data/DSC_8258_40.svg";
 import avatar from "../../../../public/data/me.jpg";
 import About from "./Content/About";
-import MySkills from "./Content/MySkills";
 import Technologies from "./Content/Technologies";
 import MyPath from "./Content/MyPath/MyPath";
 
@@ -18,15 +17,13 @@ const GlassPlate = () => {
     switch (activeComponent) {
       case "AboutMe":
         return <About />;
-      case "MySkills":
-        return <MySkills />;
       case "MyPath":
         return <MyPath />;
       case "Technologies":
         return <Technologies />;
       case "ContactMe":
         // return <ContactMe />; Uncomment this once you have the ContactMe component
-        return <MySkills />;
+        return <About />;
       default:
         return <About />;
     }
@@ -116,23 +113,7 @@ const GlassPlate = () => {
                   <h2>My Path</h2>
                 </button>
 
-                <button
-                  className={`flex whitespace-nowrap rounded-lg py-1 px-2 ${isActive(
-                    "MySkills"
-                  )}`}
-                  onClick={() => toggleComponent("MySkills")}
-                >
-                  <div className="mr-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="1.5rem"
-                      viewBox="0 0 576 512"
-                    >
-                      <path d="M160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h50.7L9.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L256 109.3V160c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H160zM576 80a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM448 208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM400 384a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48 80a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm128 0a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM272 384a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48 80a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM144 512a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM576 336a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm-48-80a48 48 0 1 0 0-96 48 48 0 1 0 0 96z" />
-                    </svg>
-                  </div>
-                  <h2>My Skills</h2>
-                </button>
+                
 
                 <button
                   className={`flex whitespace-nowrap rounded-lg py-1 px-2 ${isActive(
