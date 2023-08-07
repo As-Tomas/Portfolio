@@ -16,6 +16,7 @@ function App() {
     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
     // starting from v2 you can add only the features you need reducing the bundle size
     //await loadFull(engine);
+    //https://vincentgarreau.com/particles.js/
     await loadSlim(engine);
 }, []);
 
@@ -63,7 +64,7 @@ const particlesLoaded = useCallback(async container => {
                     },
                     modes: {
                         push: {
-                            quantity: 4,
+                            quantity: 1,
                         },
                         repulse: {
                             distance: 200,

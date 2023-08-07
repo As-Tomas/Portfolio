@@ -4,6 +4,7 @@ import avatar from "../../../../public/data/me.jpg";
 import About from "./Content/About";
 import Technologies from "./Content/Technologies";
 import MyPath from "./Content/MyPath/MyPath";
+import { Contact } from "./Content/Contact";
 
 
 const GlassPlate = () => {
@@ -23,7 +24,7 @@ const GlassPlate = () => {
         return <Technologies />;
       case "ContactMe":
         // return <ContactMe />; Uncomment this once you have the ContactMe component
-        return <About />;
+        return <Contact />;
       default:
         return <About />;
     }
@@ -62,7 +63,7 @@ const GlassPlate = () => {
             }}
           >
             <div
-              className="dashboard px-1 sm:px-10 lg:px-20 flex-1 flex flex-col items-center justify-evenly  space-y-10 text-base lg:text-lg  rounded-2xl before:rounded-2xl before:block before:absolute
+              className="dashboard px-1 max-w-xs  sm:px-10 lg:px-20 flex-1 flex flex-col items-center justify-evenly  space-y-10 text-base lg:text-lg  rounded-2xl before:rounded-2xl before:block before:absolute
              bg-gradient-to-br  from-[rgba(255,255,255,0.7)] to--[rgba(255,255,255,0.3)]"
             >
               <div className="me  mx-auto flex flex-col items-center justify-evenly ">
