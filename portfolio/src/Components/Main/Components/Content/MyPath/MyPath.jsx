@@ -80,10 +80,10 @@ const MyPath = () => {
           >
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.7%] top-[20%] transform translate-x-[50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
-              <h2 className=" text-2xl">Studies</h2>
-              <h3>2020</h3>
+              <h2 className=" text-2xl">Bachelor Programing & Multimedia</h2>
+              <h3>2023</h3>
               <p>
-              After many hours with Python, decided that I need grow and learn more about programing so began studies at SMK University of Applied Sciences
+              After many hours with Python, decided that I need grow and learn more about programing so began studies at SMK University of Applied Sciences and in 2023 and I got a bachelor's degree Programing & Multimedia.
               </p>
             </div>
           </div>
