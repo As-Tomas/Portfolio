@@ -26,8 +26,7 @@ const particlesLoaded = useCallback(async container => {
   return (
     <>
       <div
-      id="particles-js"
-        className="initial relative  "
+      
         //  style={{ 
         //   backgroundImage: `url(https://img.freepik.com/free-vector/abstract-blue-red-paper-cut-background-with-simple-shapes_8829-2520.jpg?w=1060&t=st=1690130003~exp=1690130603~hmac=be02e42313763296a7b2ca027bcf900b6d9d9fd851af8b294c959deb49b04d26)`,
         //   backgroundRepeat: "no-repeat",
@@ -45,7 +44,6 @@ const particlesLoaded = useCallback(async container => {
             id="tsparticles"
             init={particlesInit}
             loaded={particlesLoaded}
-            style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }} 
             options={{
                 background: {
                     
@@ -91,7 +89,7 @@ const particlesLoaded = useCallback(async container => {
                             default: "bounce",
                         },
                         random: false,
-                        speed: 2,
+                        speed: 1,
                         straight: false,
                     },
                     number: {
@@ -108,7 +106,7 @@ const particlesLoaded = useCallback(async container => {
                         type: "circle",
                     },
                     size: {
-                        value: { min: 5, max: 20 },
+                        value: { min: 2, max: 20 },
                     },
                 },
                 detectRetina: true,
