@@ -33,9 +33,9 @@ const Main = ({ content }) => {
           <ProjectCard key={selectedProject.id} project={selectedProject} />
           )}
 
-        <div className="  pb-10 mt-5 bg-slate-800">
-          {window.innerHeight}
-          {window.innerHeight < 860 ? " true":" false"}
+        <div className=" flex mb-32 mt-5">
+          {/* {window.innerHeight}
+          {window.innerHeight < 860 ? " true":" false"} */}
           {content === "projects" ? (
             <ProjectsNav
              onProjectSelect={handleProjectSelect}

@@ -223,9 +223,19 @@ const ProjectCard = ({ project }) => {
             </div>
 
             <div className="buttons mt-10 mb-2">
-              <button className="w-2/3 py-4 bg-[#f54642] rounded-full font-bold text-white hover:scale-105">
+            {project.links.slice(0, 4).map((link, index) => (
+                  <button 
+                      key={index} 
+                      className="w-2/3 py-4 bg-[#f54642] rounded-full font-bold text-white hover:scale-105 hover:bg-[#f82824] transition-all" 
+                      onClick={() => window.open(link, '_blank')}
+                  >
+                      GitHub
+                  </button>
+              ))}
+
+              {/* <button className="w-2/3 py-4 bg-[#f54642] rounded-full font-bold text-white hover:scale-105 hover:bg-[#f82824] transition-all">
                 GitHub
-              </button>
+              </button> */}
             </div>
           </div>
           </div>
