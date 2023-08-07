@@ -8,20 +8,20 @@ const productData = [{
   },
   {
     "id": 1,
+    "name": "Coding Game - spring chalenge 2021",
+    "description": "A Community competition Event to Learn Code while Having Fun. I chose to code with C++ and reached the Gold League out of a total of 8145 competitors. ",
+    "images": ["./data/Projects_Imgs/springChalenge/start.png", "./data/Projects_Imgs/springChalenge/game.png", "./data/Projects_Imgs/springChalenge/victory.jpg",],
+    "technologies": ["./assets/Cplus.svg",],
+    "links":["https://github.com/As-Tomas/Spring_Chalenge_2021"]
+  },
+  {
+    "id": 2,
     "name": "React Calculator",
     "description": "This is a recap of React and TailWind CSS themeing.",
     "images": ["./data/Projects_Imgs/calc/calc3.png", "./data/Projects_Imgs/calc/calc1.png", "./data/Projects_Imgs/calc/calc2.png"],
     "technologies": ["./assets/react.svg", "./assets/tailwind.svg", "./assets/js.svg",],
     "links":["https://as-tomas.github.io/Calculator-App/"]
-  },
-  {
-    "id": 2,
-    "name": "Eletricity cost calculator",
-    "description": "Simple Android App for calculation of electricity prices and relief based on consumed kilowatts.",
-    "images": ["./data/Projects_Imgs/eletricityCalc/history.jpg","./data/Projects_Imgs/eletricityCalc/mainActivity.jpg"],
-    "technologies": ["./assets/android.png", "./assets/java.svg",],
-    "links":["https://github.com/As-Tomas/Eletricity_calculator"]
-  },
+  },  
   {
     "id": 3,
     "name": "Product DataBase",
@@ -32,22 +32,6 @@ const productData = [{
   },
   {
     "id": 4,
-    "name": "Product Scraper",
-    "description": "Node.js automated product scraper by using Chrome/Chromium high-level API with the library Puppeteer and storing it in CSV file. ",
-    "images": ["./data/backEnd.jpg",],
-    "technologies": ["./assets/node.svg","./data/Projects_Imgs/puppeteerScraper/puppeteer.png","./assets/js.svg"],
-    "links":["https://github.com/As-Tomas/Product_Scraper_VVS"]
-  },
-  {
-    "id": 5,
-    "name": "Coding Game - spring chalenge 2021",
-    "description": "A Community competition Event to Learn and Code while Having Fun. ",
-    "images": ["./data/Projects_Imgs/springChalenge/victory.jpg",],
-    "technologies": ["./assets/Cplus.svg",],
-    "links":["https://github.com/As-Tomas/Spring_Chalenge_2021"]
-  },
-  {
-    "id": 6,
     "name": "FoofOut App",
     "description": "Android app, customers can register, make orders from selected restaurant and have it delivered straight to their homes.",
     "images": ["./data/Projects_Imgs/foodOut/delivery.jpg", "./data/Projects_Imgs/foodOut/login.jpg", "./data/Projects_Imgs/foodOut/menu.jpg"],
@@ -55,7 +39,15 @@ const productData = [{
     "links":["https://github.com/As-Tomas/foodOut_Android_App"]
   },
   {
-    "id": 7,
+    "id": 5,
+    "name": "Product Scraper",
+    "description": "Node.js automated product scraper by using Chrome/Chromium high-level API with the library Puppeteer and storing it in CSV file. ",
+    "images": ["./data/backEnd.jpg",],
+    "technologies": ["./assets/node.svg","./data/Projects_Imgs/puppeteerScraper/puppeteer.png","./assets/js.svg"],
+    "links":["https://github.com/As-Tomas/Product_Scraper_VVS"]
+  },
+  {
+    "id": 6,
     "name": "Dreams and diary App",
     "description": "Android app, to make notes in diary format.",
     "images": ["./data/Projects_Imgs/dreamDiary/evaluation.jpg", "./data/Projects_Imgs/dreamDiary/form.jpg", "./data/Projects_Imgs/dreamDiary/records.jpg"],
@@ -63,12 +55,20 @@ const productData = [{
     "links":["https://github.com/As-Tomas/Dreams_and_diary"]
   },
   {
-    "id": 8,
+    "id": 7,
     "name": "Speed Match game",
     "description": "Android Game: Different shapes slides from right to left, stops in the middle, and the player must choose buttons yes or no to answer. Does this symbol match the previous symbol? Score is calculated by the number of right answers in a given time.",
     "images": ["./data/Projects_Imgs/speedMatch/game.jpg", "./data/Projects_Imgs/speedMatch/rezults.jpg"],
     "technologies": ["./assets/java.svg", "./assets/android.png",],
     "links":["https://github.com/As-Tomas/Speed_Match_game"]
+  },
+  {
+    "id": 8,
+    "name": "Eletricity cost calculator",
+    "description": "Simple Android App for calculation of electricity prices and relief based on consumed kilowatts.",
+    "images": ["./data/Projects_Imgs/eletricityCalc/history.jpg","./data/Projects_Imgs/eletricityCalc/mainActivity.jpg"],
+    "technologies": ["./assets/android.png", "./assets/java.svg",],
+    "links":["https://github.com/As-Tomas/Eletricity_calculator"]
   },
   {
     "id": 9,
