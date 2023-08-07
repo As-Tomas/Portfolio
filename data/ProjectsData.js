@@ -1,6 +1,6 @@
 const productData = [{
     "id": 0,
-    "name": "Berlimo CMS/App",
+    "name": "Berlimo CMS + App",
     "description": "This project encompasses a cross-platform solution designed to streamline content management and delivery. The main project focuses is simplified management, user communication, and sending personalised information messages. On one end, we have a WordPress CMS seamlessly integrated with a .NET MAUI MVVM App, which acts as the client-side application. The app communicates directly with the WordPress API. This ensures that users of the .NET MAUI app always have access to the latest content updates and messages.",
     "images": ["./data/Projects_Imgs/berlimo/tempPic.png","./data/Projects_Imgs/berlimo/App.jpg","./data/Projects_Imgs/berlimo/projectStructure.png"],
     "technologies": ["./assets/dot_net.svg","./assets/wordpress.svg", "./assets/csharp.svg","./assets/figma.svg" ],
