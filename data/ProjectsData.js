@@ -9,7 +9,7 @@ const productData = [{
   {
     "id": 1,
     "name": "Coding Game - spring chalenge 2021",
-    "description": "A Community competition Event to Learn Code while Having Fun. I chose to code with C++ and reached the Gold League out of a total of 8145 competitors. ",
+    "description": "A Community competition Event to Learn Code while Having Fun. I chose to code with C++ and reached the Gold League out of a total 8145 competitors. ",
     "images": ["./data/Projects_Imgs/springChalenge/start.png", "./data/Projects_Imgs/springChalenge/game.png", "./data/Projects_Imgs/springChalenge/victory.jpg",],
     "technologies": ["./assets/Cplus.svg",],
     "links":["https://github.com/As-Tomas/Spring_Chalenge_2021"]
