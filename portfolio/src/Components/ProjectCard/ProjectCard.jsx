@@ -66,7 +66,7 @@ const ProjectCard = ({ project }) => {
         //console.log("translations[i]:", translations[childCount-1][0]);
 
         imgElements.forEach((imgElement, i) => {
-          imgElement.style.transform = `translateZ(1${childCount-i}0px) translateY(-50px) translateX(${translations[childCount-1][i]}px)`;
+          imgElement.style.transform = `translateZ(1${childCount-i}0px) translateY(-10px) translateX(${translations[childCount-1][i]}px)`;
           //console.log("translations[i]:", translations[childCount-1][i]);
         });
 
@@ -127,10 +127,10 @@ const ProjectCard = ({ project }) => {
 
         imgElements.forEach((imgElement, i) => {
           if (index === i) {
-            imgElement.style.transform = `translateZ(220px) translateY(0px) translateX(${hoverTranslations[childCount-1][i]}px) scale(1.2) rotateX(15deg)`;  
+            imgElement.style.transform = `translateZ(220px) translateY(50px) translateX(${hoverTranslations[childCount-1][i]}px) scale(1.2) rotateX(15deg)`;  
             //console.log("translated:", hoverTranslations[childCount-1][i]);     
           } else {
-            imgElement.style.transform = `translateZ(1${childCount-i}0px) translateY(-100px) translateX(${translations[childCount-1][i]}px)`;            
+            imgElement.style.transform = `translateZ(1${childCount-i}0px) translateY(-80px) translateX(${translations[childCount-1][i]}px)`;            
           }
         });
 
@@ -145,7 +145,7 @@ const ProjectCard = ({ project }) => {
         const childCount = imgElements.length;
         if (imgElements.length > 0) {  
           imgElements.forEach((imgElement, i) => {
-            imgElement.style.transform = `translateZ(1${childCount-i}0px) translateY(-50px) translateX(${translations[childCount-1][i]}px)`;
+            imgElement.style.transform = `translateZ(1${childCount-i}0px) translateY(0px) translateX(${translations[childCount-1][i]}px)`;
           });  
         } 
       } 
