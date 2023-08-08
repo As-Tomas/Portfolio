@@ -101,7 +101,7 @@ const GlassPlate = () => {
                     "MyPath"
                   )}`}
                   onClick={() => toggleComponent("MyPath")}
-                >
+                >                  
                   <div className="mr-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
