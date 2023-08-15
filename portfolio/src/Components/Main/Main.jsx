@@ -40,6 +40,7 @@ const Main = ({ content }) => {
             <ProjectsNav
              onProjectSelect={handleProjectSelect}
              projectData={projectData}
+             selectedProjectId={selectedProjectId}
             />
           ) : null}
 

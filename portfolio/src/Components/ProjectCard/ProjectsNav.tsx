@@ -7,11 +7,11 @@ import {
 } from "framer-motion";
 import React, { useRef } from "react";
 
-export default function ProjectsNav({onProjectSelect, projectData}) {
+export default function ProjectsNav({onProjectSelect, projectData, selectedProjectId}) {
   return (
     <div className="mx-auto">
       
-      <Dock onProjectSelect={onProjectSelect}>
+      <Dock onProjectSelect={onProjectSelect} selectedProjectId={selectedProjectId}>
       {projectData.map((project) => (
           <img
             key={project.id}
@@ -28,12 +28,16 @@ export default function ProjectsNav({onProjectSelect, projectData}) {
 function Dock({
   children,
   onProjectSelect,
+  selectedProjectId,
 }: {
   children: React.ReactNode;
   onProjectSelect: (index: number) => void;
+  selectedProjectId: number;
+
 }) {
   let mouseX = useMotionValue(Infinity);
-  const [activeIndex, setActiveIndex] = React.useState(-1);
+
+  const [activeIndex, setActiveIndex] = React.useState(selectedProjectId);
   // console.log(typeof onProjectSelect);
 
   const handleClick = (index) => {
@@ -92,8 +96,8 @@ function AppIcon({
     <motion.div
       ref={ref}
       style={{ width }}
-      className={`flex items-stretch p-2 overflow-hidden aspect-square w-10 rounded-full bg-gray-100 active:transform-gpu ${
-        isActive ? "border-red-500 border-2 bg-gray-200 " : ""
+      className={`flex items-stretch p-2 overflow-hidden aspect-square w-10 rounded-full hover:bg-white bg-gray-200 active:transform-gpu ${
+        isActive ? "border-red-500 border-2 bg-red-300   " : ""
       }`}
       onClick={onClick}
     >
