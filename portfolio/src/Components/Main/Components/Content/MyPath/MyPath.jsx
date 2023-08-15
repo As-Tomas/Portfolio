@@ -9,6 +9,8 @@ const MyPath = () => {
   const { ref:timelineReftwo, inView: myElementIsVisibletwo } = useInView();
   const { ref:timelineRefthree, inView: myElementIsVisiblethree } = useInView();
   const { ref:timelineReffour, inView: myElementIsVisiblefour } = useInView();
+  const { ref:timelineReffive, inView: myElementIsVisiblefive } = useInView();
+  const { ref:timelineRefsix, inView: myElementIsVisiblesix } = useInView();
 
 
 
@@ -70,7 +72,7 @@ const MyPath = () => {
               <h2 className=" text-2xl">React-Native</h2>
               <h3>2019</h3>
               <p>
-              Got an idea to create the APP and Phithon here does not fit, so took CS50's Mobile App Development with React Native online couses at HarvardX. 
+              Got an idea to create the APP and Python here does not fit, so took CS50's Mobile App Development with React Native online couses at HarvardX. 
               </p>
             </div>
           </div>
@@ -81,16 +83,46 @@ const MyPath = () => {
           >
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.7%] top-[20%] transform translate-x-[50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
+              <h2 className=" text-2xl">Java & C++</h2>
+              <h3>2020</h3>
+              <p>
+              Decided that I need grow and learn more about programing so began studies at SMK University of Applied Sciences with emphasis to OOP.
+              </p>
+            </div>
+          </div>
+
+          <div
+          ref={timelineReffive}
+            className={`flex relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisiblefive ? "flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ":" opacity-0  transform translate-x-[-50%] transition duration-700 ease-in "}section `}
+          >
+            <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.3%] top-[20%] transform translate-x-[-50%]"></div>
+            <div className="content w-[calc(50%-2rem)]">
+              <h2 className=" text-2xl">Android</h2>
+              <h3>2022</h3>
+              <p>
+              This year I spend most of my time learning Android app development, I have created many apps some public, some not, you can see them in the projects section. 
+              </p>
+            </div>
+          </div>
+
+          <div
+          ref={timelineRefsix}
+          className={`flex flex-row-reverse   relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisiblesix ? "opacity-100   transform translate-x-[0%] transition duration-700 ease-in":"opacity-0   transform translate-x-[50%] transition duration-700 ease-in "}section `}
+          >
+            <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.7%] top-[20%] transform translate-x-[50%]"></div>
+            <div className="content w-[calc(50%-2rem)]">
               <h2 className=" text-2xl">Bachelor Programing & Multimedia</h2>
               <h3>2023</h3>
               <p>
-              After many hours with Python, decided that I need grow and learn more about programing so began studies at SMK University of Applied Sciences and in 2023 and I got a bachelor's degree Programing & Multimedia.
+              Graduation at SMK University of Applied Sciences, I got a bachelor's degree in Programing & Multimedia.
               </p>
             </div>
           </div>
         </div>
+      <div >
+        <h2 className=" pt-2 text-center text-2xl font-extrabold animate-bounce ">I'm ready to be hired!!!🔔</h2>
       </div>
-      
+      </div>
     </div>
   );
 };
