@@ -112,9 +112,7 @@ const GlassPlate = () => {
                     </svg>
                   </div>
                   <h2>My Path</h2>
-                </button>
-
-                
+                </button>                
 
                 <button
                   className={`flex whitespace-nowrap rounded-lg py-1 px-2 ${isActive(
@@ -133,9 +131,11 @@ const GlassPlate = () => {
                   </div>
                   <h2>Tools I Use</h2>
                 </button>
+
               </div>
+
               <button
-                className={`flex whitespace-nowrap rounded-lg py-1 px-2 ${isActive(
+                className={` hidden flex whitespace-nowrap rounded-lg py-1 px-2 ${isActive(
                   "ContactMe"
                 )}`}
                 onClick={() => toggleComponent("ContactMe")}
