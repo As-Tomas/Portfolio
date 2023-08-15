@@ -35,7 +35,7 @@ const productData = [{
     "name": "FoofOut App",
     "description": "Android app, customers can register, make orders from selected restaurant and have it delivered straight to their homes.",
     "images": ["./data/Projects_Imgs/foodOut/delivery.jpg", "./data/Projects_Imgs/foodOut/login.jpg", "./data/Projects_Imgs/foodOut/menu.jpg"],
-    "technologies": ["./assets/java.svg", "./assets/android.png",],
+    "technologies": ["./assets/android.png", "./assets/java.svg", ],
     "links":["https://github.com/As-Tomas/foodOut_Android_App"]
   },
   {
@@ -51,7 +51,7 @@ const productData = [{
     "name": "Dreams and diary App",
     "description": "Android app, to make notes in diary format.",
     "images": ["./data/Projects_Imgs/dreamDiary/evaluation.jpg", "./data/Projects_Imgs/dreamDiary/form.jpg", "./data/Projects_Imgs/dreamDiary/records.jpg"],
-    "technologies": ["./assets/java.svg", "./assets/android.png",],
+    "technologies": ["./assets/android.png", "./assets/java.svg",],
     "links":["https://github.com/As-Tomas/Dreams_and_diary"]
   },
   {
@@ -59,7 +59,7 @@ const productData = [{
     "name": "Speed Match game",
     "description": "Android Game: Different shapes slides from right to left, stops in the middle, and the player must choose buttons yes or no to answer. Does this symbol match the previous symbol? Score is calculated by the number of right answers in a given time.",
     "images": ["./data/Projects_Imgs/speedMatch/game.jpg", "./data/Projects_Imgs/speedMatch/rezults.jpg"],
-    "technologies": ["./assets/java.svg", "./assets/android.png",],
+    "technologies": ["./assets/android.png", "./assets/java.svg",],
     "links":["https://github.com/As-Tomas/Speed_Match_game"]
   },
   {
