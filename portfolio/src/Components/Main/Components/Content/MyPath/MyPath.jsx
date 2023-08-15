@@ -123,6 +123,13 @@ const MyPath = () => {
         <h2 className=" pt-2 text-center text-2xl font-extrabold animate-bounce ">I'm ready to be hired!!!🔔</h2>
       </div>
       </div>
+      <div       
+      className={`flex justify-center items-center  -ml-[20vw] ${myElementIsVisiblesix ? "hidden" : ""}`}>
+        <img 
+        className=" absolute bottom-3 h-10 animate-bounceOnce     "
+        src="./assets/GeneralIcons/wheel_scroll_mouse.svg" alt="" 
+        />
+      </div>
     </div>
   );
 };

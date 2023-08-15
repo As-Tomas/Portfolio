@@ -1,7 +1,11 @@
 import PieChartDevelopment from "../Charts/Pie-Chart_Development";
 import PieChartProgramer from "../Charts/Pie-Chart_Programer";
+import { useInView } from 'react-intersection-observer';
 
 const Technologies = () => {
+  
+  const { ref:thisIsVisible, inView: isVisible } = useInView();
+
   return (
     <section
       id="technologies"
@@ -21,7 +25,8 @@ const Technologies = () => {
       </div>
       <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
       <ul className="list-none mx-auto my-12 flex flex-wrap justify-center gap-8">
-        <li className="flex-1 flex flex-col items-center border border-solid bg-gradient-to-br from-inherit to-inherit dark:bg-black py-6 px-2 rounded-2xl shadow-xl">
+        <li className="flex-1 flex flex-col items-center border border-solid bg-gradient-to-br from-inherit to-inherit 
+        dark:bg-black py-6 px-2 rounded-2xl shadow-xl">
           <img
             src="./assets/GeneralIcons/software-developer.png"
             alt="Android"
@@ -75,7 +80,7 @@ const Technologies = () => {
       <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
       <div
       id="tools"
-      className="p-5 flex flex-col  gap-4 bg-gradient-to-br from-inherit to-inherit rounded-2xl shadow-xl">
+      className="p-5 flex flex-col  gap-4 border border-solid bg-gradient-to-br from-inherit to-inherit rounded-2xl shadow-xl">
         <h2 className="text-3xl font-bold mb-6 text-slate-900"> Tools I Use</h2>
         <div >
           <h3 className="p-4 text-xl font-semibold">My main Design & Image Editing Tools  </h3>
@@ -104,7 +109,9 @@ const Technologies = () => {
         
         </div>
 
-        <div >
+        <div 
+        ref={thisIsVisible}
+        >
           <h3 className="p-4 text-xl font-semibold">My main Development Environments  </h3>
           <div className="pb-10 flex flex-wrap justify-center gap-4">
           <img className="w-14 h-14 lg:w-20 lg:h-20 p-2 bg-gradient-to-br from-inherit to-inherit  rounded hover:scale-125 transition shadow" src="./assets/dot_net.svg" alt="Dot_net"  />
@@ -121,6 +128,13 @@ const Technologies = () => {
         
 
         </div>        
+      </div>
+      <div       
+      className={`flex justify-center items-center  -ml-[20vw] ${isVisible ? "hidden" : ""}`}>
+        <img 
+        className=" absolute bottom-3 h-10 animate-bounceOnce     "
+        src="./assets/GeneralIcons/wheel_scroll_mouse.svg" alt="" 
+        />
       </div>
     </section>
   );

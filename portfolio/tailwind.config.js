@@ -9,6 +9,15 @@ export default {
         neon_blue: "0 0 5px theme('colors.blue.700'),  0 0 10px theme('colors.blue.100'), 0 0 30px theme('colors.blue.700')",
         neon_indigo: "0 0 5px theme('colors.indigo.700'),  0 0 10px theme('colors.indigo.100'), 0 0 30px theme('colors.indigo.700')",
       },
+      keyframes: {
+        bounceOnce: {
+          '0%, 10%, 100%': { transform: 'translateY(0)' },
+          '5%': { transform: 'translateY(-20px)' },
+        },
+      },
+      animation: {
+        bounceOnce: 'bounceOnce 5s infinite',
+      },
       
     },
   },
