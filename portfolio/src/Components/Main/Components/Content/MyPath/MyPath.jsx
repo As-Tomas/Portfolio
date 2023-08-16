@@ -55,11 +55,12 @@ const MyPath = () => {
             <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.7%] top-[20%] transform translate-x-[50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
               <h2 className=" text-2xl"> WordPress / UiPath</h2>
-              <h3>2019</h3>
+              <h3>2018</h3>
               <p>
                 Found the gap in the local market and drop shiping become wery populars so started to learn WordPress and created web shop.
                 With help of UiPath made automations for product scraping and orders administration in WordPress. 
               </p>
+              <p>From time to time I'm creating WordPress web sites and until present days.</p>
             </div>
           </div>
 

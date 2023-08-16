@@ -40,7 +40,7 @@ const Header = ({ setContent }) => {
 
              
              <a
-               href="#about"
+               href="#About"
                className="hover:text-indigo-700 hover:duration-200"
                onClick={() => hideMenu('about')}
              >
