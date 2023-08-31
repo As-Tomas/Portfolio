@@ -16,14 +16,14 @@ const About = () => {
       className="h-full w-full overflow-y-auto justify-center items-center pt-10 scroll-mt-40 "
     >
       <article>
-        <h2 className=" text-3xl font-bold text-center text-slate-900 dark:text-white">
+        <h2 className=" text-2xl font-bold text-center text-slate-900 dark:text-white">
           Welcome! <br /> My name is{" "}
           <span className="text-indigo-700 dark:text-indigo-300">
             Tomas Bance
           </span>{" "}
           <br /> I'm Full-Stack Developer
         </h2>
-        <div className="max-w-md sm:max-w-none text-xl mt-4 text-center  text-slate-700 dark:text-slate-400">
+        <div className="max-w-md sm:max-w-none text-lg  mt-4 text-center  text-slate-700 dark:text-slate-400">
           <p>
              I am extremely curious and self-motivated, I constantly
             develop my skills. I have a huge passion for programming in general
@@ -37,7 +37,7 @@ const About = () => {
             learn more about me or discuss potential collaborations.
           </p>
         </div>
-        <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>
+        <hr className="mx-auto my-5 bg-black dark:bg-white w-1/2"></hr>
         <div>
           <section className=" ">
             <div className="pb-5 flex items-center justify-center">
