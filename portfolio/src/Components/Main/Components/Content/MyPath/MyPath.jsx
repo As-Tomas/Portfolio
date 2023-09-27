@@ -20,7 +20,7 @@ const MyPath = () => {
         <div className="topSection text-center py-[1rem] max-w-xl mx-auto">
           <h1 className=" text-3xl">My path</h1>
           <p>
-            Here you can see historical my life path how I find my passion an where I'm now.
+            Here you can see my historical life path, how I found my passion, and where I'm now.
           </p>
         </div>
 
@@ -36,14 +36,12 @@ const MyPath = () => {
           ref={timelineRef}
           className={`flex relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisible ? "flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ":" opacity-0  transform translate-x-[-50%] transition duration-700 ease-in "}section `}
           >
-            <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.3%] top-[20%] transform translate-x-[-50%]"></div>
-            <div className="content w-[calc(50%-2rem)] text-right">
+            <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.2%] top-[20%] transform translate-x-[-50%]"></div>
+            <div className="content w-[calc(50%-2rem)] text-left">
               <h2 className=" text-2xl">Poker</h2>
-              <h3>2016 here my pasion began.</h3>
+              <h3>2016 is where my passion began..</h3>
               <p>
-                Besides my daily work as office suport at evenings have been playing poker tournaments for many year, each month winings not bad salary supplement. 
-                But poker games takes a lot of time, and here came an IDEA, why not to automate my strategyies and save the time?!
-                Litle bit of google and found Deep mind pokerbot free source at Github coded by Python and here my pasion began!
+              Besides my daily work as office support, I have been playing poker tournaments in the evenings for many years, and each month's winnings are not a bad salary supplement. But poker games take a lot of time, and here came an idea: why not automate my strategies and save time? A little bit of Google and I found Deep Mind Pokerbot free source at Github, coded in Python, and here my passion began!
               </p>
             </div>
           </div>
@@ -52,15 +50,14 @@ const MyPath = () => {
            ref={timelineReftwo}
             className={`flex flex-row-reverse   relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisibletwo ? "opacity-100   transform translate-x-[0%] transition duration-700 ease-in":"opacity-0   transform translate-x-[50%] transition duration-700 ease-in "}section `}
           >
-            <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.7%] top-[20%] transform translate-x-[50%]"></div>
+            <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.8%] top-[20%] transform translate-x-[50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
               <h2 className=" text-2xl"> WordPress / UiPath</h2>
               <h3>2018</h3>
               <p>
-                Found the gap in the local market and drop shiping become wery populars so started to learn WordPress and created web shop.
-                With help of UiPath made automations for product scraping and orders administration in WordPress. 
+              Found a gap in the local market, and drop shipping has become very popular, so I started to learn WordPress and created a web shop. With the help of UiPath, I made automations for product scraping and order administration in WordPress. 
               </p>
-              <p>From time to time I'm creating WordPress web sites and until present days.</p>
+              <p>From time to time, I've been creating WordPress web sites until the present day.</p>
             </div>
           </div>
 
@@ -68,12 +65,12 @@ const MyPath = () => {
           ref={timelineRefthree}
             className={`flex relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisiblethree ? "flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ":" opacity-0  transform translate-x-[-50%] transition duration-700 ease-in "}section `}
           >
-            <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.3%] top-[20%] transform translate-x-[-50%]"></div>
+            <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.2%] top-[20%] transform translate-x-[-50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
               <h2 className=" text-2xl">React-Native</h2>
               <h3>2019</h3>
               <p>
-              Got an idea to create the APP and Python here does not fit, so took CS50's Mobile App Development with React Native online couses at HarvardX. 
+              I had an idea to create the app, but Python here does not fit, so I took CS50's Mobile App Development with React Native online courses at HarvardX. 
               </p>
             </div>
           </div>
@@ -82,12 +79,12 @@ const MyPath = () => {
           ref={timelineReffour}
           className={`flex flex-row-reverse   relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisiblefour ? "opacity-100   transform translate-x-[0%] transition duration-700 ease-in":"opacity-0   transform translate-x-[50%] transition duration-700 ease-in "}section `}
           >
-            <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.7%] top-[20%] transform translate-x-[50%]"></div>
+            <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.8%] top-[20%] transform translate-x-[50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
               <h2 className=" text-2xl">Java & C++</h2>
               <h3>2020</h3>
               <p>
-              Decided that I need grow and learn more about programing so began studies at SMK University of Applied Sciences with emphasis to OOP.
+              I decided that I needed to grow and learn more about programming, so I began studies at SMK University of Applied Sciences with an emphasis on OOP.
               </p>
             </div>
           </div>
@@ -96,12 +93,12 @@ const MyPath = () => {
           ref={timelineReffive}
             className={`flex relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisiblefive ? "flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ":" opacity-0  transform translate-x-[-50%] transition duration-700 ease-in "}section `}
           >
-            <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.3%] top-[20%] transform translate-x-[-50%]"></div>
+            <div className="bead absolute block h-4 w-4 border rounded-full bg-black left-[50.2%] top-[20%] transform translate-x-[-50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
               <h2 className=" text-2xl">Android</h2>
               <h3>2022</h3>
               <p>
-              This year I spend most of my time learning Android app development, I have created many apps some public, some not, you can see them in the projects section. 
+              This year I spent most of my time learning Android app development. I have created many apps, some public, some not; you can see them in the projects section. 
               </p>
             </div>
           </div>
@@ -110,12 +107,12 @@ const MyPath = () => {
           ref={timelineRefsix}
           className={`flex flex-row-reverse   relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisiblesix ? "opacity-100   transform translate-x-[0%] transition duration-700 ease-in":"opacity-0   transform translate-x-[50%] transition duration-700 ease-in "}section `}
           >
-            <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.7%] top-[20%] transform translate-x-[50%]"></div>
+            <div className="bead absolute block h-4 w-4 border rounded-full bg-black right-[49.8%] top-[20%] transform translate-x-[50%]"></div>
             <div className="content w-[calc(50%-2rem)]">
               <h2 className=" text-2xl">Bachelor Programing & Multimedia</h2>
               <h3>2023</h3>
               <p>
-              Graduation at SMK University of Applied Sciences, I got a bachelor's degree in Programing & Multimedia.
+              Graduation at SMK University of Applied Sciences, I got a bachelor's degree in Programing and Multimedia.
               </p>
             </div>
           </div>

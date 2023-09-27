@@ -5,7 +5,7 @@ import Footer from "./Components/Footer/Footer";
 //import Particles from "react-tsparticles";
 //import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
-
+import backgroudPix from "../public/bg/pxfuel1.jpeg"
 
 function App() {
   const [content, setContent] = useState("about");
@@ -35,6 +35,14 @@ function App() {
         //       backgroundPosition: "center center",
         //       boxSizing: "border-box",
         //  }}
+      
+    //    style={{ 
+    //       backgroundImage: `url(${backgroudPix})`,
+    //       backgroundRepeat: "no-repeat",
+    //           backgroundSize: "cover",
+    //           backgroundPosition: "center center",
+    //           boxSizing: "border-box",
+    //      }}
       >
         <Header setContent={setContent} />
         <div className="pt-20 z-10 relative  ">

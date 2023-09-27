@@ -32,19 +32,23 @@ const Main = ({ content }) => {
         {content === "projects" && (
           <ProjectCard key={selectedProject.id} project={selectedProject} />
           )}
+          
 
-        <div className=" flex mb-32 mt-5">
-          {/* {window.innerHeight}
-          {window.innerHeight < 860 ? " true":" false"} */}
-          {content === "projects" ? (
-            <ProjectsNav
-             onProjectSelect={handleProjectSelect}
-             projectData={projectData}
-             selectedProjectId={selectedProjectId}
-            />
-          ) : null}
+  {content === "projects" ? (
+    <div className="flex mb-32 mt-5 justify-center items-center space-x-4">
+      <div>
+        <h3 className="font-semibold text-xl">
+          Select a project:
+        </h3>
+      </div>
+        <ProjectsNav
+          onProjectSelect={handleProjectSelect}
+          projectData={projectData}
+          selectedProjectId={selectedProjectId}
+        />
+    </div>
+  ) : null}
 
-        </div>
       </div>
 
       {/* <About />
