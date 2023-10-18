@@ -2,7 +2,7 @@ const productData = [{
   "id": 0,
   "name": "Storyteller App",
   "description": "Introducing an AI-powered storytelling app tailored for motivational and educational tales for children. At its core, this app leverages the capabilities of the Midjourney and ChatGPT APIs for dynamic content creation. Features: \n • A dedicated 'Parent Settings' section, allowing customization of story themes for motivational or educational purposes, along with other preferences tailored to your child's learning journey. \n • Voice input functionality, designed with a child-friendly interface for effortless interaction. Output options: \n • Text format, ideal for reading. \n • Text-to-speech feature, perfect for auditory learners.",
-  "images": ["./data/Projects_Imgs/Storyteller/welcomescrn.png","./data/Projects_Imgs/Storyteller/inputscrn.jpg","./data/Projects_Imgs/Storyteller/storyscrn.png"],
+  "images": ["./data/Projects_Imgs/Storyteller/welcomescrn.png","./data/Projects_Imgs/Storyteller/inputscrn.png","./data/Projects_Imgs/Storyteller/storyscrn.png"],
   "technologies": ["./assets/react-native.png","./assets/ChatGPT-Logo.png", "./assets/Midjourney-logo.png","./assets/figma.svg" ],
   "links":["https://github.com/As-Tomas/Storyteller-App"]
 },
