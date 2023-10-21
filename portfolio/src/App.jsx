@@ -46,7 +46,7 @@ function App() {
       >
         <Header setContent={setContent} />
         <div className="pt-20 z-10 relative  ">
-          <Main content={content} />
+          <Main content={content} setContent={setContent} />
         </div>
         <Footer />
         {/* <Particles

@@ -4,7 +4,7 @@ import ProjectCard from "../ProjectCard/ProjectCard";
 import ProjectsNav from "../ProjectCard/ProjectsNav";
 import GlassPlate from "./Components/GlassPlate";
 
-const Main = ({ content }) => {
+const Main = ({ content, setContent }) => {
   const [selectedProjectId, setSelectedProjectId] = useState(projectData[0].id);
 
   const handleProjectSelect = (index) => {
@@ -24,7 +24,7 @@ const Main = ({ content }) => {
 
   return (
     <div>
-      {content === "about" && <GlassPlate />}
+      {content === "about" && <GlassPlate setContent={setContent} />}
 
       <div
         className={`  `}

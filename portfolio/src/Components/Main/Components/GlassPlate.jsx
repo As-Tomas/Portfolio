@@ -7,7 +7,8 @@ import MyPath from "./Content/MyPath/MyPath";
 import { Contact } from "./Content/Contact";
 
 
-const GlassPlate = () => {
+
+const GlassPlate = ({setContent}) => {
   const [activeComponent, setIsComponent] = useState("AboutMe");
 
   const toggleComponent = (component) => {
@@ -95,6 +96,17 @@ const GlassPlate = () => {
                   </div>
 
                   <h2>About Me</h2>
+                </button>
+
+                <button
+                  className={`flex whitespace-nowrap rounded-lg py-1 px-2 `}
+                  onClick={() => setContent("projects")}
+                >
+                  <div className="mr-2">
+                  <img style={{height: '1.9rem'}} src={'../../../../public/assets/GeneralIcons/projects-icon.svg'}  alt="Logo"/>
+                  </div>
+
+                  <h2>Projects</h2>
                 </button>
 
                 <button
