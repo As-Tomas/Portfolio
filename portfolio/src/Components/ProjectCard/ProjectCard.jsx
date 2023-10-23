@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import React from 'react';
+
 
 
 const ProjectCard = ({ project }) => {
@@ -208,7 +210,14 @@ const ProjectCard = ({ project }) => {
               textJustify: "inter-word",
               textAlignLast: "left",
             }} >
-              {project.description}
+              {project.description.split('\n').map((line, idx) => 
+                <div  key={idx} style={{
+                  textIndent: "2em"
+                }}>
+                  {line}
+                  <br />
+                </div >
+            )}
             </h3>
 
             <div
