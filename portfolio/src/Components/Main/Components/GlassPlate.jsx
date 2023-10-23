@@ -104,7 +104,7 @@ const GlassPlate = ({ setContent }) => {
                     <img
                       style={{ height: "1.9rem" }}
                       src={
-                        "../../../../public/assets/GeneralIcons/projects-icon.svg"
+                        "assets/GeneralIcons/projects-icon.svg"
                       }
                       alt="Logo"
                     />
