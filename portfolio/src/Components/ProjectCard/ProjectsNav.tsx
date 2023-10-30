@@ -37,7 +37,7 @@ function Dock({
 }) {
   let mouseX = useMotionValue(Infinity);
 
-  const [activeIndex, setActiveIndex] = React.useState(selectedProjectId);
+  const [activeIndex, setActiveIndex] = React.useState(0);
   // console.log(typeof onProjectSelect);
 
   const handleClick = (index) => {

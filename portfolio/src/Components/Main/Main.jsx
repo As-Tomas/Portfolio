@@ -1,10 +1,11 @@
 import { useState } from "react";
-import projectData from "../../../public/data/ProjectsData";
+import projectSavedData from "../../../public/data/ProjectsData";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import ProjectsNav from "../ProjectCard/ProjectsNav";
 import GlassPlate from "./Components/GlassPlate";
 
 const Main = ({ content, setContent }) => {
+  const projectData = [...projectSavedData].reverse();  
   const [selectedProjectId, setSelectedProjectId] = useState(projectData[0].id);
 
   const handleProjectSelect = (index) => {
@@ -30,7 +31,7 @@ const Main = ({ content, setContent }) => {
         className={`  `}
       >
         {content === "projects" && (
-          <ProjectCard key={selectedProject.id} project={selectedProject} />
+          <ProjectCard key={selectedProjectId} project={selectedProject} />
           )}
           
 
