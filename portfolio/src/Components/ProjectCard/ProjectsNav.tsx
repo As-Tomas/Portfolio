@@ -7,19 +7,25 @@ import {
 } from "framer-motion";
 import React, { useRef } from "react";
 
-export default function ProjectsNav({onProjectSelect, projectData, selectedProjectId}) {
+export default function ProjectsNav({
+  onProjectSelect,
+  projectData,
+  selectedProjectId,
+}) {
   return (
     <div className="mx-auto">
-      
-      <Dock onProjectSelect={onProjectSelect} selectedProjectId={selectedProjectId}>
-      {projectData.map((project) => (
+      <Dock
+        onProjectSelect={onProjectSelect}
+        selectedProjectId={selectedProjectId}
+      >
+        {projectData.map((project) => (
           <img
             key={project.id}
             src={project.technologies[0]}
-            alt={project.name} 
+            alt={project.name}
             onClick={() => onProjectSelect(project.id)}
           />
-        ))}              
+        ))}
       </Dock>
     </div>
   );
@@ -33,7 +39,6 @@ function Dock({
   children: React.ReactNode;
   onProjectSelect: (index: number) => void;
   selectedProjectId: number;
-
 }) {
   let mouseX = useMotionValue(Infinity);
 
@@ -50,8 +55,10 @@ function Dock({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
     >
-      <ul className=" flex h-16 items-end gap-4 rounded-2xl border-2 border-[rgba(225,224,224,0.2)] shadow-neon_indigo  backdrop-blur-md       
-      bg-gradient-to-t from-[rgba(175,174,174,0.5)] to-[rgba(40,40,40,0.2)] px-4 pb-3">
+      <ul
+        className=" flex h-16 items-end gap-4 rounded-2xl border-2 border-[rgba(225,224,224,0.2)] shadow-neon_indigo  backdrop-blur-md       
+      bg-gradient-to-t from-[rgba(175,174,174,0.5)] to-[rgba(40,40,40,0.2)] px-4 pb-3"
+      >
         {!Array.isArray(children)
           ? children
           : children.map((node, index) => (
