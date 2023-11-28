@@ -31,7 +31,26 @@ const About = () => {
           <br /> I'm Full-Stack Developer
         </h2>
         <div className="max-w-md sm:max-w-none text-lg  mt-4 px-14  text-center  text-slate-700 dark:text-slate-400">
-          <p
+        <p
+            style={{
+              textIndent: "2em",
+              textAlign: "justify",
+              textJustify: "inter-word",
+              textAlignLast: "left",
+            }}
+          >
+            Hello! I'm Tomas, Full-Stack Developer with a penchant for
+            E-commerce and mobile app development. My toolkit? Java, C++,
+            JavaScript, React, React Native, and more. I’m looking to
+            collaborate on anything what is related to APP's As a gear up I
+            finished my bachelor's degree at SMK University as a programmer, I'm
+            eager for new challenging projects.
+          </p>
+          <div className=" text-left justify " style={{ textIndent: "2em" }}>
+            Curious about my journey or where we can go next? Dive into my
+            portfolio!
+          </div>
+          {/* <p
             style={{
               textIndent: "2em",
               textAlign: "justify",
@@ -86,7 +105,7 @@ const About = () => {
             I'm located in Bergen, and I'm glad that you're here. Please explore my work and feel free to
             reach out if you want to learn more about me or discuss potential
             collaborations.
-          </p>
+          </p> */}
         </div>
         <hr className="mx-auto my-5 bg-black dark:bg-white w-1/2"></hr>
         <div>
