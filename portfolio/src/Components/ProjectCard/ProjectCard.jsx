@@ -221,7 +221,7 @@ const ProjectCard = ({ project }) => {
             </h3>
 
             <div
-              className="ico flex justify-around "
+              className="ico flex justify-around   "
               onMouseLeave={handleMouseLeaveIco}
             >
               {project.technologies.slice(0, 4).map((technology, index) => (
@@ -231,7 +231,7 @@ const ProjectCard = ({ project }) => {
                   alt={`Tech ${index + 1}`}
                   className={` ${window.innerHeight < 860 ? " h-[2.5rem]":" h-[3rem]"} transition-transform ${
                     hoveredIndex === index ? "scale-150" : ""
-                  }`}
+                  } bg-radial-shadow rounded`}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 />

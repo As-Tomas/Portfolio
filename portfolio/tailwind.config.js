@@ -18,6 +18,9 @@ export default {
       animation: {
         bounceOnce: 'bounceOnce 5s infinite',
       },
+      backgroundImage: {
+        'radial-shadow': 'radial-gradient(circle, rgba(0, 0, 0, 0.1) 1%, transparent 70%)',
+      },
       
     },
   },
