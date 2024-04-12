@@ -41,7 +41,7 @@ const About = () => {
           >
             Hello! I'm Tomas, Full-Stack Developer with a penchant for
             E-commerce and mobile app development. My toolkit? Java, C++,
-            JavaScript, React, React Native, and more. I’m looking to
+            JavaScript, React, React Native, NextJS and more. I’m looking to
             collaborate on anything what is related to APP's As a gear up I
             finished my bachelor's degree at SMK University as a programmer, I'm
             eager for new challenging projects.
