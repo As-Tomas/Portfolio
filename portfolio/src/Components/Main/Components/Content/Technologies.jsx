@@ -125,6 +125,8 @@ const Technologies = () => {
           <img className="w-14 h-14 lg:w-20 lg:h-20 p-2 bg-gradient-to-br from-[#ffffffa6] to-[#ffffff54] rounded hover:scale-125 transition shadow" src="./assets/react.svg" alt="React"  />
           <img className="w-14 h-14 lg:w-20 lg:h-20 p-2 bg-gradient-to-br from-[#ffffffa6] to-[#ffffff54] rounded hover:scale-125 transition shadow" src="./vite.svg" alt="Vite"  />
           <img className="w-14 h-14 lg:w-20 lg:h-20 p-2 bg-gradient-to-br from-[#ffffffa6] to-[#ffffff54] rounded hover:scale-125 transition shadow" src="./assets/node.svg" alt="Node.js"  />
+          <img className="w-14 h-14 lg:w-20 lg:h-20 p-2 bg-gradient-to-br from-[#ffffffa6] to-[#ffffff54] rounded hover:scale-125 transition shadow" src="./assets/nextjs.png" alt="nextjs.png"  />
+          <img className="w-14 h-14 lg:w-20 lg:h-20 p-2 bg-gradient-to-br from-[#ffffffa6] to-[#ffffff54] rounded hover:scale-125 transition shadow" src="./assets/sanity.png" alt="sanity.png"  />
         </div>        
 
         </div>        
