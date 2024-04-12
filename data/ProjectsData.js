@@ -81,6 +81,14 @@ const productData = [
   },
   {
     "id": 10,
+    "name": "Video Course Platform",
+    "description": "This project showcases an interactive video course platform designed for speed and practicality across a range of subjects. Leveraging cutting-edge technologies like NextJS, Sanity, and Vercel, the platform delivers a seamless and efficient learning experience. ",
+    "images": ["./data/Projects_Imgs/veig/veig1_(Medium).png","./data/Projects_Imgs/veig/veig2_intro.png","./data/Projects_Imgs/veig/veig3_kurs_page.png"],
+    "technologies": ["./assets/nextjs.png","./assets/react.svg", "./assets/sanity.png","./assets/figma.svg" ],
+    "links":["https://github.com/FormBergenVeig/veig"]
+  },
+  {
+    "id": 11,
     "name": "Storyteller App",
     "description": "Introducing an AI-powered storytelling app tailored for motivational and educational tales for children. At its core, this app leverages the capabilities of the Midjourney and ChatGPT APIs for dynamic content creation. \n Features: \n • A dedicated „Parent Settings“ section, allowing customization of story themes for motivational or educational purposes, along with other preferences tailored to your child's learning journey. \n • Voice input functionality, designed with a child-friendly interface for effortless interaction. Output options: \n • Text format, ideal for reading. \n • Text-to-speech feature, perfect for auditory learners.",
     "images": ["./data/Projects_Imgs/Storyteller/storyscrn.png","./data/Projects_Imgs/Storyteller/inputscrn.png","./data/Projects_Imgs/Storyteller/welcomescrn.png"],
