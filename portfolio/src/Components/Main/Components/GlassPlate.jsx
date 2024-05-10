@@ -206,7 +206,7 @@ const GlassPlate = ({ setContent }) => {
                 </a>
 
                 <a 
-                  href="https://drive.google.com/file/d/1d6tzuHl8sw6d2NbaMP8BhRqFXQBvTU64/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1Kf2UF1i5sy9gER5DcB8hlSf7ldi3s0iq/view?usp=drive_link"
                   target="_blank"
                   rel="noreferrer"
                 >
