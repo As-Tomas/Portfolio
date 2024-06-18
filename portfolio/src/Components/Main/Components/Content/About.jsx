@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faQuoteLeft,
-  faHeart,
-  faAddressCard,
+  faHeart  
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useInView } from 'react-intersection-observer';
@@ -21,16 +20,16 @@ const About = () => {
     <section
       id="about"
       className="h-full w-full overflow-y-auto justify-center items-center pt-10 scroll-mt-40 "
-    >
+    >      
       <article>
-        <h2 className=" text-2xl font-bold text-center text-slate-900 dark:text-white">
+        <h2 className=" text-2xl font-bold text-center text-slate-900 ">
           Welcome! <br /> My name is{" "}
-          <span className="text-indigo-700 dark:text-indigo-300">
+          <span className="text-indigo-700 ">
             Tomas Bance
           </span>{" "}
           <br /> I'm Full-Stack Developer
         </h2>
-        <div className="max-w-md sm:max-w-none text-lg  mt-4 px-14  text-center  text-slate-700 dark:text-slate-400">
+        <div className="max-w-md sm:max-w-none text-lg  mt-4 px-14  text-center  text-slate-700 ">
         <p
             style={{
               textIndent: "2em",
@@ -107,7 +106,7 @@ const About = () => {
             collaborations.
           </p> */}
         </div>
-        <hr className="mx-auto my-5 bg-black dark:bg-white w-1/2"></hr>
+        <hr className="mx-auto my-5 bg-black  w-1/2"></hr>
         <div>
           <section className=" ">
             <div className="pb-5 flex items-center justify-center">

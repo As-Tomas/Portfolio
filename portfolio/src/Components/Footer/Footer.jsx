@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="group relative overflow-hidden">
-      <footer className=" z-20 fixed bottom-0  w-full mx-auto text-white text-lg sm:text-xl bg-[rgba(255,255,255,0.2)] backdrop-blur-md border-t-2 rounded-t-2xl border-[rgba(255,255,255,0.3)] ">
+      <footer className=" z-20 fixed bottom-0  w-full mx-auto text-slate-600  text-lg sm:text-lg bg-[rgba(255,255,255,0.2)] backdrop-blur-md border-t-2 rounded-t-2xl border-[rgba(255,255,255,0.3)] ">
         <section className="max-w-4xl  mx-auto px-2  sm:p-2 2xl:p-2 flex flex-row items-center justify-between">
           
           <address>
