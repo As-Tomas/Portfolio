@@ -1,34 +1,24 @@
 const Footer = () => {
   return (
-    <div className="group relative overflow-hidden">
-      <footer className=" z-20 fixed bottom-0  w-full mx-auto text-slate-600  text-lg sm:text-lg bg-[rgba(255,255,255,0.2)] backdrop-blur-md border-t-2 rounded-t-2xl border-[rgba(255,255,255,0.3)] ">
-        <section className="max-w-4xl  mx-auto px-2  sm:p-2 2xl:p-2 flex flex-row items-center justify-between">
-          
+    <div className='group relative overflow-hidden'>
+      <footer className=' z-20 fixed bottom-0  w-full mx-auto text-slate-600  text-lg sm:text-lg bg-[rgba(255,255,255,0.2)] backdrop-blur-md border-t-2 rounded-t-2xl border-[rgba(255,255,255,0.3)] '>
+        <section className='max-w-4xl  mx-auto px-2  sm:p-2 2xl:p-2 flex flex-row items-center justify-between'>
           <address>
-           
-            
-            <h2>
-              Email:
-            </h2>
-              <a href="mailto:tomas.bance@gmail.com"> tomas.bance@gmail.com</a>
+            <h2>Email:</h2>
+            <a href='mailto:tomas.bance@gmail.com'> tomas.bance@gmail.com</a>
           </address>
 
-          <nav className="flex flex-col sm:gap-1" aria-label="footer">
-            <h2>
-              Phone: 
-            </h2>
-            <a href="tel:+4796889383"> (+47) 968 893 83</a>
+          <nav className='flex flex-col sm:gap-1' aria-label='footer'>
+            <h2>Phone:</h2>
+            <a href='tel:+4796889383'> (+47) 968 893 83</a>
           </nav>
 
-          <div className="hidden flex-col md:flex sm:gap-1">
-            <p className="text-right">
-              Copyright &copy; <span id="year">2023</span>
+          <div className='hidden flex-col md:flex sm:gap-1'>
+            <p className='text-right'>
+              Copyright &copy; <span id='year'>2023</span>
             </p>
-            <p className="text-right">
-              All Rights Reserved
-            </p>
+            <p className='text-right'>All Rights Reserved</p>
           </div>
-
         </section>
       </footer>
       <div
