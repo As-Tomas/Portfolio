@@ -1,9 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faQuoteLeft,
-  faHeart  
-} from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuoteLeft, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const About = () => {
@@ -13,41 +10,27 @@ const About = () => {
     setLikes(likes + 1);
   };
 
-  const { ref:thisIsVisible, inView: isVisible } = useInView();
-
+  const { ref: thisIsVisible, inView: isVisible } = useInView();
 
   return (
-    <section
-      id="about"
-      className="h-full w-full overflow-y-auto justify-center items-center pt-10 scroll-mt-40 "
-    >      
+    <section id='about' className='h-full w-full overflow-y-auto justify-center items-center pt-10 scroll-mt-40 '>
       <article>
-        <h2 className=" text-2xl font-bold text-center text-slate-900 ">
-          Welcome! <br /> My name is{" "}
-          <span className="text-indigo-700 ">
-            Tomas Bance
-          </span>{" "}
-          <br /> I'm Full-Stack Developer
+        <h2 className=' text-2xl font-bold text-center text-slate-900 '>
+          Welcome! <br /> My name is <span className='text-indigo-700 '>Tomas Bance</span> <br /> I'm Full-Stack Developer
         </h2>
-        <div className="max-w-md sm:max-w-none text-lg  mt-4 px-14  text-center  text-slate-700 ">
-        <p
+        <div className='max-w-md sm:max-w-none text-lg  mt-4 px-14  text-center  text-slate-700 '>
+          <p
             style={{
-              textIndent: "2em",
-              textAlign: "justify",
-              textJustify: "inter-word",
-              textAlignLast: "left",
-            }}
-          >
-            Hello! I'm Tomas, Full-Stack Developer with a penchant for
-            E-commerce and mobile app development. My toolkit? Java, C++,
-            JavaScript, React, React Native, NextJS and more. I’m looking to
-            collaborate on anything what is related to APP's As a gear up I
-            finished my bachelor's degree at SMK University as a programmer, I'm
-            eager for new challenging projects.
+              textIndent: '2em',
+              textAlign: 'justify',
+              textJustify: 'inter-word',
+              textAlignLast: 'left',
+            }}>
+            Hello! I'm Tomas, Full-Stack Developer with a penchant for E-commerce and mobile app development. My toolkit? Java, C++, JavaScript, React, React Native, NextJS and more. I’m looking to collaborate on anything what is related to APP's As a gear up I finished my bachelor's degree at SMK
+            University as a programmer, I'm eager for new challenging projects.
           </p>
-          <div className=" text-left justify " style={{ textIndent: "2em" }}>
-            Curious about my journey or where we can go next? Dive into my
-            portfolio!
+          <div className=' text-left justify ' style={{ textIndent: '2em' }}>
+            Curious about my journey or where we can go next? Dive into my portfolio!
           </div>
           {/* <p
             style={{
@@ -106,37 +89,23 @@ const About = () => {
             collaborations.
           </p> */}
         </div>
-        <hr className="mx-auto my-5 bg-black  w-1/2"></hr>
+        <hr className='mx-auto my-5 bg-black  w-1/2'></hr>
         <div>
-          <section className=" ">
-            <div className="pb-5 flex items-center justify-center">
-              <div className="md:w-3/4 xl:w-1/2">
-                <div className="text-white bg-[#1eaeb8c2] border border-[#2a7b81] rounded-lg p-5">
-                  <FontAwesomeIcon
-                    icon={faQuoteLeft}
-                    className="mb-4 text-2xl"
-                  />
+          <section className=' '>
+            <div className='pb-5 flex items-center justify-center'>
+              <div className='md:w-3/4 xl:w-1/2'>
+                <div className='text-white bg-[#1eaeb8c2] border border-[#2a7b81] rounded-lg p-5'>
+                  <FontAwesomeIcon icon={faQuoteLeft} className='mb-4 text-2xl' />
 
-                  <p className="leading-7">
-                    There is nothing impossible... Just question of time and
-                    will!
-                  </p>
+                  <p className='leading-7'>There is nothing impossible... Just a question of time and will!</p>
 
-                  <hr className="pb-2" />
+                  <hr className='pb-2' />
 
-                  <div className="flex justify-between">
-                    <p ref={thisIsVisible}
-                    >
-                      My credo</p>
-                    <div className="font-semibold">
-                      <span className="rounded-full bg-black bg-opacity-20 py-1 px-2">
-                        {likes}
-                      </span>
-                      <FontAwesomeIcon
-                        icon={faHeart}
-                        style={{ color: "#f34135" }}
-                        onClick={handleLikeClick}
-                      />
+                  <div className='flex justify-between'>
+                    <p ref={thisIsVisible}>My credo</p>
+                    <div className='font-semibold'>
+                      <span className='rounded-full bg-black bg-opacity-20 py-1 px-2'>{likes}</span>
+                      <FontAwesomeIcon icon={faHeart} style={{ color: '#f34135' }} onClick={handleLikeClick} />
                     </div>
                   </div>
                 </div>
@@ -145,12 +114,8 @@ const About = () => {
           </section>
         </div>
       </article>
-      <div       
-      className={`flex justify-center items-center  -ml-[20vw] ${isVisible ? "hidden" : ""}`}>
-        <img 
-        className=" absolute bottom-3 h-10 animate-bounceOnce     "
-        src="./assets/GeneralIcons/wheel_scroll_mouse.svg" alt="" 
-        />
+      <div className={`flex justify-center items-center  -ml-[20vw] ${isVisible ? 'hidden' : ''}`}>
+        <img className=' absolute bottom-3 h-10 animate-bounceOnce     ' src='./assets/GeneralIcons/wheel_scroll_mouse.svg' alt='' />
       </div>
     </section>
   );
