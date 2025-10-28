@@ -15,11 +15,12 @@ const Header = ({ setContent }) => {
     }
   }
 
-  return (   
-
-    <div className="group  ">
-      <header className=" z-30 fixed top-0 left-0 w-full  h-16 px-20 py-5 bg-[rgba(255,255,255,0.1)]  mx-auto p-4 flex justify-between 
-      items-center  border-b-2 rounded-b-2xl   border-[rgba(255,255,255,0.2)] ">        
+  return (
+    <div className="group">
+      <header
+        className="z-30 fixed top-0 left-0 w-full h-16 px-6 sm:px-12 lg:px-20 flex items-center justify-between
+      bg-white/10 border-b border-white/25 backdrop-blur-2xl rounded-b-2xl shadow-[0_18px_35px_rgba(15,23,42,0.22)]"
+      >
          
          <h1 className=" text-2xl sm:text-3xl font-medium">
            <button href="#hero"
@@ -36,12 +37,12 @@ const Header = ({ setContent }) => {
            >
              &#9776;
            </button>
-           <nav className={`sm:block text-xl ${isMobileMenuOpen ? 'z-50 flex flex-col justify-start items-start absolute p-6 pr-16 gap-5 top-full right-0 bg-[rgba(255,255,255,0.2)] backdrop-blur-md  border-l-2 border-b-2 border-r-2 border-[rgba(255,255,255,0.3)] shadow-md rounded-md' : 'hidden space-x-8'}`} aria-label="main">
+           <nav className={`sm:block text-xl ${isMobileMenuOpen ? 'z-50 flex flex-col justify-start items-start absolute p-6 pr-16 gap-5 top-full right-0 bg-white/15 backdrop-blur-xl border border-white/25 shadow-[0_18px_45px_rgba(15,23,42,0.35)] rounded-2xl' : 'hidden space-x-8'}`} aria-label="main">
 
              
              <a
                href="#About"
-               className="hover:text-indigo-700 hover:duration-200"
+               className="transition-colors hover:text-[#00f5d4]"
                onClick={() => hideMenu('about')}
              >
                About
@@ -49,7 +50,7 @@ const Header = ({ setContent }) => {
             
              <a
                href="#Portfolio"
-               className="hover:text-indigo-700 hover:duration-200"
+               className="transition-colors hover:text-[#ff8906]"
                onClick={() => hideMenu('projects')}
              >
                Projects

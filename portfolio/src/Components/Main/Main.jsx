@@ -24,18 +24,17 @@ const Main = ({ content, setContent }) => {
   // }
 
   return (
-    <div>
+    <div className="flex flex-col gap-12">
       {content === "about" && <GlassPlate setContent={setContent} />}
 
-      <div className={`  `}>
-        {content === "projects" && (
+      {content === "projects" && (
+        <div className="flex flex-col items-center gap-10">
           <ProjectCard key={selectedProjectId} project={selectedProject} />
-        )}
 
-        {content === "projects" ? (
-          <div className="flex mb-32 mt-5 justify-center items-center space-x-4">
-            <div>
-              <h3 className="font-semibold text-xl">Select a project:</h3>
+          <div className="glass-panel bg-white/10 px-6 py-4 sm:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 w-full max-w-4xl text-white/80">
+            <div className="space-y-1">
+              <h3 className="text-xl font-semibold text-white">Select a project</h3>
+              <p className="text-sm uppercase tracking-[0.3em] text-white/50">Featuring layered glass case studies</p>
             </div>
             <ProjectsNav
               onProjectSelect={handleProjectSelect}
@@ -43,8 +42,8 @@ const Main = ({ content, setContent }) => {
               selectedProjectId={selectedProjectId}
             />
           </div>
-        ) : null}
-      </div>
+        </div>
+      )}
 
       {/* <About />
         <hr className="mx-auto my-10 bg-black dark:bg-white w-1/2"></hr>

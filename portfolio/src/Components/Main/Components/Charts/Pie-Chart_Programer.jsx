@@ -5,6 +5,10 @@ const PieChartProgramer = () => {
     title: {
       text: "Stack Skills",
       left: "center",
+      textStyle: {
+        color: "#E2E8F0",
+        fontWeight: "600",
+      },
     },
     tooltip: {
       trigger: "item",
@@ -26,34 +30,36 @@ const PieChartProgramer = () => {
             value: 60,
             name: "Back-End",
             itemStyle: {
-              color: "#6CE5E8",
+              color: "#ffd23f",
               shadowBlur: 10,
               shadowOffsetX: 0,
               shadowOffsetY: 0,
-              shadowColor: "rgba(0, 0, 0, 0.2)",
+              shadowColor: "rgba(255, 210, 63, 0.35)",
             },
             label: {
               show: true,
               position: "inside",
               formatter: "{b} - {c}%",
               fontWeight: "bold",
+              color: "#0b0f2f",
             },
           },
           {
             value: 40,
             name: "Front-End",
             itemStyle: {
-              color: "#2D8BBA",
+              color: "#f72585",
               shadowBlur: 10,
               shadowOffsetX: 0,
               shadowOffsetY: 0,
-              shadowColor: "rgba(0, 0, 0, 0.2)",
+              shadowColor: "rgba(247, 37, 133, 0.45)",
             },
             label: {
               show: true,
               position: "inside",
               formatter: "{b} - {c}%",
               fontWeight: "bold",
+              color: "#0b0f2f",
             },
           },
         ],

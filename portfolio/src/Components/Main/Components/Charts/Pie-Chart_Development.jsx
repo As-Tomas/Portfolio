@@ -6,6 +6,10 @@ const PieChartDevelopment = () => {
       text: "Development",
       // subtext: 'Fake Data',
       left: "center",
+      textStyle: {
+        color: "#E2E8F0",
+        fontWeight: "600",
+      },
     },
     tooltip: {
       trigger: "item",
@@ -28,36 +32,38 @@ const PieChartDevelopment = () => {
         data: [
           {
             value: 80,
-            name: "Programer",
+            name: "Programmer",
             itemStyle: {
-              color: "#6CE5E8",
+              color: "#00f5d4",
               shadowBlur: 10,
               shadowOffsetX: 0,
               shadowOffsetY: 0,
-              shadowColor: "rgba(0, 0, 0, 0.2)",
+              shadowColor: "rgba(0, 245, 212, 0.35)",
             },
             label: {
               show: true,
               position: "inside",
               formatter: "{b} - {c}%",
               fontWeight: "bold",
+              color: "#0b0f2f",
             },
           },
           {
             value: 20,
             name: "Designer",
             itemStyle: {
-              color: "#2D8BBA",
+              color: "#8338ec",
               shadowBlur: 10,
               shadowOffsetX: 0,
               shadowOffsetY: 0,
-              shadowColor: "rgba(0, 0, 0, 0.2)",
+              shadowColor: "rgba(131, 56, 236, 0.4)",
             },
             label: {
               show: true,
               position: "inside",
               formatter: "{b} - {c}%",
               fontWeight: "bold",
+              color: "#0b0f2f",
             },
           },
         ],

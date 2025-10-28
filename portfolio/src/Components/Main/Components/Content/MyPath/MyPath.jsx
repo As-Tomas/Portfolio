@@ -1,141 +1,157 @@
-import styles from './styles.module.css';
-import { useEffect, useRef, useCallback } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-const MyPath = () => {
-  const { ref: timelineRef, inView: myElementIsVisible } = useInView();
-  const { ref: timelineReftwo, inView: myElementIsVisibletwo } = useInView();
-  const { ref: timelineRefthree, inView: myElementIsVisiblethree } = useInView();
-  const { ref: timelineReffour, inView: myElementIsVisiblefour } = useInView();
-  const { ref: timelineReffive, inView: myElementIsVisiblefive } = useInView();
-  const { ref: timelineRefsix, inView: myElementIsVisiblesix } = useInView();
-  const { ref: timelineRefseven, inView: myElementIsVisibleseven } = useInView();
-  const { ref: timelineRefeith, inView: myElementIsVisibleeith } = useInView();
+const timelineEvents = [
+  {
+    title: 'Poker',
+    year: '2016',
+    subtitle: 'Where my curiosity was ignited',
+    paragraphs: [
+      "Besides my daily work as office support, I played poker tournaments in the evenings for many years. Each month's winnings were a solid salary supplement, yet the time investment was enormous.",
+      'Automating my strategies sounded tempting, so I searched for tooling and discovered the Deep Mind Pokerbot open source project on GitHub. It was written in Python—and that was the spark that pushed me headfirst into programming.',
+    ],
+  },
+  {
+    title: 'WordPress & UiPath',
+    year: '2018',
+    subtitle: 'E-commerce experiments',
+    paragraphs: [
+      'Dropshipping was booming, so I learned WordPress and launched an online store. UiPath automations took care of product scraping and order admin.',
+      'Since then I’ve delivered WordPress experiences on and off—balancing freedom, automation and UX.',
+    ],
+  },
+  {
+    title: 'React Native',
+    year: '2019',
+    subtitle: 'Mobile-first thinking',
+    paragraphs: [
+      'To ship a mobile app idea I enrolled in CS50’s Mobile App Development with React Native at HarvardX.',
+      'The course grounded me in cross-platform design, Expo, and native capabilities—skills I rely on today.',
+    ],
+  },
+  {
+    title: 'Java & C++',
+    year: '2020',
+    subtitle: 'Deep dive into OOP',
+    paragraphs: [
+      'I wanted a stronger engineering backbone, so I started at SMK University of Applied Sciences with emphasis on OOP and software architecture.',
+    ],
+  },
+  {
+    title: 'Android',
+    year: '2022',
+    subtitle: 'Hands-on shipping',
+    paragraphs: [
+      'I dedicated the year to Android development—building public and private apps, automating build flows, and experimenting with UI layouts.',
+      'Several of those projects now live in the portfolio you can explore.',
+    ],
+  },
+  {
+    title: 'Bachelor: Programming & Multimedia',
+    year: '2023',
+    subtitle: 'Formalising the craft',
+    paragraphs: [
+      'I graduated from SMK University of Applied Sciences with a bachelor’s degree in Programming and Multimedia, tying research-backed thinking to real-world delivery.',
+    ],
+  },
+  {
+    title: 'Frontend',
+    year: '2023',
+    subtitle: 'Interface obsession',
+    paragraphs: [
+      'Contract work and full-time engagements across React, Next.js, WordPress, and product design cemented my love for UI/UX storytelling.',
+    ],
+  },
+  {
+    title: 'Full-stack',
+    year: '2024',
+    subtitle: 'Systems thinking',
+    paragraphs: [
+      'I led development of a containerised architecture using Docker, MinIO, TimescaleDB, and Elasticsearch—optimising security with least-privilege principles.',
+      'Label Studio powered object annotation pipelines, ELK handled observability, and React delivered dynamic operator dashboards. Documentation stitched it all together for seamless handover.',
+    ],
+  },
+];
+
+const TimelineItem = ({ event, index }) => {
+  const isEven = index % 2 === 0;
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
-    <div className='mypath  h-full w-full overflow-y-auto '>
-      <div className='container p-[2rem] pb-[100px] mx-auto '>
-        <div className='topSection text-center py-[1rem] max-w-xl mx-auto'>
-          <h1 className=' text-3xl'>My path</h1>
-          <p>Here you can see my historical life path, how I found my passion, and where I'm now.</p>
-        </div>
-
-        <div className='timeLine relative min-h-[150px] '>
-          <div
-            className='line absolute z-20 left-1/2 transform -translate-x-[-1px] w-[2px] -top-12 -bottom-12 bg-black 
-         before:absolute before:block before:h-4 before:w-4 before:rounded-full before:bg-black before:left-1/2 before:transform before:translate-x-[-50%]
-         after:absolute after:block after:h-4 after:w-4 after:rounded-full after:bg-black after:left-1/2 after:transform after:translate-x-[-50%]
-          after:bottom-0'></div>
-          <div
-            ref={timelineRef}
-            className={`flex relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisible ? 'flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ' : ' opacity-0  transform translate-x-[-50%] transition duration-700 ease-in '}section `}>
-            <div className='bead absolute block h-4 w-4 border rounded-full bg-black left-[50.2%] top-[20%] transform translate-x-[-50%]'></div>
-            <div className='content w-[calc(50%-2rem)] text-left'>
-              <h2 className=' text-2xl'>Poker</h2>
-              <h3>2016 is where my passion began..</h3>
-              <p>
-                Besides my daily work as office support, I have been playing poker tournaments in the evenings for many years, and each month's winnings are not a bad salary supplement. But poker games take a lot of time, and here came an idea: why not automate my strategies and save time? A little
-                bit of Google and I found Deep Mind Pokerbot free source at Github, coded in Python, and here my passion began!
-              </p>
-            </div>
+    <div
+      ref={ref}
+      className={`relative grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center ${
+        isEven ? '' : 'md:[direction:rtl]'
+      }`}
+    >
+      <div
+        className={`flex justify-center md:justify-${isEven ? 'end' : 'start'} md:[direction:ltr] ${
+          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+        } transition-all duration-700`}
+      >
+        <article className='glass-panel bg-white/12 px-6 py-6 sm:px-8 sm:py-8 max-w-xl text-left text-white/85'>
+          <header className='flex flex-col gap-1'>
+            <span className='text-sm uppercase tracking-[0.3em] text-white/60'>{event.year}</span>
+            <h3 className='text-2xl font-semibold text-white'>{event.title}</h3>
+            <p className='text-sm text-white/60'>{event.subtitle}</p>
+          </header>
+          <div className='mt-4 space-y-4 text-sm leading-relaxed'>
+            {event.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
-
-          <div
-            ref={timelineReftwo}
-            className={`flex flex-row-reverse   relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${
-              myElementIsVisibletwo ? 'opacity-100   transform translate-x-[0%] transition duration-700 ease-in' : 'opacity-0   transform translate-x-[50%] transition duration-700 ease-in '
-            }section `}>
-            <div className='bead absolute block h-4 w-4 border rounded-full bg-black right-[49.8%] top-[20%] transform translate-x-[50%]'></div>
-            <div className='content w-[calc(50%-2rem)]'>
-              <h2 className=' text-2xl'> WordPress / UiPath</h2>
-              <h3>2018</h3>
-              <p>Found a gap in the local market, and drop shipping has become very popular, so I started to learn WordPress and created a web shop. With the help of UiPath, I made automations for product scraping and order administration in WordPress.</p>
-              <p>From time to time, I've been creating WordPress web sites until the present day.</p>
-            </div>
-          </div>
-
-          <div
-            ref={timelineRefthree}
-            className={`flex relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisiblethree ? 'flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ' : ' opacity-0  transform translate-x-[-50%] transition duration-700 ease-in '}section `}>
-            <div className='bead absolute block h-4 w-4 border rounded-full bg-black left-[50.2%] top-[20%] transform translate-x-[-50%]'></div>
-            <div className='content w-[calc(50%-2rem)]'>
-              <h2 className=' text-2xl'>React-Native</h2>
-              <h3>2019</h3>
-              <p>I had an idea to create the app, but Python here does not fit, so I took CS50's Mobile App Development with React Native online courses at HarvardX.</p>
-            </div>
-          </div>
-
-          <div
-            ref={timelineReffour}
-            className={`flex flex-row-reverse   relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${
-              myElementIsVisiblefour ? 'opacity-100   transform translate-x-[0%] transition duration-700 ease-in' : 'opacity-0   transform translate-x-[50%] transition duration-700 ease-in '
-            }section `}>
-            <div className='bead absolute block h-4 w-4 border rounded-full bg-black right-[49.8%] top-[20%] transform translate-x-[50%]'></div>
-            <div className='content w-[calc(50%-2rem)]'>
-              <h2 className=' text-2xl'>Java & C++</h2>
-              <h3>2020</h3>
-              <p>I decided that I needed to grow and learn more about programming, so I began studies at SMK University of Applied Sciences with an emphasis on OOP.</p>
-            </div>
-          </div>
-
-          <div
-            ref={timelineReffive}
-            className={`flex relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisiblefive ? 'flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ' : ' opacity-0  transform translate-x-[-50%] transition duration-700 ease-in '}section `}>
-            <div className='bead absolute block h-4 w-4 border rounded-full bg-black left-[50.2%] top-[20%] transform translate-x-[-50%]'></div>
-            <div className='content w-[calc(50%-2rem)]'>
-              <h2 className=' text-2xl'>Android</h2>
-              <h3>2022</h3>
-              <p>This year I spent most of my time learning Android app development. I have created many apps, some public, some not; you can see them in the projects section.</p>
-            </div>
-          </div>
-
-          <div
-            ref={timelineRefsix}
-            className={`flex flex-row-reverse   relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${
-              myElementIsVisiblesix ? 'opacity-100   transform translate-x-[0%] transition duration-700 ease-in' : 'opacity-0   transform translate-x-[50%] transition duration-700 ease-in '
-            }section `}>
-            <div className='bead absolute block h-4 w-4 border rounded-full bg-black right-[49.8%] top-[20%] transform translate-x-[50%]'></div>
-            <div className='content w-[calc(50%-2rem)]'>
-              <h2 className=' text-2xl'>Bachelor Programing & Multimedia</h2>
-              <h3>2023</h3>
-              <p>Graduation at SMK University of Applied Sciences, I got a bachelor's degree in Programing and Multimedia.</p>
-            </div>
-          </div>
-
-          <div
-            ref={timelineRefseven}
-            className={`flex relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${myElementIsVisibleseven ? 'flex opacity-100   transform translate-x-[0%] transition duration-700 ease-in ' : ' opacity-0  transform translate-x-[-50%] transition duration-700 ease-in '}section `}>
-            <div className='bead absolute block h-4 w-4 border rounded-full bg-black left-[50.2%] top-[20%] transform translate-x-[-50%]'></div>
-            <div className='content w-[calc(50%-2rem)]'>
-              <h2 className=' text-2xl'>FrontEnd</h2>
-              <h3>2023</h3>
-              <p>The year of FrontEnd, I was hired and also was working as freelancer, mostly in React, Next.js, Wordpress and afcourse UI/UX design.</p>
-            </div>
-          </div>
-
-          <div
-            ref={timelineRefeith}
-            className={`flex flex-row-reverse   relative z-10 my-12 p-4  rounded-2xl items-center min-h-[300px] ${
-              myElementIsVisibleeith ? 'opacity-100   transform translate-x-[0%] transition duration-700 ease-in' : 'opacity-0   transform translate-x-[50%] transition duration-700 ease-in '
-            }section `}>
-            <div className='bead absolute block h-4 w-4 border rounded-full bg-black right-[49.8%] top-[20%] transform translate-x-[50%]'></div>
-            <div className='content w-[calc(50%-2rem)]'>
-              <h2 className=' text-2xl'>Full-stack</h2>
-              <h3>2024</h3>
-              <p>
-                I led the development of a full-stack architecture using Docker, MinIO, TimescaleDB, and Elasticsearch, optimizing container security and performance through least privilege principles and resource constraints. I integrated Label Studio for in image object annotation, creating data
-                pipelines for media storage and metadata management. Additionally, I developed real-time camera uptime monitoring systems with API endpoints, logging via the ELK Stack, and dynamic UI components in React. My work also included database design, metadata handling, and the documentation
-                of system architecture for seamless cross-team collaboration and future cloud transitions..
-              </p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h2 className=' pt-2 text-center text-2xl font-extrabold animate-bounce '>I'm ready to be hired!!!🔔</h2>
-        </div>
+        </article>
       </div>
-      <div className={`flex justify-center items-center  -ml-[20vw] ${myElementIsVisiblesix ? 'hidden' : ''}`}>
-        <img className=' absolute bottom-3 h-10 animate-bounceOnce     ' src='./assets/GeneralIcons/wheel_scroll_mouse.svg' alt='' />
+
+      <span
+        className='relative hidden h-full w-px justify-self-center md:flex'
+        aria-hidden='true'
+      >
+        <span className='absolute -top-10 h-20 w-px bg-gradient-to-b from-transparent via-white/40 to-transparent' />
+        <span className='absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-gradient-to-br from-[#00f5d4] via-white to-[#8338ec] shadow-[0_0_18px_rgba(0,245,212,0.65)]' />
+        <span className='absolute h-full w-px bg-white/20' />
+        <span className='absolute -bottom-10 h-20 w-px bg-gradient-to-t from-transparent via-white/40 to-transparent' />
+      </span>
+    </div>
+  );
+};
+
+const MyPath = () => {
+  const { ref: indicatorRef, inView: indicatorVisible } = useInView({ triggerOnce: false, threshold: 0.3 });
+
+  return (
+    <div className='mypath flex h-full w-full flex-col gap-10 overflow-y-auto px-2 py-6 text-white'>
+      <div className='mx-auto flex w-full max-w-5xl flex-col gap-10 rounded-[32px] border border-white/15 bg-white/6 px-6 py-10 sm:px-10 sm:py-14 shadow-[0_40px_80px_rgba(15,23,42,0.45)] backdrop-blur-3xl'>
+        <header className='text-center space-y-4'>
+          <p className='text-xs uppercase tracking-[0.4em] text-white/50'>Growth timeline</p>
+          <h1 className='text-3xl font-semibold text-white'>My Path</h1>
+          <p className='mx-auto max-w-2xl text-base text-white/75 leading-relaxed'>
+            A visual pulse of how experiments, studies, and professional leaps shaped the developer I am today. Every step
+            added new layers—from automation curiosity to full-stack delivery.
+          </p>
+        </header>
+
+        <div className='relative'>
+          <span className='absolute left-1/2 top-0 hidden h-full -translate-x-1/2 bg-white/10 md:block' aria-hidden='true' />
+          <div className='relative flex flex-col gap-12'>
+            {timelineEvents.map((event, index) => (
+              <TimelineItem key={event.title} event={event} index={index} />
+            ))}
+          </div>
+        </div>
+
+        <footer className='flex flex-col items-center gap-4 text-center'>
+          <h2 className='text-2xl font-semibold text-white'>
+            I’m ready for the next challenge <span className='text-[#ffd23f]'>now</span>.
+          </h2>
+          <p className='text-white/70 text-sm uppercase tracking-[0.35em]'>Let’s make it official.</p>
+        </footer>
+      </div>
+
+      <div
+        ref={indicatorRef}
+        className={`relative flex justify-center pb-6 ${indicatorVisible ? 'opacity-0' : 'opacity-100 transition-opacity duration-700'}`}
+      >
+        <img className='h-10 animate-bounceOnce' src='./assets/GeneralIcons/wheel_scroll_mouse.svg' alt='Scroll indicator' />
       </div>
     </div>
   );

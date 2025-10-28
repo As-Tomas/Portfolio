@@ -1,23 +1,23 @@
 const Footer = () => {
   return (
     <div className='group relative overflow-hidden'>
-      <footer className=' z-20 fixed bottom-0  w-full mx-auto text-slate-600  text-lg sm:text-lg bg-[rgba(255,255,255,0.2)] backdrop-blur-md border-t-2 rounded-t-2xl border-[rgba(255,255,255,0.3)] '>
-        <section className='max-w-4xl  mx-auto px-2  sm:p-2 2xl:p-2 flex flex-row items-center justify-between'>
-          <address>
-            <h2>Email:</h2>
-            <a href='mailto:tomas.bance@gmail.com'> tomas.bance@gmail.com</a>
+      <footer className=' z-20 fixed bottom-0  w-full mx-auto text-slate-100  text-lg sm:text-lg bg-white/10 backdrop-blur-2xl border-t border-white/20 rounded-t-2xl shadow-[0_-18px_35px_rgba(15,23,42,0.22)]'>
+        <section className='max-w-4xl  mx-auto px-4 sm:px-6 py-2 flex flex-row items-center justify-between'>
+          <address className='not-italic leading-tight'>
+            <h2 className='uppercase tracking-widest text-xs text-white/60'>Email</h2>
+            <a className='hover:text-[#8eceff] transition-colors' href='mailto:tomas.bance@gmail.com'> tomas.bance@gmail.com</a>
           </address>
 
-          <nav className='flex flex-col sm:gap-1' aria-label='footer'>
-            <h2>Phone:</h2>
-            <a href='tel:+4796889383'> (+47) 968 893 83</a>
+          <nav className='flex flex-col sm:gap-1 leading-tight' aria-label='footer'>
+            <h2 className='uppercase tracking-widest text-xs text-white/60'>Phone</h2>
+            <a className='hover:text-[#ffd23f] transition-colors' href='tel:+4796889383'> (+47) 968 893 83</a>
           </nav>
 
-          <div className='hidden flex-col md:flex sm:gap-1'>
-            <p className='text-right'>
+          <div className='hidden flex-col md:flex sm:gap-1 text-right leading-tight text-white/70'>
+            <p>
               Copyright &copy; <span id='year'>2023</span>
             </p>
-            <p className='text-right'>All Rights Reserved</p>
+            <p>All Rights Reserved</p>
           </div>
         </section>
       </footer>

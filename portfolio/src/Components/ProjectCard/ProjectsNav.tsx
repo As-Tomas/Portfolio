@@ -56,8 +56,7 @@ function Dock({
       onMouseLeave={() => mouseX.set(Infinity)}
     >
       <ul
-        className=" flex h-16 items-end gap-4 rounded-2xl border-2 border-[rgba(225,224,224,0.2)] shadow-neon_indigo  backdrop-blur-md       
-      bg-gradient-to-t from-[rgba(175,174,174,0.5)] to-[rgba(40,40,40,0.2)] px-4 pb-3"
+        className="flex h-16 items-end gap-4 rounded-3xl border border-white/20 bg-white/12 px-5 pb-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl"
       >
         {!Array.isArray(children)
           ? children
@@ -103,8 +102,10 @@ function AppIcon({
     <motion.div
       ref={ref}
       style={{ width }}
-      className={`flex items-stretch p-2 overflow-hidden aspect-square w-10 rounded-full hover:bg-white bg-gray-200 active:transform-gpu ${
-        isActive ? "border-red-500 border-2 bg-red-300   " : ""
+      className={`flex aspect-square w-10 items-stretch overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-2 transition-all duration-200 hover:scale-110 hover:bg-white/20 ${
+        isActive
+          ? "shadow-[0_12px_30px_rgba(131,56,236,0.45)] border-white/50 bg-white/30"
+          : ""
       }`}
       onClick={onClick}
     >
