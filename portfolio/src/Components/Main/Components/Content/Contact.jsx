@@ -1,23 +1,17 @@
 export const Contact = () => {
   return (
     <div className="flex h-full w-full overflow-y-auto items-center justify-center pt-6 scroll-mt-40 text-white">
-      <div className="glass-panel bg-white/12 px-6 py-10 sm:px-10 sm:py-12 text-center max-w-xl flex flex-col gap-6">
-        <header className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.4em] text-white/60">Let’s build together</p>
-          <h3 className="text-2xl font-semibold">Have an idea worth prototyping?</h3>
-        </header>
-        <p className="text-white/80 leading-relaxed text-base">
-          I’m always curious about ambitious collaborations—whether it’s a product sprint, a long-term partnership, or a
-          daring experiment in glassmorphic UI. Reach out with a short brief and let’s explore the possibilities.
+      <div className="glass-panel max-w-xl rounded-[28px] border border-white/15 bg-white/12 px-8 py-10 sm:px-10 sm:py-12 text-left shadow-lg">
+        <h3 className="text-2xl font-semibold text-white">Let's collaborate</h3>
+        <p className="mt-3 text-sm text-white/70">
+          Prefer personal introductions over cold forms. Reach out via email or phone and we'll shape the right channel for your project.
         </p>
-        <div className="flex flex-wrap justify-center gap-3 text-sm text-white/70">
-          <span className="glass-chip">Full-stack delivery</span>
-          <span className="glass-chip">Design systems</span>
-          <span className="glass-chip">Prototyping</span>
+        <div className="mt-6 space-y-2 text-base">
+          <a href="mailto:tomas.bance@gmail.com" className="aurora-underline">
+            tomas.bance@gmail.com
+          </a>
+          <div className="text-white/70">(+47) 968 893 83</div>
         </div>
-        <a className="glass-btn" href="mailto:tomas.bance@gmail.com">
-          Start the conversation
-        </a>
       </div>
     </div>
   );

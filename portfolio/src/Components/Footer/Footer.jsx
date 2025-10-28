@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
     <div className='group relative overflow-hidden'>
-      <footer className=' z-20 fixed bottom-0  w-full mx-auto text-slate-100  text-lg sm:text-lg bg-white/10 backdrop-blur-2xl border-t border-white/20 rounded-t-2xl shadow-[0_-18px_35px_rgba(15,23,42,0.22)]'>
-        <section className='max-w-4xl  mx-auto px-4 sm:px-6 py-2 flex flex-row items-center justify-between'>
+      <footer className='z-20 fixed bottom-0 w-full mx-auto h-14 sm:h-[75px] text-slate-100 text-lg bg-white/10 backdrop-blur-2xl border-t border-white/20 rounded-t-2xl shadow-[0_-18px_35px_rgba(15,23,42,0.22)] flex items-center'>
+        <section className='max-w-4xl mx-auto px-4 sm:px-6 w-full flex flex-row items-center justify-between'>
           <address className='not-italic leading-tight'>
             <h2 className='uppercase tracking-widest text-xs text-white/60'>Email</h2>
-            <a className='hover:text-[#8eceff] transition-colors' href='mailto:tomas.bance@gmail.com'> tomas.bance@gmail.com</a>
+            <a className='aurora-underline hover:text-[#8eceff] transition-colors' href='mailto:tomas.bance@gmail.com'> tomas.bance@gmail.com</a>
           </address>
 
           <nav className='flex flex-col sm:gap-1 leading-tight' aria-label='footer'>
@@ -22,8 +22,8 @@ const Footer = () => {
         </section>
       </footer>
       <div
-        className=" z-10 fixed bottom-0 h-14 sm:h-[75px]    w-full overflow-hidden before:bottom-0 before:absolute before:left-[-100%] rounded-t-2xl  
-      before:w-full before:h-14 before:sm:h-[75px] before:content-'' before:bg-gradient-to-r before:transform  before:from-transparent before:via-[rgba(255,255,255,0.3)]
+        className="z-10 fixed bottom-0 h-14 sm:h-[75px] w-full overflow-hidden before:bottom-0 before:absolute before:left-[-100%] rounded-t-2xl
+      before:w-full before:h-full before:content-'' before:bg-gradient-to-r before:transform before:from-transparent before:via-[rgba(255,255,255,0.3)]
       before:to-transparent before:transition-all before:duration-500 before:group-hover:left-[100%]"
       ></div>
     </div>

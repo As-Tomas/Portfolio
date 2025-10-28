@@ -75,6 +75,7 @@ const timelineEvents = [
 const TimelineItem = ({ event, index }) => {
   const isEven = index % 2 === 0;
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const hiddenOffset = isEven ? "-translate-x-12" : "translate-x-12";
 
   return (
     <div
@@ -84,9 +85,9 @@ const TimelineItem = ({ event, index }) => {
       }`}
     >
       <div
-        className={`flex justify-center md:justify-${isEven ? 'end' : 'start'} md:[direction:ltr] ${
-          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-        } transition-all duration-700`}
+        className={`flex justify-center md:justify-${isEven ? 'end' : 'start'} md:[direction:ltr] transform-gpu transition-all duration-700 ${
+          inView ? 'opacity-100 translate-x-0 translate-y-0' : `opacity-0 ${hiddenOffset} translate-y-6`
+        }`}
       >
         <article className='glass-panel bg-white/12 px-6 py-6 sm:px-8 sm:py-8 max-w-xl text-left text-white/85'>
           <header className='flex flex-col gap-1'>

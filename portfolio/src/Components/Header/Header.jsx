@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Header = ({ setContent }) => {
+const Header = ({ content, setContent }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const hideMenu = (prop) =>{
@@ -42,7 +42,7 @@ const Header = ({ setContent }) => {
              
              <a
                href="#About"
-               className="transition-colors hover:text-[#00f5d4]"
+               className={`transition-colors hover:text-[#00f5d4] ${content === 'about' ? 'aurora-underline text-white' : ''}`}
                onClick={() => hideMenu('about')}
              >
                About
@@ -50,7 +50,7 @@ const Header = ({ setContent }) => {
             
              <a
                href="#Portfolio"
-               className="transition-colors hover:text-[#ff8906]"
+               className={`transition-colors hover:text-[#ff8906] ${content === 'projects' ? 'aurora-underline text-white' : ''}`}
                onClick={() => hideMenu('projects')}
              >
                Projects
