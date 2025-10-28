@@ -6,6 +6,14 @@ const PieChartDevelopment = () => {
       text: "Development",
       // subtext: 'Fake Data',
       left: "center",
+      textStyle: {
+        color: "#f6f8ff",
+        fontWeight: "600",
+      },
+    },
+    textStyle: {
+      color: "#f6f8ff",
+      fontFamily: "Inter, sans-serif",
     },
     tooltip: {
       trigger: "item",
@@ -41,6 +49,7 @@ const PieChartDevelopment = () => {
               position: "inside",
               formatter: "{b} - {c}%",
               fontWeight: "bold",
+              color: "#04111d",
             },
           },
           {
@@ -58,6 +67,7 @@ const PieChartDevelopment = () => {
               position: "inside",
               formatter: "{b} - {c}%",
               fontWeight: "bold",
+              color: "#04111d",
             },
           },
         ],

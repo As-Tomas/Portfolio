@@ -1,73 +1,100 @@
 import { useState } from 'react';
 
-const Header = ({ setContent }) => {
+const Header = ({ setContent, onToggleTheme, activeTheme, activeContent }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const hideMenu = (prop) =>{
+  const hideMenu = (prop) => {
     if (isMobileMenuOpen) {
-      setIsMobileMenuOpen(!isMobileMenuOpen)
+      setIsMobileMenuOpen(false);
     }
-    
+
     if (prop === 'about') {
-      setContent('about')
+      setContent('about');
     } else {
-      setContent('projects')
+      setContent('projects');
     }
-  }
+  };
 
-  return (   
+  const themeLabel = activeTheme === 'aurora' ? 'Aurora Sunset' : 'Neon Lagoon';
 
-    <div className="group  ">
-      <header className=" z-30 fixed top-0 left-0 w-full  h-16 px-20 py-5 bg-[rgba(255,255,255,0.1)]  mx-auto p-4 flex justify-between 
-      items-center  border-b-2 rounded-b-2xl   border-[rgba(255,255,255,0.2)] ">        
-         
-         <h1 className=" text-2xl sm:text-3xl font-medium">
-           <button href="#hero"
-            onClick={() => hideMenu('about')}
-            > 
-            Portfolio
+  return (
+    <div className="fixed top-6 left-1/2 z-40 w-full max-w-6xl -translate-x-1/2 px-4">
+      <header className="glass-surface rounded-[28px] border border-white/20 px-6 py-4 shadow-lg backdrop-blur-2xl">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => hideMenu('about')}
+              className="text-2xl sm:text-3xl font-semibold tracking-tight text-white drop-shadow-md focus:outline-none"
+            >
+              Portfolio
             </button>
-         </h1>
-         <div>
-           <button
-             id="mobile-open-button"
-             className="text-3xl sm:hidden focus:outline-none"
-             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-           >
-             &#9776;
-           </button>
-           <nav className={`sm:block text-xl ${isMobileMenuOpen ? 'z-50 flex flex-col justify-start items-start absolute p-6 pr-16 gap-5 top-full right-0 bg-[rgba(255,255,255,0.2)] backdrop-blur-md  border-l-2 border-b-2 border-r-2 border-[rgba(255,255,255,0.3)] shadow-md rounded-md' : 'hidden space-x-8'}`} aria-label="main">
+            <span className="hidden text-sm uppercase tracking-[0.35em] text-[var(--text-secondary)] sm:inline">
+              Tomas Bance
+            </span>
+          </div>
 
-             
-             <a
-               href="#About"
-               className="hover:text-indigo-700 hover:duration-200"
-               onClick={() => hideMenu('about')}
-             >
-               About
-             </a>
-            
-             <a
-               href="#Portfolio"
-               className="hover:text-indigo-700 hover:duration-200"
-               onClick={() => hideMenu('projects')}
-             >
-               Projects
-             </a>
-             
-           </nav>
-         </div>       
-        
+          <div className="flex items-center gap-3 sm:gap-4">
+            <button
+              id="mobile-open-button"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-3xl text-white/80 shadow-[0_10px_20px_rgba(6,10,30,0.35)] backdrop-blur-md transition hover:text-white focus:outline-none sm:hidden"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              aria-expanded={isMobileMenuOpen}
+              aria-label="Toggle navigation"
+            >
+              &#9776;
+            </button>
+            <button
+              type="button"
+              onClick={onToggleTheme}
+              className="hidden items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white/80 transition hover:text-white sm:flex glass-pill"
+            >
+              <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'var(--accent-100)' }} />
+              {themeLabel}
+            </button>
+          </div>
+        </div>
+
+        <nav
+          className={`sm:mt-4 ${
+            isMobileMenuOpen
+              ? 'mt-4 flex flex-col gap-4 rounded-2xl border border-white/20 bg-[rgba(10,13,28,0.76)] p-5 text-lg text-white shadow-xl sm:hidden'
+              : 'hidden sm:flex sm:items-center sm:justify-between'
+          }`}
+          aria-label="main navigation"
+        >
+          <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
+            <a
+              href="#About"
+              className={`neon-underline ${
+                activeContent === 'about' ? 'is-active text-white' : 'text-white/75'
+              } text-lg font-medium transition-colors sm:text-base`}
+              onClick={() => hideMenu('about')}
+            >
+              About
+            </a>
+            <a
+              href="#Portfolio"
+              className={`neon-underline ${
+                activeContent === 'projects' ? 'is-active text-white' : 'text-white/75'
+              } text-lg font-medium transition-colors sm:text-base`}
+              onClick={() => hideMenu('projects')}
+            >
+              Projects
+            </a>
+          </div>
+
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="mt-2 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white/80 transition hover:text-white sm:hidden glass-pill"
+          >
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'var(--accent-100)' }} />
+            {themeLabel}
+          </button>
+        </nav>
       </header>
-      <div className=" z-20 fixed backdrop-blur-md top-0 left-0 w-full overflow-x-hidden h-16 before:absolute before:top-0 before:left-[-100%] rounded-b-2xl
-   before:w-full before:h-full before:content-'' before:bg-gradient-to-r before:from-transparent before:via-[rgba(255,255,255,0.3)] 
-   before:to-transparent before:transition-all before:duration-500 before:group-hover:left-[130%]"
-      >
-      </div>
     </div>
-    
-
-   
   );
 };
 

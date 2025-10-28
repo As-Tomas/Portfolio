@@ -5,117 +5,47 @@ import { useInView } from 'react-intersection-observer';
 
 const About = () => {
   const [likes, setLikes] = useState(876);
+  const { ref: credoRef, inView: isCredoVisible } = useInView();
 
   const handleLikeClick = () => {
-    setLikes(likes + 1);
+    setLikes((prev) => prev + 1);
   };
 
-  const { ref: thisIsVisible, inView: isVisible } = useInView();
-
   return (
-    <section id='about' className='h-full w-full overflow-y-auto justify-center items-center pt-10 scroll-mt-40 '>
-      <article>
-        <h2 className=' text-2xl font-bold text-center text-slate-900 '>
-          Welcome! <br /> My name is <span className='text-indigo-700 '>Tomas Bance</span> <br /> I'm Full-Stack Developer
-        </h2>
-        <div className='max-w-md sm:max-w-none text-lg  mt-4 px-14  text-center  text-slate-700 '>
-          <p
-            style={{
-              textIndent: '2em',
-              textAlign: 'justify',
-              textJustify: 'inter-word',
-              textAlignLast: 'left',
-            }}>
-            Hello! I'm Tomas, Full-Stack Developer with a penchant for E-commerce and mobile app development. My toolkit? Java, C++, JavaScript, React, React Native, NextJS and more. I’m looking to collaborate on anything what is related to APP's As a gear up I finished my bachelor's degree at SMK
-            University as a programmer, I'm eager for new challenging projects.
-          </p>
-          <div className=' text-left justify ' style={{ textIndent: '2em' }}>
-            Curious about my journey or where we can go next? Dive into my portfolio!
-          </div>
-          {/* <p
-            style={{
-              textIndent: "2em",
-              textAlign: "justify",
-              textJustify: "inter-word",
-              textAlignLast: "left",
-            }}
-          >
-            I am extremely curious and self-motivated, and I constantly develop
-            my skills. I have a huge passion for programming in general and hold
-            expertise in frontend and backend technologies, including React,
-            Node.js, Java, C#, C++, and Python. I bring a strong work ethic to
-            everything I do.
-          </p>
-          <div className=" text-left justify " style={{ textIndent: "2em" }}>
-            Outside of work hours, you'll often find me chasing adrenaline highs
-            or tinkering with gadgets with soldering-iron in hands.
-          </div>
-          <p
-            style={{
-              textIndent: "2em",
-              textAlign: "justify",
-              textJustify: "inter-word",
-              textAlignLast: "left",
-            }}
-          >
-            Extreme Sports: I've always been drawn to the thrill and excitement
-            that extreme sports offer. Skiing is more than a hobby for me; it's
-            a passion. Whether it's racing down the slopes or freestyling in a
-            snow park, the adrenaline rush is exhilarating. But it's not just
-            about the thrill; it's also about being in touch with nature and
-            pushing my physical and mental boundaries. I often find myself
-            hitting the slopes, and each time it feels like a new adventure.
-          </p>
-          <p
-            style={{
-              textIndent: "2em",
-              textAlign: "justify",
-              textJustify: "inter-word",
-              textAlignLast: "left",
-            }}
-          >
-            Technical Tinkering: When I'm not out seeking adventures, I love to
-            get my hands dirty with some technical tinkering. Soldering
-            circuits, building gadgets, and fixing anything that's broken are
-            some of the things that keep me occupied. There's a unique
-            satisfaction in taking something apart, understanding how it works,
-            and then putting it back together in a better form. It's not just
-            about fixing things, it's about understanding them.
-          </p>
+    <section id='about' className='glass-scroll h-full w-full overflow-y-auto px-1 sm:px-2'>
+      <article className='space-y-8'>
+        <header className='text-center'>
+          <p className='muted-text text-sm uppercase tracking-[0.35em]'>Welcome</p>
+          <h2 className='mt-3 text-3xl font-semibold text-white sm:text-4xl'>Hello, I&apos;m Tomas Bance</h2>
+          <p className='mt-2 text-base text-white/75 sm:text-lg'>Full-Stack Developer crafting products with glassy aesthetics and resilient architecture.</p>
+        </header>
 
+        <div className='mx-auto flex max-w-3xl flex-col gap-4 text-left text-[15px] leading-relaxed text-white/85 sm:text-base'>
           <p>
-            I'm located in Bergen, and I'm glad that you're here. Please explore my work and feel free to
-            reach out if you want to learn more about me or discuss potential
-            collaborations.
-          </p> */}
+            Hello! I&apos;m Tomas, a full-stack developer with a toolkit spanning Java, C++, JavaScript, React, React Native, and Next.js. I thrive when translating complex ideas into polished digital products—whether that&apos;s E-commerce platforms, mobile applications, or immersive web experiences.
+          </p>
+          <p>
+            I earned my bachelor&apos;s degree in programming at SMK University and continue to experiment across the stack. I&apos;m obsessed with purposeful design systems, intuitive UX, and teams that enjoy scaling ambitious ideas.
+          </p>
+          <p>Curious about the journey so far or where we could build next? Take a stroll through the projects or drop me a message.</p>
         </div>
-        <hr className='mx-auto my-5 bg-black  w-1/2'></hr>
-        <div>
-          <section className=' '>
-            <div className='pb-5 flex items-center justify-center'>
-              <div className='md:w-3/4 xl:w-1/2'>
-                <div className='text-white bg-[#1eaeb8c2] border border-[#2a7b81] rounded-lg p-5'>
-                  <FontAwesomeIcon icon={faQuoteLeft} className='mb-4 text-2xl' />
 
-                  <p className='leading-7'>There is nothing impossible... Just a question of time and will!</p>
-
-                  <hr className='pb-2' />
-
-                  <div className='flex justify-between'>
-                    <p ref={thisIsVisible}>My credo</p>
-                    <div className='font-semibold'>
-                      <span className='rounded-full bg-black bg-opacity-20 py-1 px-2'>{likes}</span>
-                      <FontAwesomeIcon icon={faHeart} style={{ color: '#f34135' }} onClick={handleLikeClick} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+        <div className='mx-auto w-full max-w-2xl rounded-[24px] border border-white/15 bg-[rgba(8,11,24,0.65)] p-6 text-white shadow-lg backdrop-blur-xl'>
+          <FontAwesomeIcon icon={faQuoteLeft} className='mb-4 text-2xl text-white/60' />
+          <p className='text-lg font-medium leading-7 text-white/90'>There is nothing impossible—only work that hasn&apos;t met time and willpower yet.</p>
+          <div className='glass-divider my-4' />
+          <div className='flex items-center justify-between text-sm text-white/80'>
+            <span ref={credoRef}>{isCredoVisible ? 'Thanks for reading!' : 'My credo'}</span>
+            <button type='button' onClick={handleLikeClick} className='flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 font-semibold text-white transition hover:bg-white/20'>
+              <span className='rounded-full bg-[rgba(0,0,0,0.35)] px-2 py-1'>{likes}</span>
+              <FontAwesomeIcon icon={faHeart} className='text-[#f34135]' />
+            </button>
+          </div>
         </div>
       </article>
-      <div className={`flex justify-center items-center  -ml-[20vw] ${isVisible ? 'hidden' : ''}`}>
-        <img className=' absolute bottom-3 h-10 animate-bounceOnce     ' src='./assets/GeneralIcons/wheel_scroll_mouse.svg' alt='' />
+
+      <div className={`pointer-events-none mt-12 flex justify-center ${isCredoVisible ? 'opacity-0' : 'opacity-100'} transition-opacity`}>
+        <img className='h-12 animate-bounceOnce' src='./assets/GeneralIcons/wheel_scroll_mouse.svg' alt='Scroll indicator' />
       </div>
     </section>
   );

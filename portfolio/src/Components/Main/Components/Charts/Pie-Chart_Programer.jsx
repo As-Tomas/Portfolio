@@ -5,6 +5,14 @@ const PieChartProgramer = () => {
     title: {
       text: "Stack Skills",
       left: "center",
+      textStyle: {
+        color: "#f6f8ff",
+        fontWeight: "600",
+      },
+    },
+    textStyle: {
+      color: "#f6f8ff",
+      fontFamily: "Inter, sans-serif",
     },
     tooltip: {
       trigger: "item",
@@ -37,6 +45,7 @@ const PieChartProgramer = () => {
               position: "inside",
               formatter: "{b} - {c}%",
               fontWeight: "bold",
+              color: "#04111d",
             },
           },
           {
@@ -54,6 +63,7 @@ const PieChartProgramer = () => {
               position: "inside",
               formatter: "{b} - {c}%",
               fontWeight: "bold",
+              color: "#04111d",
             },
           },
         ],

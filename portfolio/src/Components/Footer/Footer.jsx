@@ -1,32 +1,28 @@
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
-    <div className='group relative overflow-hidden'>
-      <footer className=' z-20 fixed bottom-0  w-full mx-auto text-slate-600  text-lg sm:text-lg bg-[rgba(255,255,255,0.2)] backdrop-blur-md border-t-2 rounded-t-2xl border-[rgba(255,255,255,0.3)] '>
-        <section className='max-w-4xl  mx-auto px-2  sm:p-2 2xl:p-2 flex flex-row items-center justify-between'>
-          <address>
-            <h2>Email:</h2>
-            <a href='mailto:tomas.bance@gmail.com'> tomas.bance@gmail.com</a>
-          </address>
+    <footer className='fixed bottom-6 left-1/2 z-30 w-full max-w-5xl -translate-x-1/2 px-4'>
+      <div className='glass-surface flex flex-col gap-4 rounded-[26px] border border-white/20 px-6 py-4 text-white shadow-[0_18px_45px_rgba(5,8,22,0.45)] backdrop-blur-2xl sm:flex-row sm:items-center sm:justify-between'>
+        <address className='not-italic text-sm sm:text-base'>
+          <div className='muted-text text-xs uppercase tracking-[0.35em]'>Email</div>
+          <a href='mailto:tomas.bance@gmail.com' className='neon-underline is-active text-white'>
+            tomas.bance@gmail.com
+          </a>
+        </address>
 
-          <nav className='flex flex-col sm:gap-1' aria-label='footer'>
-            <h2>Phone:</h2>
-            <a href='tel:+4796889383'> (+47) 968 893 83</a>
-          </nav>
+        <div className='text-sm sm:text-base'>
+          <div className='muted-text text-xs uppercase tracking-[0.35em]'>Phone</div>
+          <a href='tel:+4796889383' className='text-white/80 transition hover:text-white'>
+            (+47) 968 893 83
+          </a>
+        </div>
 
-          <div className='hidden flex-col md:flex sm:gap-1'>
-            <p className='text-right'>
-              Copyright &copy; <span id='year'>2023</span>
-            </p>
-            <p className='text-right'>All Rights Reserved</p>
-          </div>
-        </section>
-      </footer>
-      <div
-        className=" z-10 fixed bottom-0 h-14 sm:h-[75px]    w-full overflow-hidden before:bottom-0 before:absolute before:left-[-100%] rounded-t-2xl  
-      before:w-full before:h-14 before:sm:h-[75px] before:content-'' before:bg-gradient-to-r before:transform  before:from-transparent before:via-[rgba(255,255,255,0.3)]
-      before:to-transparent before:transition-all before:duration-500 before:group-hover:left-[100%]"
-      ></div>
-    </div>
+        <div className='text-right text-xs uppercase tracking-[0.35em] text-white/60'>
+          © {year} Tomas Bance
+        </div>
+      </div>
+    </footer>
   );
 };
 

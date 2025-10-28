@@ -1,14 +1,25 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
 import Footer from "./Components/Footer/Footer";
 //import Particles from "react-tsparticles";
 //import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
-import backgroudPix from "../public/bg/pxfuel1.jpeg"
 
 function App() {
   const [content, setContent] = useState("about");
+  const [theme, setTheme] = useState("lagoon");
+
+  useEffect(() => {
+    if (theme === "aurora") {
+      document.documentElement.setAttribute("data-theme", "aurora");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "lagoon" ? "aurora" : "lagoon"));
+  };
 
 //   const particlesInit = useCallback(async engine => {
 //     console.log(engine);
@@ -25,29 +36,47 @@ function App() {
 // }, []);
 
   return (
-    <>
+    <div className="relative min-h-screen overflow-hidden">
       <div
-      
-        //  style={{ 
-        //   backgroundImage: `url(https://img.freepik.com/free-vector/abstract-blue-red-paper-cut-background-with-simple-shapes_8829-2520.jpg?w=1060&t=st=1690130003~exp=1690130603~hmac=be02e42313763296a7b2ca027bcf900b6d9d9fd851af8b294c959deb49b04d26)`,
-        //   backgroundRepeat: "no-repeat",
-        //       backgroundSize: "cover",
-        //       backgroundPosition: "center center",
-        //       boxSizing: "border-box",
-        //  }}
-      
-    //    style={{ 
-    //       backgroundImage: `url(${backgroudPix})`,
-    //       backgroundRepeat: "no-repeat",
-    //           backgroundSize: "cover",
-    //           backgroundPosition: "center center",
-    //           boxSizing: "border-box",
-    //      }}
-      >
-        <Header setContent={setContent} />
-        <div className="pt-20 z-10 relative  ">
+        className="floating-sphere"
+        style={{
+          width: "38rem",
+          height: "38rem",
+          background: "radial-gradient(circle at 30% 30%, var(--accent-100), transparent 65%)",
+          top: "-14rem",
+          left: "-12rem",
+        }}
+      />
+      <div
+        className="floating-sphere"
+        style={{
+          width: "30rem",
+          height: "30rem",
+          background: "radial-gradient(circle at 70% 20%, var(--accent-300), transparent 70%)",
+          bottom: "-12rem",
+          right: "-10rem",
+        }}
+      />
+      <div
+        className="floating-sphere"
+        style={{
+          width: "22rem",
+          height: "22rem",
+          background: "radial-gradient(circle at 50% 50%, var(--accent-200), transparent 60%)",
+          top: "50%",
+          right: "55%",
+        }}
+      />
+      <div className="relative z-10 flex flex-col min-h-screen px-4 sm:px-10 xl:px-16">
+        <Header
+          setContent={setContent}
+          onToggleTheme={toggleTheme}
+          activeTheme={theme}
+          activeContent={content}
+        />
+        <main className="relative flex-1 pt-28 pb-32">
           <Main content={content} setContent={setContent} />
-        </div>
+        </main>
         <Footer />
         {/* <Particles
             id="tsparticles"
@@ -122,9 +151,8 @@ function App() {
             }}
         /> */}
 
-        
       </div>
-    </>
+    </div>
   );
 }
 
