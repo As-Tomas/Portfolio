@@ -1,0 +1,24 @@
+.section {
+  position: relative;
+}
+
+.card {
+  opacity: 0;
+  transform: translate3d(0, 48px, 0);
+  transition: transform 700ms ease, opacity 700ms ease;
+}
+
+@media (min-width: 640px) {
+  .cardLeft {
+    transform: translate3d(-56px, 24px, 0);
+  }
+
+  .cardRight {
+    transform: translate3d(56px, 24px, 0);
+  }
+}
+
+.cardShow {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}

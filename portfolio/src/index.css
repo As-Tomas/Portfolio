@@ -137,6 +137,10 @@ body::after {
   box-shadow: var(--glass-shadow);
 }
 
+.glass-panel-flat {
+  box-shadow: none;
+}
+
 .glass-panel.emphasis {
   background: var(--glass-surface-strong);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18),
@@ -265,6 +269,50 @@ body::after {
   box-shadow: 0 0 12px rgba(247, 37, 133, 0.35);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 20%, black 80%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+@property --aurora-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.aurora-ring {
+  position: relative;
+  z-index: 0;
+  --aurora-angle: 0deg;
+}
+
+.aurora-ring::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 999px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--aurora-angle),
+    var(--aurora-sunset-1),
+    var(--aurora-sunset-2),
+    var(--aurora-sunset-3),
+    var(--aurora-sunset-4),
+    var(--aurora-sunset-1)
+  );
+  pointer-events: none;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.85;
+  animation: auroraOrbit 8s linear infinite;
+  z-index: -1;
+}
+
+@keyframes auroraOrbit {
+  from {
+    --aurora-angle: 0deg;
+  }
+  to {
+    --aurora-angle: 360deg;
+  }
 }
 
 .floating-orb {

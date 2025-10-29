@@ -42,7 +42,9 @@ const Header = ({ content, setContent }) => {
              
              <a
                href="#About"
-               className={`transition-colors hover:text-[#00f5d4] ${content === 'about' ? 'aurora-underline text-white' : ''}`}
+               className={`transition-colors duration-200 ${
+                 content === 'about' ? 'aurora-underline text-white' : 'text-white/70 hover:text-[#00f5d4]'
+               }`}
                onClick={() => hideMenu('about')}
              >
                About
@@ -50,7 +52,9 @@ const Header = ({ content, setContent }) => {
             
              <a
                href="#Portfolio"
-               className={`transition-colors hover:text-[#ff8906] ${content === 'projects' ? 'aurora-underline text-white' : ''}`}
+               className={`transition-colors duration-200 ${
+                 content === 'projects' ? 'aurora-underline text-white' : 'text-white/70 hover:text-[#ff8906]'
+               }`}
                onClick={() => hideMenu('projects')}
              >
                Projects

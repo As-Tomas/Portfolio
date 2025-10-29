@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
+import styles from './styles.module.css';
 
 const timelineEvents = [
   {
@@ -72,51 +74,16 @@ const timelineEvents = [
   },
 ];
 
-const TimelineItem = ({ event, index }) => {
-  const isEven = index % 2 === 0;
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const hiddenOffset = isEven ? "-translate-x-12" : "translate-x-12";
-
-  return (
-    <div
-      ref={ref}
-      className={`relative grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center ${
-        isEven ? '' : 'md:[direction:rtl]'
-      }`}
-    >
-      <div
-        className={`flex justify-center md:justify-${isEven ? 'end' : 'start'} md:[direction:ltr] transform-gpu transition-all duration-700 ${
-          inView ? 'opacity-100 translate-x-0 translate-y-0' : `opacity-0 ${hiddenOffset} translate-y-6`
-        }`}
-      >
-        <article className='glass-panel bg-white/12 px-6 py-6 sm:px-8 sm:py-8 max-w-xl text-left text-white/85'>
-          <header className='flex flex-col gap-1'>
-            <span className='text-sm uppercase tracking-[0.3em] text-white/60'>{event.year}</span>
-            <h3 className='text-2xl font-semibold text-white'>{event.title}</h3>
-            <p className='text-sm text-white/60'>{event.subtitle}</p>
-          </header>
-          <div className='mt-4 space-y-4 text-sm leading-relaxed'>
-            {event.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </article>
-      </div>
-
-      <span
-        className='relative hidden h-full w-px justify-self-center md:flex'
-        aria-hidden='true'
-      >
-        <span className='absolute -top-10 h-20 w-px bg-gradient-to-b from-transparent via-white/40 to-transparent' />
-        <span className='absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-gradient-to-br from-[#00f5d4] via-white to-[#8338ec] shadow-[0_0_18px_rgba(0,245,212,0.65)]' />
-        <span className='absolute h-full w-px bg-white/20' />
-        <span className='absolute -bottom-10 h-20 w-px bg-gradient-to-t from-transparent via-white/40 to-transparent' />
-      </span>
-    </div>
-  );
-};
-
 const MyPath = () => {
+  const timelineWithAlignment = useMemo(
+    () =>
+      timelineEvents.map((event, index) => ({
+        ...event,
+        align: index % 2 === 0 ? 'left' : 'right',
+      })),
+    []
+  );
+
   const { ref: indicatorRef, inView: indicatorVisible } = useInView({ triggerOnce: false, threshold: 0.3 });
 
   return (
@@ -132,10 +99,19 @@ const MyPath = () => {
         </header>
 
         <div className='relative'>
-          <span className='absolute left-1/2 top-0 hidden h-full -translate-x-1/2 bg-white/10 md:block' aria-hidden='true' />
-          <div className='relative flex flex-col gap-12'>
-            {timelineEvents.map((event, index) => (
-              <TimelineItem key={event.title} event={event} index={index} />
+          <span
+            className='pointer-events-none absolute left-1/2 top-0 h-full w-[3px] -translate-x-1/2 z-0'
+            aria-hidden='true'
+          >
+            <span className='absolute inset-0 rounded-full bg-gradient-to-b from-[#00bbf9]/38 via-[#8338ec]/35 to-[#3a0ca3]/38' />
+            <span className='absolute inset-0 rounded-full bg-gradient-to-b from-[#00f5d4]/55 via-[#8338ec]/45 to-[#3a0ca3]/65 blur-[2.2px]' />
+          </span>
+          <span className='pointer-events-none absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 rounded-full bg-[#00bbf9]' aria-hidden='true' />
+          <span className='pointer-events-none absolute left-1/2 bottom-0 h-4 w-4 -translate-x-1/2 rounded-full bg-[#00bbf9]' aria-hidden='true' />
+
+          <div className='relative z-10 flex flex-col gap-12'>
+            {timelineWithAlignment.map((event) => (
+              <TimelineItem key={event.title} event={event} />
             ))}
           </div>
         </div>
@@ -159,3 +135,40 @@ const MyPath = () => {
 };
 
 export default MyPath;
+
+const TimelineItem = ({ event }) => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const alignmentClasses =
+    event.align === 'left'
+      ? 'sm:flex-row text-left'
+      : 'sm:flex-row-reverse text-left sm:text-right';
+
+  return (
+    <div
+      ref={ref}
+      className={`${styles.section} relative flex flex-col items-center gap-6 sm:items-start ${alignmentClasses}`}
+    >
+      <span
+        className='pointer-events-none absolute top-6 h-4 w-4 -translate-x-1/2 rounded-full border border-white/35 bg-[#00f5d4] shadow-[0_0_18px_rgba(0,245,212,0.45)] left-1/2'
+        aria-hidden='true'
+      />
+
+      <div
+        className={`glass-panel bg-white/12 px-6 py-6 sm:px-8 sm:py-8 w-full sm:w-[calc(50%-1.5rem)] text-white/85 ${styles.card} ${
+          event.align === 'left' ? styles.cardLeft : styles.cardRight
+        } ${inView ? styles.cardShow : ''}`}
+      >
+        <header className='flex flex-col gap-1'>
+          <span className='text-sm uppercase tracking-[0.3em] text-white/60'>{event.year}</span>
+          <h3 className='text-2xl font-semibold text-white'>{event.title}</h3>
+          <p className='text-sm text-white/60'>{event.subtitle}</p>
+        </header>
+        <div className='mt-4 space-y-4 text-sm leading-relaxed'>
+          {event.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};

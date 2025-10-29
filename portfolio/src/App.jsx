@@ -14,8 +14,8 @@ function App() {
 
       <Header content={content} setContent={setContent} />
 
-      <main className="relative z-10 flex-1 pt-24 lg:pt-32 pb-32 px-4 sm:px-8">
-        <div className="mx-auto max-w-7xl">
+      <main className="relative z-10 flex-1 pt-24 lg:pt-32 pb-32 px-0 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full">
           <Main content={content} setContent={setContent} />
         </div>
       </main>
