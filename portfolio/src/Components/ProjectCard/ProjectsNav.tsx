@@ -13,7 +13,7 @@ export default function ProjectsNav({
   selectedProjectId,
 }) {
   return (
-    <div className="mx-auto">
+    <div className="mx-auto w-full sm:w-auto">
       <Dock
         onProjectSelect={onProjectSelect}
         selectedProjectId={selectedProjectId}
@@ -52,12 +52,11 @@ function Dock({
 
   return (
     <nav
+      className="inline-block"
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
     >
-      <ul
-        className="flex h-16 items-end gap-4 rounded-3xl border border-white/20 bg-white/12 px-5 pb-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl"
-      >
+      <ul className="inline-flex min-h-[4rem] items-end gap-4 rounded-3xl border border-white/20 bg-white/12 px-5 pb-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl">
         {!Array.isArray(children)
           ? children
           : children.map((node, index) => (

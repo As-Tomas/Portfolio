@@ -1,20 +1,18 @@
-import { useState } from "react";
-import projectSavedData from "../../../public/data/ProjectsData";
-import ProjectCard from "../ProjectCard/ProjectCard";
-import ProjectsNav from "../ProjectCard/ProjectsNav";
-import GlassPlate from "./Components/GlassPlate";
+import { useState } from 'react';
+import projectSavedData from '../../../public/data/ProjectsData';
+import ProjectCard from '../ProjectCard/ProjectCard';
+import ProjectsNav from '../ProjectCard/ProjectsNav';
+import GlassPlate from './Components/GlassPlate';
 
 const Main = ({ content, setContent }) => {
   const projectData = [...projectSavedData].reverse();
   const [selectedProjectId, setSelectedProjectId] = useState(projectData[0].id);
 
-  const handleProjectSelect = (index) => {
+  const handleProjectSelect = index => {
     setSelectedProjectId(projectData[index].id);
   };
 
-  const selectedProject = projectData.find(
-    (project) => project.id === selectedProjectId
-  );
+  const selectedProject = projectData.find(project => project.id === selectedProjectId);
 
   // const whindoHeight = () => {
   //   console.log(window.innerHeight)
@@ -24,23 +22,18 @@ const Main = ({ content, setContent }) => {
   // }
 
   return (
-    <div className="flex flex-col gap-12">
-      {content === "about" && <GlassPlate setContent={setContent} />}
+    <div className='flex flex-col gap-12'>
+      {content === 'about' && <GlassPlate setContent={setContent} />}
 
-      {content === "projects" && (
-        <div className="flex flex-col items-center gap-10">
+      {content === 'projects' && (
+        <div className='flex flex-col items-center gap-10'>
           <ProjectCard key={selectedProjectId} project={selectedProject} />
 
-          <div className="glass-panel bg-white/10 px-6 py-4 sm:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 w-full max-w-4xl text-white/80">
-            <div className="space-y-1">
-              <h3 className="text-xl font-semibold text-white">Select a project</h3>
-              <p className="text-sm uppercase tracking-[0.3em] text-white/50">Featuring layered glass case studies</p>
+          <div className='glass-panel bg-white/10 px-6 py-4 sm:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 w-full max-w-none text-white/80'>
+            <div className='space-y-1'>
+              <h3 className='text-xl font-semibold text-white'>Select a project</h3>
             </div>
-            <ProjectsNav
-              onProjectSelect={handleProjectSelect}
-              projectData={projectData}
-              selectedProjectId={selectedProjectId}
-            />
+            <ProjectsNav onProjectSelect={handleProjectSelect} projectData={projectData} selectedProjectId={selectedProjectId} />
           </div>
         </div>
       )}
