@@ -221,32 +221,36 @@ const ProjectCard = ({ project }) => {
             </h3>
 
             <div
-              className="ico flex justify-around   "
+              className="ico flex justify-around gap-6"
               onMouseLeave={handleMouseLeaveIco}
             >
               {project.technologies.slice(0, 4).map((technology, index) => (
-                <img
+                <span
                   key={index}
-                  src={technology}
-                  alt={`Tech ${index + 1}`}
-                  className={` ${window.innerHeight < 860 ? " h-[2.5rem]":" h-[3rem]"} transition-transform ${
-                    hoveredIndex === index ? "scale-150" : ""
-                  } bg-radial-shadow rounded`}
+                  className={`flex items-center justify-center rounded-2xl border border-white/20 bg-white/10 p-2 shadow-[0_20px_45px_rgba(12,16,48,0.35)] transition-transform ${
+                    hoveredIndex === index ? "scale-125" : "scale-100"
+                  }`}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                />
+                >
+                  <img
+                    src={technology}
+                    alt={`Tech ${index + 1}`}
+                    className={`${window.innerHeight < 860 ? "h-9 w-9" : "h-11 w-11"} object-contain`}
+                  />
+                </span>
               ))}
             </div>
 
             <div className="buttons mt-10 mb-2">
-            {project.links.slice(0, 4).map((link, index) => (
-                  <button 
-                      key={index} 
-                      className="w-2/3 py-4 bg-[#f54642] rounded-full font-bold text-white hover:scale-105 hover:bg-[#f82824] transition-all" 
-                      onClick={() => window.open(link, '_blank')}
-                  >
-                      GitHub
-                  </button>
+              {project.links.slice(0, 4).map((link, index) => (
+                <button
+                  key={index}
+                  className="w-2/3 rounded-full bg-gradient-to-r from-[#f72585] via-[#ff8906] to-[#ffd23f] py-4 font-semibold text-white shadow-[0_20px_45px_rgba(12,16,48,0.35)] transition-transform hover:scale-105"
+                  onClick={() => window.open(link, "_blank")}
+                >
+                  GitHub
+                </button>
               ))}
 
               {/* <button className="w-2/3 py-4 bg-[#f54642] rounded-full font-bold text-white hover:scale-105 hover:bg-[#f82824] transition-all">
