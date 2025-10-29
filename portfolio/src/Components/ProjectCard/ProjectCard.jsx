@@ -199,11 +199,11 @@ const ProjectCard = ({ project }) => {
             ))}
           </div>
           <div
-            className="info pt-14 text-center"
+            className="info pt-14 text-center text-white"
             style={{ transformStyle: "preserve-3d" }}
           >
-            <h1 className={`title font-bold ${window.innerHeight < 860 ? " text-2xl":" text-3xl"}`}  >{project.name}</h1>
-            <h3 className={`description py-6 px-2 text-gray-950 font-normal  ${window.innerHeight < 860 ? " text-lg ":" text-lg "}`}
+            <h1 className={`title font-semibold tracking-wide ${window.innerHeight < 860 ? " text-2xl":" text-3xl"}`}>{project.name}</h1>
+            <h3 className={`description py-6 px-4 text-white/75 leading-relaxed font-normal ${window.innerHeight < 860 ? " text-base ":" text-lg "}`}
             style={{
               textIndent: "2em",
               textAlign: "justify",
