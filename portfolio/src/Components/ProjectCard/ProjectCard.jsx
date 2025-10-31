@@ -168,11 +168,11 @@ const ProjectCard = ({ project }) => {
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="card w-[55rem] px-[3rem] py-[1rem]   before:rounded-3xl before:block before:absolute before:-inset-1 before:backdrop-blur-md"
+          className="card w-[85rem] px-[3rem] py-[1rem]   before:rounded-3xl before:block before:absolute before:-inset-1 before:backdrop-blur-md"
           style={{ transformStyle: "preserve-3d",  }}
           
         >
-          <div className={`card ${window.innerHeight < 860 ? "min-h-[70vh] -mx-12 -my-0 ":"-mx-12 -my-4"}  rounded-3xl border-2 border-indigo-500 shadow-neon_indigo bg-[rgba(255,255,255,0.1)`}
+          <div className={`card ${window.innerHeight < 860 ? "min-h-[70vh] -mx-12 -my-0 ":"-mx-12 -my-4"}  rounded-3xl border-2 border-white/20 bg-white/10 shadow-neon_indigo `}
           style={{ transformStyle: "preserve-3d", }}>
 
           <div
