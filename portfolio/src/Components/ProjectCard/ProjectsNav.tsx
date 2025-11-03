@@ -5,71 +5,119 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import React, { useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 export default function ProjectsNav({
   onProjectSelect,
   projectData,
   selectedProjectId,
 }) {
+  const [isCompact, setIsCompact] = useState(false);
+  const [windowStart, setWindowStart] = useState(0);
+
+  useEffect(() => {
+    const update = () => {
+      setIsCompact(window.innerWidth < 1024 && projectData.length > 7);
+    };
+
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, [projectData.length]);
+
+  useEffect(() => {
+    if (!isCompact) {
+      setWindowStart(0);
+      return;
+    }
+
+    const selectedIndex = projectData.findIndex(
+      (project) => project.id === selectedProjectId
+    );
+
+    if (selectedIndex === -1) return;
+
+    const maxVisible = 15;
+    if (selectedIndex < windowStart) {
+      setWindowStart(selectedIndex);
+    } else if (selectedIndex >= windowStart + maxVisible) {
+      setWindowStart(selectedIndex - maxVisible + 1);
+    }
+  }, [isCompact, projectData, selectedProjectId, windowStart]);
+
+  useEffect(() => {
+    if (!isCompact) return;
+    const maxVisible = 15;
+    const maxStart = Math.max(0, projectData.length - maxVisible);
+    if (windowStart > maxStart) {
+      setWindowStart(maxStart);
+    }
+  }, [isCompact, projectData.length, windowStart]);
+
+  const visibleProjects = useMemo(() => {
+    if (!isCompact) return projectData;
+    const maxVisible = 15;
+    return projectData.slice(windowStart, windowStart + maxVisible);
+  }, [isCompact, projectData, windowStart]);
+
+  const dragHintClass = isCompact ? "block" : "hidden";
+
   return (
-    <div className="mx-auto w-full sm:w-auto">
+    <div className="mx-auto flex w-full flex-col items-center gap-2 sm:w-auto">
+      <span className={`text-xs uppercase tracking-[0.3em] text-white/60 ${dragHintClass}`}>drag to explore</span>
       <Dock
+        projects={visibleProjects}
         onProjectSelect={onProjectSelect}
         selectedProjectId={selectedProjectId}
-      >
-        {projectData.map((project) => (
-          <img
-            key={project.id}
-            src={project.technologies[0]}
-            alt={project.name}
-            onClick={() => onProjectSelect(project.id)}
-          />
-        ))}
-      </Dock>
+        isCompact={isCompact}
+      />
     </div>
   );
 }
 
 function Dock({
-  children,
+  projects,
   onProjectSelect,
   selectedProjectId,
+  isCompact,
 }: {
-  children: React.ReactNode;
-  onProjectSelect: (index: number) => void;
+  projects: Array<{
+    id: number;
+    name: string;
+    technologies: string[];
+  }>;
+  onProjectSelect: (projectId: number) => void;
   selectedProjectId: number;
+  isCompact: boolean;
 }) {
   let mouseX = useMotionValue(Infinity);
 
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  // console.log(typeof onProjectSelect);
-
-  const handleClick = (index) => {
-    setActiveIndex(index);
-    onProjectSelect(index);
+  const handleClick = (projectId: number) => {
+    onProjectSelect(projectId);
   };
 
   return (
     <nav
-      className="inline-block"
+      className="w-full max-w-full"
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
     >
-      <ul className="inline-flex min-h-[4rem] items-end gap-4 rounded-3xl border border-white/20 bg-white/12 px-5 pb-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl">
-        {!Array.isArray(children)
-          ? children
-          : children.map((node, index) => (
-              <li key={index}>
-                <AppIcon
-                  mouseX={mouseX}
-                  isActive={index === activeIndex}
-                  onClick={() => handleClick(index)}
-                >
-                  {node}
-                </AppIcon>
-              </li>
-            ))}
+      <ul className={`flex min-h-[4rem] items-end gap-4 rounded-3xl border border-white/20 bg-white/12 px-5 pb-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl sm:mx-auto ${isCompact ? "justify-start overflow-x-auto overscroll-x-contain [&::-webkit-scrollbar]:hidden touch-pan-x" : "justify-center"}`}>
+        {projects.map((project, index) => (
+          <li key={project.id}>
+            <AppIcon
+              mouseX={mouseX}
+              isActive={project.id === selectedProjectId}
+              onClick={() => handleClick(project.id)}
+            >
+              <img
+                src={project.technologies[0]}
+                alt={project.name}
+                className="h-full w-full object-contain"
+              />
+            </AppIcon>
+          </li>
+        ))}
       </ul>
     </nav>
   );

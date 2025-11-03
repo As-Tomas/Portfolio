@@ -8,8 +8,8 @@ const Main = ({ content, setContent }) => {
   const projectData = [...projectSavedData].reverse();
   const [selectedProjectId, setSelectedProjectId] = useState(projectData[0].id);
 
-  const handleProjectSelect = index => {
-    setSelectedProjectId(projectData[index].id);
+  const handleProjectSelect = projectId => {
+    setSelectedProjectId(projectId);
   };
 
   const selectedProject = projectData.find(project => project.id === selectedProjectId);
