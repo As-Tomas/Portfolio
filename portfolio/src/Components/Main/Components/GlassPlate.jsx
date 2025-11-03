@@ -170,7 +170,7 @@ const GlassPlate = ({ setContent }) => {
                 </button>
               </a>
 
-              <a href='https://drive.google.com/file/d/1gG4NufKmYQ1nWBFwVDcoNEtluvZNEhz9/view?usp=sharing' target='_blank' rel='noreferrer'>
+              <a href='https://v1.scrimba.com/certificate/uQyMggf3/gaiengineer' target='_blank' rel='noreferrer'>
                 <button className='flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/8 px-3 md:px-4 py-2.5 md:py-3 text-white/70 transition-colors hover:text-white hover:bg-white/15'>
                   <span className='flex items-center gap-2 md:gap-3 text-sm md:text-base font-medium'>
                     <span className='text-white'>
