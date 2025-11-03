@@ -91,7 +91,7 @@ const GlassPlate = ({ setContent }) => {
                   <p className='text-xs md:text-sm uppercase tracking-[0.28em] text-white/60'>Full-Stack Developer</p>
                 </div>
                 <div className='glass-divider w-full' />
-                <p className='px-1 text-xs text-white/70 md:px-0 md:text-sm md:text-left md:leading-relaxed text-center'>Crafting immersive digital journeys with React, Next.js, and glassmorphism.</p>
+                <p className='px-1 text-xs text-white/70 md:px-0 md:text-sm md:text-left md:leading-relaxed text-center'>Crafting immersive digital journeys with React, React Native and Next.js.</p>
               </div>
             </div>
 
