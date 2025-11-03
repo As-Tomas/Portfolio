@@ -29,7 +29,7 @@ const Main = ({ content, setContent }) => {
         <div className='flex flex-col items-center gap-10'>
           <ProjectCard key={selectedProjectId} project={selectedProject} />
 
-          <div className='glass-panel bg-white/10 px-6 py-4 sm:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 w-full max-w-none text-white/80'>
+          <div className='glass-panel bg-white/10 px-6 py-4 sm:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 w-full max-w-[960px] text-white/80 mx-auto'>
             <div className='space-y-1'>
               <h3 className='text-xl font-semibold text-white'>Select a project</h3>
             </div>
