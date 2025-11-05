@@ -13,6 +13,7 @@ const LazyVapiWidget = lazy(async () => {
 const App = () => {
   const [content, setContent] = useState('about');
   const [isVoiceEnabled, setIsVoiceEnabled] = useState(false);
+  const [widgetSize, setWidgetSize] = useState<'compact' | 'full'>('full');
   const [overlayState, setOverlayState] = useState<'show' | 'move' | 'hidden'>('show');
   const [overlayOffset, setOverlayOffset] = useState(0);
   const gateAnchorRef = useRef<HTMLDivElement | null>(null);
@@ -73,6 +74,14 @@ const App = () => {
   const handleEnableVoice = useCallback(() => {
     setIsVoiceEnabled(true);
     setOverlayState('hidden');
+    setWidgetSize('full');
+    if (typeof window !== 'undefined') {
+      try {
+        sessionStorage.setItem('vapi_widget_expanded', 'true');
+      } catch (error) {
+        console.warn('[Vapi] unable to seed expanded state', error);
+      }
+    }
     console.log('[Vapi] widget enabled by user gesture');
   }, []);
 
@@ -103,6 +112,88 @@ const App = () => {
   }, [isVoiceEnabled, overlayState]);
 
   const showOverlayGate = !isVoiceEnabled && overlayState !== 'hidden';
+
+  useEffect(() => {
+    if (!isVoiceEnabled) {
+      return;
+    }
+
+    const handleOutsidePointer = (event: PointerEvent) => {
+      const wrapper = document.querySelector('.vapi-widget-wrapper');
+      if (!wrapper) {
+        return;
+      }
+
+      const targetNode = event.target as Node | null;
+      const isInsideWidget = targetNode ? wrapper.contains(targetNode) : false;
+      const isExpanded = Boolean(wrapper.querySelector('.vapi-conversation-area'));
+
+      if (!isExpanded) {
+        return;
+      }
+
+      if (isInsideWidget) {
+        return;
+      }
+
+      const closeButton = wrapper.querySelector<HTMLButtonElement>('.vapi-widget-wrapper .border-b button:last-of-type')
+        ?? wrapper.querySelector<HTMLButtonElement>('.border-b button:last-of-type');
+
+      if (closeButton) {
+        closeButton.click();
+        if (typeof window !== 'undefined') {
+          try {
+            sessionStorage.setItem('vapi_widget_expanded', 'false');
+          } catch (error) {
+            console.warn('[Vapi] unable to persist collapsed state', error);
+          }
+        }
+        window.setTimeout(() => setWidgetSize('compact'), 120);
+      }
+    };
+
+    document.addEventListener('pointerdown', handleOutsidePointer, true);
+
+    return () => {
+      document.removeEventListener('pointerdown', handleOutsidePointer, true);
+    };
+  }, [isVoiceEnabled]);
+
+  useEffect(() => {
+    if (!isVoiceEnabled) {
+      return;
+    }
+
+    let cleanupObserver: MutationObserver | null = null;
+    let rafId: number;
+
+    const initObserver = () => {
+      const wrapper = document.querySelector('.vapi-widget-wrapper');
+      if (!wrapper) {
+        rafId = window.requestAnimationFrame(initObserver);
+        return;
+      }
+
+      cleanupObserver = new MutationObserver(() => {
+        const hasConversationShell = Boolean(wrapper.querySelector('.vapi-conversation-area'));
+        setWidgetSize(hasConversationShell ? 'full' : 'compact');
+      });
+
+      cleanupObserver.observe(wrapper, {
+        childList: true,
+        subtree: true,
+      });
+    };
+
+    rafId = window.requestAnimationFrame(initObserver);
+
+    return () => {
+      if (cleanupObserver) {
+        cleanupObserver.disconnect();
+      }
+      window.cancelAnimationFrame(rafId);
+    };
+  }, [isVoiceEnabled]);
 
   return (
     <div className="app-shell text-slate-100">
@@ -141,18 +232,20 @@ const App = () => {
             assistantId={widgetConfig.assistantId}
             mode="voice"
             position="bottom-right"
-            size="compact"
+            size={widgetSize}
+            voiceShowTranscript={false}
+            chatPlaceholder="Type to chat…"
             borderRadius="medium"
             theme="dark"
+            
+            
             baseBgColor="#0f172a"
-            accentColor="#14f2c3"
-            ctaButtonColor="#14f2c3"
-            ctaButtonTextColor="#0f172a"
+            accentColor="#00f5d4"
+            ctaButtonColor="#14b8a6"
+            ctaButtonTextColor="#022c22"
             title="Talk with AI"
-            ctaTitle="Talk with AI"
-            startButtonText="Start voice chat"
-            endButtonText="End voice chat"
-            consentRequired
+            ctaTitle="AI "
+                      consentRequired
             consentContent="Trumpas privatumo/sąlygų tekstas. Patvirtindami sutinkate su mano AI asistento privatumo taisyklėmis."
             requireConsent
             termsContent="Trumpas privatumo/sąlygų tekstas..."
