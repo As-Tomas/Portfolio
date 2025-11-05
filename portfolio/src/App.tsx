@@ -17,6 +17,8 @@ const App = () => {
   const [overlayState, setOverlayState] = useState<'show' | 'move' | 'hidden'>('show');
   const [overlayOffset, setOverlayOffset] = useState(0);
   const gateAnchorRef = useRef<HTMLDivElement | null>(null);
+  const expandedPanelRef = useRef<HTMLDivElement | null>(null);
+  const conversationAreaRef = useRef<HTMLDivElement | null>(null);
 
   const publicKey = import.meta.env.VITE_VAPI_PUBLIC_KEY;
   const assistantId = import.meta.env.VITE_VAPI_ASSISTANT_ID;
@@ -174,15 +176,53 @@ const App = () => {
         return;
       }
 
-      cleanupObserver = new MutationObserver(() => {
-        const hasConversationShell = Boolean(wrapper.querySelector('.vapi-conversation-area'));
-        setWidgetSize(hasConversationShell ? 'full' : 'compact');
-      });
+      const handleWidgetMutation = () => {
+        const conversationArea = wrapper.querySelector<HTMLDivElement>('.vapi-conversation-area');
+        const sizedContainers = wrapper.querySelectorAll<HTMLDivElement>(
+          'div[style*="width: 28rem"], div[style*="height: 40rem"]'
+        );
+
+        if (conversationArea && sizedContainers.length > 0) {
+          sizedContainers.forEach((container) => {
+            container.style.width = '19.6rem';
+            container.style.height = '28rem';
+            container.style.maxWidth = '19.6rem';
+            container.style.maxHeight = '28rem';
+            expandedPanelRef.current = container;
+          });
+
+          conversationArea.style.transform = '';
+          conversationArea.style.transformOrigin = '';
+          conversationAreaRef.current = conversationArea;
+          setWidgetSize('full');
+          return;
+        }
+
+        setWidgetSize('compact');
+
+        if (expandedPanelRef.current) {
+          expandedPanelRef.current.style.width = '';
+          expandedPanelRef.current.style.height = '';
+          expandedPanelRef.current.style.maxWidth = '';
+          expandedPanelRef.current.style.maxHeight = '';
+          expandedPanelRef.current = null;
+        }
+
+        if (conversationAreaRef.current) {
+          conversationAreaRef.current.style.transform = '';
+          conversationAreaRef.current.style.transformOrigin = '';
+          conversationAreaRef.current = null;
+        }
+      };
+
+      cleanupObserver = new MutationObserver(handleWidgetMutation);
 
       cleanupObserver.observe(wrapper, {
         childList: true,
         subtree: true,
       });
+
+      handleWidgetMutation();
     };
 
     rafId = window.requestAnimationFrame(initObserver);

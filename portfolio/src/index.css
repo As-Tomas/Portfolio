@@ -119,6 +119,7 @@ body::after {
   transition: filter 1.8s ease;
 }
 
+
 .app-shell::after {
   content: '';
   position: fixed;
