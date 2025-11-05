@@ -168,7 +168,7 @@ const ProjectCard = ({ project }) => {
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="card w-[85rem] px-[3rem] py-[1rem]   before:rounded-3xl before:block before:absolute before:-inset-1 before:backdrop-blur-md"
+          className="card w-[85rem] px-[3rem] py-[1rem]   before:rounded-3xl before:block before:absolute before:-inset-1 "
           style={{ transformStyle: "preserve-3d",  }}
           
         >
