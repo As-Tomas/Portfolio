@@ -273,22 +273,19 @@ const App = () => {
             mode="voice"
             position="bottom-right"
             size={widgetSize}
-            voiceShowTranscript={false}
-            chatPlaceholder="Type to chat…"
+            voiceShowTranscript
             borderRadius="medium"
             theme="dark"
-            
-            
             baseBgColor="#0f172a"
             accentColor="#00f5d4"
             ctaButtonColor="#14b8a6"
             ctaButtonTextColor="#022c22"
             title="Talk with AI"
-            ctaTitle="AI "
-                      consentRequired
-            consentContent="Trumpas privatumo/sąlygų tekstas. Patvirtindami sutinkate su mano AI asistento privatumo taisyklėmis."
+            ctaTitle="AI"
+            consentRequired
+            consentContent="By confirming, you agree to my AI assistant's privacy policy."
             requireConsent
-            termsContent="Trumpas privatumo/sąlygų tekstas..."
+            termsContent="Short privacy/terms text..."
             onCallStart={handleCallStart}
             onCallEnd={handleCallEnd}
             onMessage={handleMessage}
