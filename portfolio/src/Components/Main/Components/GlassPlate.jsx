@@ -84,7 +84,7 @@ const GlassPlate = ({ setContent }) => {
               />
               <div className='relative z-10 flex flex-col items-center gap-3 md:items-start md:gap-4'>
                 <span className='inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 p-1'>
-                  <img src={avatar} alt='Tomas Bance' className='h-24 w-24 md:h-26 md:w-26 rounded-full object-cover shadow-[0_15px_35px_rgba(8,12,30,0.45)]' />
+                  <img src={avatar} alt='Tomas Bance' className='h-24 w-26 md:h-26 md:w-26 rounded-full object-cover shadow-[0_15px_35px_rgba(8,12,30,0.45)]' />
                 </span>
                 <div className='flex flex-col items-center md:items-start text-center md:text-left'>
                   <h3 className='text-lg md:text-xl font-semibold tracking-wide text-white'>Tomas Bance</h3>
