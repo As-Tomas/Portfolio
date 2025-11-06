@@ -282,10 +282,9 @@ const App = () => {
             ctaButtonTextColor="#022c22"
             title="Talk with AI"
             ctaTitle="AI"
-            consentRequired
             consentContent="By confirming, you agree to my AI assistant's privacy policy."
             requireConsent
-            termsContent="Short privacy/terms text..."
+            
             onCallStart={handleCallStart}
             onCallEnd={handleCallEnd}
             onMessage={handleMessage}
@@ -314,7 +313,9 @@ const App = () => {
               transition={{ type: 'spring', stiffness: 120, damping: 18 }}
               onAnimationComplete={handleOverlayAnimationComplete}
             >
-              <EnableVoiceGate onEnable={handleEnableVoice} />
+              <div className="w-screen max-w-2xl px-4 sm:px-6">
+                <EnableVoiceGate onEnable={handleEnableVoice} />
+              </div>
             </motion.div>
           </motion.div>
         ) : null}
