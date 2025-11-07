@@ -5,7 +5,12 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+
+const MAX_ICON_SIZE = 100;
+const BASE_ICON_SIZE = 40;
+const VERTICAL_PADDING = 36;
+const DEFAULT_DOCK_HEIGHT = MAX_ICON_SIZE + VERTICAL_PADDING;
 
 export default function ProjectsNav({
   onProjectSelect,
@@ -63,8 +68,16 @@ export default function ProjectsNav({
   const dragHintClass = isCompact ? "block" : "hidden";
 
   return (
-    <div className="mx-auto flex w-full flex-col items-center gap-2 sm:w-auto">
-      <span className={`text-xs uppercase tracking-[0.3em] text-white/60 ${dragHintClass}`}>drag to explore</span>
+    <div
+      id="project-dock-container"
+      className="mx-auto flex w-full flex-col items-center gap-2 sm:w-auto sm:self-end sm:items-end"
+    >
+      <span
+        id="project-dock-hint"
+        className={`text-xs uppercase tracking-[0.3em] text-white/60 ${dragHintClass}`}
+      >
+        drag to explore
+      </span>
       <Dock
         projects={visibleProjects}
         onProjectSelect={onProjectSelect}
@@ -91,20 +104,140 @@ function Dock({
   isCompact: boolean;
 }) {
   let mouseX = useMotionValue(Infinity);
+  const listRef = useRef<HTMLUListElement>(null);
+  const lockedListHeightRef = useRef(DEFAULT_DOCK_HEIGHT);
+  const [isDraggingList, setIsDraggingList] = useState(false);
+  const [listSize, setListSize] = useState({ height: DEFAULT_DOCK_HEIGHT });
+  const dragStateRef = useRef({
+    pointerId: null as number | null,
+    startX: 0,
+    scrollLeft: 0,
+  });
+
+  useLayoutEffect(() => {
+    const list = listRef.current;
+    if (!list) {
+      return;
+    }
+
+    const updateHeight = (heightOverride?: number) => {
+      const measuredHeight = Math.max(
+        DEFAULT_DOCK_HEIGHT,
+        heightOverride ?? list.scrollHeight
+      );
+      if (measuredHeight > lockedListHeightRef.current) {
+        lockedListHeightRef.current = measuredHeight;
+      }
+      setListSize({ height: lockedListHeightRef.current });
+    };
+
+    updateHeight();
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        updateHeight(entry.contentRect.height);
+      }
+    });
+
+    resizeObserver.observe(list);
+
+    const handleWindowResize = () => {
+      lockedListHeightRef.current = Math.max(
+        lockedListHeightRef.current,
+        list.scrollHeight
+      );
+      setListSize({ height: lockedListHeightRef.current });
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", handleWindowResize);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projects.length, isCompact]);
 
   const handleClick = (projectId: number) => {
     onProjectSelect(projectId);
   };
 
+  const handlePointerDown = (event: React.PointerEvent<HTMLUListElement>) => {
+    if (!isCompact) {
+      return;
+    }
+    const list = listRef.current;
+    if (!list) {
+      return;
+    }
+    dragStateRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      scrollLeft: list.scrollLeft,
+    };
+    setIsDraggingList(true);
+    list.setPointerCapture(event.pointerId);
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLUListElement>) => {
+    if (!isDraggingList || !isCompact) {
+      return;
+    }
+    const list = listRef.current;
+    if (!list) {
+      return;
+    }
+    const delta = event.clientX - dragStateRef.current.startX;
+    list.scrollLeft = dragStateRef.current.scrollLeft - delta;
+  };
+
+  const stopDragging = (event: React.PointerEvent<HTMLUListElement>) => {
+    if (!isDraggingList) {
+      return;
+    }
+    const list = listRef.current;
+    if (list && dragStateRef.current.pointerId !== null) {
+      try {
+        list.releasePointerCapture(dragStateRef.current.pointerId);
+      } catch {
+        // ignore
+      }
+    }
+    dragStateRef.current.pointerId = null;
+    setIsDraggingList(false);
+  };
+
   return (
     <nav
+      id="project-dock-nav"
       className="w-full max-w-full"
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
     >
-      <ul className={`flex min-h-[4rem] items-end gap-4 rounded-3xl border border-white/20 bg-white/12 px-5 pb-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl sm:mx-auto ${isCompact ? "justify-start overflow-x-auto overscroll-x-contain [&::-webkit-scrollbar]:hidden touch-pan-x" : "justify-center"}`}>
+      <ul
+        ref={listRef}
+        id="project-dock-list"
+        className={`flex min-h-[4rem] items-end gap-4 rounded-3xl border border-white/20 bg-white/12 px-5 pb-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl sm:mx-auto ${
+          isCompact
+            ? "justify-start overflow-x-auto overscroll-x-contain [&::-webkit-scrollbar]:hidden touch-pan-x cursor-grab active:cursor-grabbing"
+            : "justify-center"
+        } ${isDraggingList ? "cursor-grabbing" : ""}`}
+        style={
+          listSize
+            ? {
+                height: `${listSize.height}px`,
+                minHeight: `${listSize.height}px`,
+              }
+            : undefined
+        }
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={stopDragging}
+        onPointerCancel={stopDragging}
+        onPointerLeave={stopDragging}
+      >
         {projects.map((project, index) => (
-          <li key={project.id}>
+          <li key={project.id} id={`project-dock-item-${project.id}`}>
             <AppIcon
               mouseX={mouseX}
               isActive={project.id === selectedProjectId}
@@ -142,8 +275,8 @@ function AppIcon({
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthSync = useTransform(distance, [-150, 0, 150], [40, 100, 40]);
-  let width = useSpring(widthSync, { mass: 0.1, stiffness: 150, damping: 12 });
+let widthSync = useTransform(distance, [-150, 0, 150], [40, 70, 40]);
+let width = useSpring(widthSync, { mass: 0.05, stiffness: 225, damping: 12 });
 
   return (
     <motion.div
