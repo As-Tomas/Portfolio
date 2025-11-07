@@ -64,7 +64,7 @@ const GlassPlate = ({ setContent }) => {
 
   return (
     <section className='relative w-full'>
-      <div className='glass-panel emphasis relative mx-auto w-full max-w-full md:max-w-[520px] overflow-visible px-4 py-8 sm:px-6 sm:py-10 lg:mx-0 lg:max-w-none lg:px-12 lg:py-12'>
+      <div className='glass-panel emphasis relative mx-auto w-full max-w-full overflow-visible px-4 py-8 sm:px-6 sm:py-10 lg:mx-0 lg:max-w-none lg:px-12 lg:py-12'>
         <div
           className='pointer-events-none absolute inset-0 opacity-70 rounded-[inherit]'
           aria-hidden='true'

@@ -98,16 +98,10 @@ const MyPath = () => {
           </p>
         </header>
 
-        <div className='relative'>
-          <span
-            className='pointer-events-none absolute left-1/2 top-0 h-full w-[3px] -translate-x-1/2 z-0'
-            aria-hidden='true'
-          >
-            <span className='absolute inset-0 rounded-full bg-gradient-to-b from-[#00bbf9]/38 via-[#8338ec]/35 to-[#3a0ca3]/38' />
-            <span className='absolute inset-0 rounded-full bg-gradient-to-b from-[#00f5d4]/55 via-[#8338ec]/45 to-[#3a0ca3]/65 blur-[2.2px]' />
-          </span>
-          <span className='pointer-events-none absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 rounded-full bg-[#00bbf9]' aria-hidden='true' />
-          <span className='pointer-events-none absolute left-1/2 bottom-0 h-4 w-4 -translate-x-1/2 rounded-full bg-[#00bbf9]' aria-hidden='true' />
+        <div className={`relative ${styles.timeline}`}>
+          <span className={styles.timelineLine} aria-hidden='true' />
+          <span className={styles.timelineDotTop} aria-hidden='true' />
+          <span className={styles.timelineDotBottom} aria-hidden='true' />
 
           <div className='relative z-10 flex flex-col gap-12'>
             {timelineWithAlignment.map((event) => (
