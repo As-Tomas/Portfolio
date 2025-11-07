@@ -37,7 +37,21 @@ const Header = ({ content, setContent }) => {
            >
              &#9776;
            </button>
-           <nav className={`sm:block text-xl ${isMobileMenuOpen ? 'z-50 flex flex-col justify-start items-start absolute p-6 pr-16 gap-5 top-full right-0 bg-white/15 backdrop-blur-xl border border-white/25 shadow-[0_18px_45px_rgba(15,23,42,0.35)] rounded-2xl' : 'hidden space-x-8'}`} aria-label="main">
+           <nav
+             id="mobile-menu"
+             className={`sm:block text-xl ${
+               isMobileMenuOpen
+                 ? 'z-50 flex flex-col justify-start items-start absolute p-6 pr-16 gap-5 top-full right-0 rounded-2xl overflow-hidden sm:overflow-visible sm:rounded-none border border-white/25 sm:border-0 shadow-[0_18px_45px_rgba(15,23,42,0.35)] sm:shadow-none'
+                 : 'hidden space-x-8'
+             }`}
+             aria-label="main"
+           >
+             {isMobileMenuOpen && (
+               <span
+                 className="sm:hidden pointer-events-none absolute inset-0 -z-10 bg-white/40 backdrop-blur-3xl"
+                 aria-hidden="true"
+               />
+             )}
 
              
              <a
@@ -62,7 +76,6 @@ const Header = ({ content, setContent }) => {
              
            </nav>
          </div>       
-        
       </header>
       <div className=" z-20 fixed backdrop-blur-md top-0 left-0 w-full overflow-x-hidden h-16 before:absolute before:top-0 before:left-[-100%] rounded-b-2xl
    before:w-full before:h-full before:content-'' before:bg-gradient-to-r before:from-transparent before:via-[rgba(255,255,255,0.3)] 
