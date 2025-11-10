@@ -10,9 +10,16 @@ const Main = ({ content, setContent }) => {
   const [panelSize, setPanelSize] = useState(null);
   const panelRef = useRef(null);
   const panelContentRef = useRef(null);
+  const projectCardRef = useRef(null);
 
   const handleProjectSelect = projectId => {
     setSelectedProjectId(projectId);
+    if (window.innerWidth < 1024) {
+      window.requestAnimationFrame(() => {
+        projectCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        projectCardRef.current?.focus({ preventScroll: true });
+      });
+    }
   };
 
   const selectedProject = projectData.find(project => project.id === selectedProjectId);
@@ -149,7 +156,9 @@ const Main = ({ content, setContent }) => {
 
       {content === 'projects' && (
         <div className='flex flex-col items-center gap-10'>
-          <ProjectCard key={selectedProjectId} project={selectedProject} />
+          <div id='project-card-container' ref={projectCardRef} tabIndex='-1' className='outline-none focus-visible:ring-2 focus-visible:ring-emerald-400'>
+            <ProjectCard key={selectedProjectId} project={selectedProject} />
+          </div>
 
           <div
             id='project-selector-panel'

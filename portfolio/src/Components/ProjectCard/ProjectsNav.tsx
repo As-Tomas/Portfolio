@@ -211,8 +211,16 @@ function Dock({
     <nav
       id="project-dock-nav"
       className="w-full max-w-full"
-      onMouseMove={(e) => mouseX.set(e.pageX)}
-      onMouseLeave={() => mouseX.set(Infinity)}
+      onMouseMove={(e) => {
+        if (!isCompact) {
+          mouseX.set(e.pageX);
+        }
+      }}
+      onMouseLeave={() => {
+        if (!isCompact) {
+          mouseX.set(Infinity);
+        }
+      }}
     >
       <ul
         ref={listRef}
@@ -241,6 +249,7 @@ function Dock({
             <AppIcon
               mouseX={mouseX}
               isActive={project.id === selectedProjectId}
+              isCompact={isCompact}
               onClick={() => handleClick(project.id)}
             >
               <img
@@ -260,33 +269,41 @@ function AppIcon({
   mouseX,
   children,
   isActive,
+  isCompact,
   onClick,
 }: {
   mouseX: MotionValue<number>;
   children: React.ReactNode;
   isActive: boolean;
+  isCompact: boolean;
   onClick: () => void;
 }) {
   let ref = useRef<HTMLDivElement>(null);
 
   let distance = useTransform(mouseX, (val) => {
     let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
     return val - bounds.x - bounds.width / 2;
   });
 
-let widthSync = useTransform(distance, [-150, 0, 150], [40, 70, 40]);
-let width = useSpring(widthSync, { mass: 0.05, stiffness: 225, damping: 12 });
+  const baseWidthRange = isCompact ? [40, 40, 40] : [40, 70, 40];
+  let widthSync = useTransform(distance, [-150, 0, 150], baseWidthRange);
+  let width = useSpring(widthSync, { mass: 0.05, stiffness: 225, damping: 12 });
+
+  const activeClasses = isCompact
+    ? isActive
+      ? "border-white/70 bg-white/30 scale-110"
+      : "border-white/20 bg-white/10"
+    : isActive
+    ? "shadow-[0_12px_30px_rgba(131,56,236,0.45)] border-white/50 bg-white/30"
+    : "border-white/20 bg-white/10";
 
   return (
     <motion.div
       ref={ref}
       style={{ width }}
-      className={`flex aspect-square w-10 items-stretch overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-2 transition-all duration-200 hover:scale-110 hover:bg-white/20 ${
-        isActive
-          ? "shadow-[0_12px_30px_rgba(131,56,236,0.45)] border-white/50 bg-white/30"
-          : ""
-      }`}
+      className={`flex aspect-square w-10 items-stretch overflow-hidden rounded-2xl border p-2 transition-all duration-200 ${
+        isCompact ? '' : 'hover:scale-110 hover:bg-white/20'
+      } ${activeClasses}`}
       onClick={onClick}
     >
       {children}
