@@ -156,33 +156,19 @@ const ProjectCard = ({ project }) => {
   const lastHaveShadow = project.images.length - 1;
 
   return (
-    <div
-      className="body-card-div flex items-center justify-center "
-      // style={{ perspective: "800px" }}
-    >
+    <div className="body-card-div flex w-full items-center justify-center px-4 sm:px-6 lg:px-8">
       <div
-        className="container min-h-[70vh] w-5/12 sm:w-6/12 flex justify-center items-center "
-        // onMouseMove={handleMouseMove}
-        style={{perspective: "800px"}}
+        className="container min-h-[60vh] w-full max-w-5xl flex justify-center items-center"
+        style={{ perspective: "800px" }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div
-          className="card w-[85rem] px-[3rem] py-[1rem]   before:rounded-3xl before:block before:absolute before:-inset-1 "
-          style={{ transformStyle: "preserve-3d",  }}
-          
-        >
-          <div className={`card ${window.innerHeight < 860 ? "min-h-[70vh] -mx-12 -my-0 ":"-mx-12 -my-4"}  rounded-3xl border-2 border-white/20 bg-white/10 shadow-neon_indigo `}
-          style={{ transformStyle: "preserve-3d", }}>
-
-          <div
-            className={`pictures ${window.innerHeight < 860 ? " min-h-[25vh]":" min-h-[25vh]"} pt-14 flex items-center justify-center`}
-            style={{ transformStyle: "preserve-3d" }}
-            //onMouseEnter={handleMouseEnterPreviewImg}
-          >
-            {/* <div className="circle   z-auto w-[15rem] h-[15rem] bg-gradient-to-r from-blue-300 to-red-300 absolute border-2 rounded-full"></div> */}            
-
-            
+        <div className="card w-full px-4 py-4 sm:px-6 sm:py-6 before:rounded-3xl before:block before:absolute before:-inset-1" style={{ transformStyle: "preserve-3d" }}>
+          <div className="card min-h-[60vh] rounded-3xl border-2 border-white/20 bg-white/10 shadow-neon_indigo px-4 py-6 sm:px-10 sm:py-10" style={{ transformStyle: "preserve-3d" }}>
+            <div
+              className="pictures min-h-[20vh] sm:min-h-[25vh] pt-6 flex flex-wrap items-center justify-center gap-6"
+              style={{ transformStyle: "preserve-3d" }}
+            >
             {project.images.slice(0, 4).map((image, index) => (
               <img
                 key={index}
@@ -197,33 +183,27 @@ const ProjectCard = ({ project }) => {
                 onMouseLeave={() => handleMouseLeavePreviewImg()}
               />
             ))}
-          </div>
-          <div
-            className="info pt-14 text-center text-white"
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            <h1 className={`title font-semibold tracking-wide ${window.innerHeight < 860 ? " text-2xl":" text-3xl"}`}>{project.name}</h1>
-            <h3 className={`description py-6 px-4 text-white/75 leading-relaxed font-normal ${window.innerHeight < 860 ? " text-base ":" text-lg "}`}
-            style={{
-              textIndent: "2em",
-              textAlign: "justify",
-              textJustify: "inter-word",
-              textAlignLast: "left",
-            }} >
-              {project.description.split('\n').map((line, idx) => 
-                <div  key={idx} style={{
-                  textIndent: "2em"
-                }}>
-                  {line}
-                  <br />
-                </div >
-            )}
-            </h3>
+            </div>
+            <div className="info pt-10 text-center text-white" style={{ transformStyle: "preserve-3d" }}>
+              <h1 className="title text-2xl sm:text-3xl font-semibold tracking-wide">{project.name}</h1>
+              <h3
+                className="description py-6 px-2 sm:px-4 text-white/75 leading-relaxed text-base sm:text-lg"
+                style={{
+                  textIndent: "2em",
+                  textAlign: "justify",
+                  textJustify: "inter-word",
+                  textAlignLast: "left",
+                }}
+              >
+                {project.description.split('\n').map((line, idx) => (
+                  <div key={idx} style={{ textIndent: "2em" }}>
+                    {line}
+                    <br />
+                  </div>
+                ))}
+              </h3>
 
-            <div
-              className="ico flex justify-around gap-6"
-              onMouseLeave={handleMouseLeaveIco}
-            >
+              <div className="ico flex flex-wrap justify-center gap-4 sm:gap-6" onMouseLeave={handleMouseLeaveIco}>
               {project.technologies.slice(0, 4).map((technology, index) => (
                 <span
                   key={index}
@@ -242,11 +222,11 @@ const ProjectCard = ({ project }) => {
               ))}
             </div>
 
-            <div className="buttons mt-10 mb-2">
+              <div className="buttons mt-8 mb-2 flex flex-col items-center gap-4">
               {project.links.slice(0, 4).map((link, index) => (
                 <button
                   key={index}
-                  className="w-2/3 rounded-full bg-gradient-to-r from-[#f72585] via-[#ff8906] to-[#ffd23f] py-4 font-semibold text-white shadow-[0_20px_45px_rgba(12,16,48,0.35)] transition-transform hover:scale-105"
+                  className="w-full sm:w-2/3 rounded-full bg-gradient-to-r from-[#f72585] via-[#ff8906] to-[#ffd23f] py-4 font-semibold text-white shadow-[0_20px_45px_rgba(12,16,48,0.35)] transition-transform hover:scale-105"
                   onClick={() => window.open(link, "_blank")}
                 >
                   GitHub
@@ -257,7 +237,7 @@ const ProjectCard = ({ project }) => {
                 GitHub
               </button> */}
             </div>
-          </div>
+            </div>
           </div>
         </div>
       </div>
