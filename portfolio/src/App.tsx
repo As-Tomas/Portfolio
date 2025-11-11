@@ -251,9 +251,9 @@ const App = () => {
 
   return (
     <div className="app-shell text-slate-100">
-      <div className="floating-orb lagoon top-[-6%] right-[10%] w-[32rem] h-[32rem] z-0" aria-hidden="true" />
-      <div className="floating-orb aurora top-[30%] left-[-6%] w-[28rem] h-[28rem] z-0" aria-hidden="true" />
-      <div className="floating-orb sunset bottom-[12%] right-[-4%] w-[34rem] h-[34rem] z-0" aria-hidden="true" />
+      <div className="floating-orb lagoon top-[2%] right-[8%] w-[32rem] h-[32rem] max-[768px]:w-[20rem] max-[768px]:h-[20rem] max-[768px]:top-[5%] max-[768px]:right-[5%] z-0" aria-hidden="true" />
+      <div className="floating-orb aurora top-[30%] left-[2%] w-[28rem] h-[28rem] max-[768px]:w-[18rem] max-[768px]:h-[18rem] max-[768px]:top-[35%] max-[768px]:left-[5%] z-0" aria-hidden="true" />
+      <div className="floating-orb sunset bottom-[12%] right-[2%] w-[34rem] h-[34rem] max-[768px]:w-[22rem] max-[768px]:h-[22rem] max-[768px]:bottom-[15%] max-[768px]:right-[5%] z-0" aria-hidden="true" />
 
       <Header content={content} setContent={setContent} />
 
@@ -333,7 +333,7 @@ const App = () => {
               onMouseDown={(event) => event.stopPropagation()}
               onTouchStart={(event) => event.stopPropagation()}
             >
-              <div className="w-screen max-w-2xl px-4 sm:px-6">
+              <div className="w-full max-w-2xl px-4 sm:px-6 mx-auto">
                 <EnableVoiceGate onEnable={handleEnableVoice} />
               </div>
             </motion.div>
