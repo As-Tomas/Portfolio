@@ -126,6 +126,7 @@ function Dock({
     pointerId: null as number | null,
     startX: 0,
     scrollLeft: 0,
+    hasMoved: false,
   });
 
   useLayoutEffect(() => {
@@ -197,17 +198,18 @@ function Dock({
     if (!list) {
       return;
     }
+    // Track pointer down but don't capture yet
     dragStateRef.current = {
       pointerId: event.pointerId,
       startX: event.clientX,
       scrollLeft: list.scrollLeft,
+      hasMoved: false,
     };
-    setIsDraggingList(true);
-    list.setPointerCapture(event.pointerId);
   };
 
   const handlePointerMove = (event: React.PointerEvent<HTMLUListElement>) => {
-    if (!isDraggingList || !isCompact) {
+    // Check if this pointer is the one we're tracking
+    if (!isCompact || dragStateRef.current.pointerId !== event.pointerId) {
       return;
     }
     const list = listRef.current;
@@ -215,23 +217,53 @@ function Dock({
       return;
     }
     const delta = event.clientX - dragStateRef.current.startX;
-    list.scrollLeft = dragStateRef.current.scrollLeft - delta;
+
+    // Only start dragging if moved more than 5 pixels
+    if (Math.abs(delta) > 5) {
+      if (!dragStateRef.current.hasMoved) {
+        // First time detecting movement - capture pointer and set dragging state
+        dragStateRef.current.hasMoved = true;
+        setIsDraggingList(true);
+        try {
+          list.setPointerCapture(event.pointerId);
+        } catch {
+          // ignore if capture fails
+        }
+      }
+      list.scrollLeft = dragStateRef.current.scrollLeft - delta;
+    }
   };
 
   const stopDragging = (event: React.PointerEvent<HTMLUListElement>) => {
-    if (!isDraggingList) {
+    if (!isCompact) {
       return;
     }
-    const list = listRef.current;
-    if (list && dragStateRef.current.pointerId !== null) {
-      try {
-        list.releasePointerCapture(dragStateRef.current.pointerId);
-      } catch {
-        // ignore
+
+    // Skip if this isn't the pointer we're tracking
+    if (dragStateRef.current.pointerId !== event.pointerId) {
+      return;
+    }
+
+    const wasActualDrag = dragStateRef.current.hasMoved;
+
+    // Only need to release capture if we actually captured it
+    if (wasActualDrag && isDraggingList) {
+      const list = listRef.current;
+      if (list) {
+        try {
+          list.releasePointerCapture(event.pointerId);
+        } catch {
+          // ignore
+        }
       }
     }
+
+    // Reset drag state
     dragStateRef.current.pointerId = null;
-    setIsDraggingList(false);
+    dragStateRef.current.hasMoved = false;
+    if (isDraggingList) {
+      setIsDraggingList(false);
+    }
   };
 
   return (
