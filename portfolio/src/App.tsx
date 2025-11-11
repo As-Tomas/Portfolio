@@ -42,6 +42,23 @@ const App = () => {
     }
   }, [isVoiceEnabled, widgetConfig]);
 
+  const startOverlayCollapse = useCallback(() => {
+    if (isVoiceEnabled || overlayState !== 'show') {
+      return;
+    }
+
+    const anchorRect = gateAnchorRef.current?.getBoundingClientRect();
+    if (anchorRect) {
+      const viewportCenter = window.innerHeight / 2;
+      const anchorCenter = anchorRect.top + anchorRect.height / 2;
+      setOverlayOffset(anchorCenter - viewportCenter);
+    } else {
+      setOverlayOffset(0);
+    }
+
+    setOverlayState('move');
+  }, [isVoiceEnabled, overlayState]);
+
   useEffect(() => {
     if (isVoiceEnabled) {
       setOverlayState('hidden');
@@ -53,25 +70,11 @@ const App = () => {
     }
 
     const timer = window.setTimeout(() => {
-      if (isVoiceEnabled) {
-        setOverlayState('hidden');
-        return;
-      }
-
-      const anchorRect = gateAnchorRef.current?.getBoundingClientRect();
-      if (anchorRect) {
-        const viewportCenter = window.innerHeight / 2;
-        const anchorCenter = anchorRect.top + anchorRect.height / 2;
-        setOverlayOffset(anchorCenter - viewportCenter);
-      } else {
-        setOverlayOffset(0);
-      }
-
-      setOverlayState('move');
+      startOverlayCollapse();
     }, 3000);
 
     return () => window.clearTimeout(timer);
-  }, [isVoiceEnabled, overlayState]);
+  }, [isVoiceEnabled, overlayState, startOverlayCollapse]);
 
   const handleEnableVoice = useCallback(() => {
     setIsVoiceEnabled(true);
@@ -114,6 +117,17 @@ const App = () => {
   }, [isVoiceEnabled, overlayState]);
 
   const showOverlayGate = !isVoiceEnabled && overlayState !== 'hidden';
+
+  const overlayVisualState =
+    overlayState === 'move'
+      ? { opacity: 0, backdropFilter: 'blur(0px)' }
+      : { opacity: 1, backdropFilter: 'blur(14px)' };
+
+  const overlayTransition = { duration: 0.5, ease: 'easeOut' };
+
+  const handleOverlayBackgroundInteraction = useCallback(() => {
+    startOverlayCollapse();
+  }, [startOverlayCollapse]);
 
   useEffect(() => {
     if (!isVoiceEnabled) {
@@ -297,10 +311,14 @@ const App = () => {
         {showOverlayGate ? (
           <motion.div
             key="voice-gate-overlay"
-            className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-950/30 backdrop-blur-md"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-950/30"
+            style={{ backdropFilter: 'blur(0px)' }}
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={overlayVisualState}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            transition={overlayTransition}
+            onMouseDown={handleOverlayBackgroundInteraction}
+            onTouchStart={handleOverlayBackgroundInteraction}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 0 }}
@@ -312,6 +330,8 @@ const App = () => {
               exit={{ opacity: 0, scale: 0.9, y: overlayOffset }}
               transition={{ type: 'spring', stiffness: 120, damping: 18 }}
               onAnimationComplete={handleOverlayAnimationComplete}
+              onMouseDown={(event) => event.stopPropagation()}
+              onTouchStart={(event) => event.stopPropagation()}
             >
               <div className="w-screen max-w-2xl px-4 sm:px-6">
                 <EnableVoiceGate onEnable={handleEnableVoice} />

@@ -63,7 +63,7 @@ const GlassPlate = ({ setContent }) => {
       : 'relative overflow-hidden border border-white/15 text-white/70 hover:text-white hover:bg-white/10';
 
   return (
-    <section className='relative w-full'>
+    <section className='relative w-full overflow-hidden'>
       <div className='glass-panel emphasis relative mx-auto w-full max-w-full overflow-visible px-4 py-8 sm:px-6 sm:py-10 lg:mx-0 lg:max-w-none lg:px-12 lg:py-12'>
         <div
           className='pointer-events-none absolute inset-0 opacity-70 rounded-[inherit]'
@@ -73,7 +73,7 @@ const GlassPlate = ({ setContent }) => {
           }}
         />
 
-        <div className='relative grid w-full grid-cols-1 gap-4 md:grid-cols-[minmax(160px,200px)_minmax(0,1fr)] lg:grid-cols-[minmax(180px,220px)_minmax(0,1fr)] xl:grid-cols-[minmax(220px,260px)_minmax(0,1fr)]'>
+        <div className='relative grid w-full grid-cols-1 gap-4 md:grid-cols-[minmax(160px,200px)_minmax(0,1fr)] lg:grid-cols-[minmax(180px,220px)_minmax(0,1fr)] xl:grid-cols-[minmax(220px,260px)_minmax(0,1fr)] overflow-hidden'>
           <aside className='flex w-full flex-col gap-4 md:gap-5'>
             <div className='glass-panel emphasis relative overflow-hidden px-3 py-5 text-center md:text-left'>
               <div

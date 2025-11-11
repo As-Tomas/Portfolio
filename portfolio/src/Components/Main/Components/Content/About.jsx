@@ -65,9 +65,6 @@ const About = () => {
         </div>
       </div>
 
-      <div className={`relative flex justify-center ${isVisible ? 'hidden' : ''}`}>
-        <img className='h-10 animate-bounceOnce' src='./assets/GeneralIcons/wheel_scroll_mouse.svg' alt='Scroll indicator' />
-      </div>
     </section>
   );
 };

@@ -118,12 +118,6 @@ const MyPath = () => {
         </footer>
       </div>
 
-      <div
-        ref={indicatorRef}
-        className={`relative flex justify-center pb-6 ${indicatorVisible ? 'opacity-0' : 'opacity-100 transition-opacity duration-700'}`}
-      >
-        <img className='h-10 animate-bounceOnce' src='./assets/GeneralIcons/wheel_scroll_mouse.svg' alt='Scroll indicator' />
-      </div>
     </div>
   );
 };

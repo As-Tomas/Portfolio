@@ -146,9 +146,6 @@ const Technologies = () => {
         </div>
       </section>
 
-      <div className={`relative flex justify-center pb-4 ${isIndicatorVisible ? 'hidden' : ''}`}>
-        <img className='h-10 animate-bounceOnce' src='./assets/GeneralIcons/wheel_scroll_mouse.svg' alt='Scroll indicator' />
-      </div>
     </section>
   );
 };
