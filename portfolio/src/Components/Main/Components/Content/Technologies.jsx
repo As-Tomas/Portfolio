@@ -28,6 +28,7 @@ const capabilityCards = [
 ];
 
 const developmentEnvironments = [
+  { src: './assets/N8n-logo-new.svg.png', alt: 'n8n' },
   { src: './assets/cursor.png', alt: 'Cursor' },
   { src: './assets/dot_net.svg', alt: '.NET' },
   { src: './assets/visual_studio.png', alt: 'Visual Studio' },
