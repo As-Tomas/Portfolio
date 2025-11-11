@@ -98,6 +98,14 @@ const Main = ({ content, setContent }) => {
 
     const updateSize = (heightOverride, widthOverride) => {
       const viewportWidth = window.innerWidth || 0;
+
+      // Only apply fixed sizing on desktop screens (>= 1024px)
+      // Let natural CSS flow handle mobile and tablet
+      if (viewportWidth < 1024) {
+        setPanelSize(null);
+        return;
+      }
+
       const baseWidth = getTargetWidth();
       const dockWidth = widthOverride ?? Math.max(getDockContentWidth(), getContentWidth());
       const finalWidth = Math.min(
@@ -178,7 +186,7 @@ const Main = ({ content, setContent }) => {
           <div
             id='project-selector-panel'
             ref={panelRef}
-            className='glass-panel bg-white/10 px-6 py-5 sm:px-8 sm:py-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8 w-full max-w-[960px] text-white/80 mx-auto'
+            className='glass-panel bg-white/10 px-6 py-5 sm:px-8 sm:py-6 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 w-full max-w-[960px] text-white/80 mx-auto'
         style={
           panelSize
             ? {
@@ -194,9 +202,9 @@ const Main = ({ content, setContent }) => {
           >
             <div
               ref={panelContentRef}
-              className='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8 w-full text-white/80'
+              className='flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 w-full text-white/80'
             >
-              <div id='project-selector-heading' className='space-y-1 sm:max-w-[280px] sm:self-start'>
+              <div id='project-selector-heading' className='space-y-1 lg:max-w-[280px] lg:self-start'>
                 <h3 id='project-selector-title' className='text-xl font-semibold text-white'>
                   Select a project
                 </h3>

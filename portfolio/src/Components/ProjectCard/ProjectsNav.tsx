@@ -17,12 +17,22 @@ export default function ProjectsNav({
   projectData,
   selectedProjectId,
 }) {
-  const [isCompact, setIsCompact] = useState(false);
+  const [isCompact, setIsCompact] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 1024 || projectData.length > 7;
+    }
+    return false;
+  });
   const [windowStart, setWindowStart] = useState(0);
 
   useEffect(() => {
     const update = () => {
-      setIsCompact(window.innerWidth < 1024 && projectData.length > 7);
+      // Tablets and mobile always use compact mode
+      // Desktop uses compact mode only when there are many projects
+      const isMobileOrTablet = window.innerWidth < 1024;
+      const hasManyProjects = projectData.length > 7;
+
+      setIsCompact(isMobileOrTablet || hasManyProjects);
     };
 
     update();
@@ -70,7 +80,9 @@ export default function ProjectsNav({
   return (
     <div
       id="project-dock-container"
-      className="mx-auto flex w-full flex-col items-center gap-2 sm:w-auto sm:self-end sm:items-end"
+      className={`mx-auto flex w-full flex-col items-center gap-2 ${
+        !isCompact ? "sm:w-auto sm:self-end sm:items-end" : ""
+      }`}
     >
       <span
         id="project-dock-hint"
@@ -107,7 +119,12 @@ function Dock({
   const listRef = useRef<HTMLUListElement>(null);
   const lockedListHeightRef = useRef(DEFAULT_DOCK_HEIGHT);
   const [isDraggingList, setIsDraggingList] = useState(false);
-  const [listSize, setListSize] = useState({ height: DEFAULT_DOCK_HEIGHT });
+  const [listSize, setListSize] = useState<{ height: number } | null>(
+    // Only apply fixed sizing when NOT in compact mode (desktop with few projects)
+    !isCompact && typeof window !== 'undefined'
+      ? { height: DEFAULT_DOCK_HEIGHT }
+      : null
+  );
   const dragStateRef = useRef({
     pointerId: null as number | null,
     startX: 0,
@@ -121,6 +138,13 @@ function Dock({
     }
 
     const updateHeight = (heightOverride?: number) => {
+      // Only apply fixed height when NOT in compact mode
+      // Compact mode (mobile/tablet) uses natural CSS flow
+      if (isCompact) {
+        setListSize(null);
+        return;
+      }
+
       const measuredHeight = Math.max(
         DEFAULT_DOCK_HEIGHT,
         heightOverride ?? list.scrollHeight
@@ -142,6 +166,12 @@ function Dock({
     resizeObserver.observe(list);
 
     const handleWindowResize = () => {
+      // Reset sizing on resize - let updateHeight recalculate
+      if (isCompact) {
+        setListSize(null);
+        return;
+      }
+
       lockedListHeightRef.current = Math.max(
         lockedListHeightRef.current,
         list.scrollHeight
@@ -225,10 +255,10 @@ function Dock({
       <ul
         ref={listRef}
         id="project-dock-list"
-        className={`flex min-h-[4rem] items-end gap-4 rounded-3xl border border-white/20 bg-white/12 px-5 pb-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl sm:mx-auto ${
+        className={`flex min-h-[4rem] items-end gap-4 rounded-3xl border border-white/20 bg-white/12 px-5 pb-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl ${
           isCompact
             ? "justify-start overflow-x-auto overscroll-x-contain [&::-webkit-scrollbar]:hidden touch-pan-x cursor-grab active:cursor-grabbing"
-            : "justify-center"
+            : "justify-center sm:mx-auto"
         } ${isDraggingList ? "cursor-grabbing" : ""}`}
         style={
           listSize
