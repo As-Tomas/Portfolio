@@ -19,7 +19,7 @@ export default function ProjectsNav({
 }) {
   const [isCompact, setIsCompact] = useState(() => {
     if (typeof window !== 'undefined') {
-      return window.innerWidth < 1024 || projectData.length > 7;
+      return window.innerWidth < 1024;
     }
     return false;
   });
@@ -28,17 +28,14 @@ export default function ProjectsNav({
   useEffect(() => {
     const update = () => {
       // Tablets and mobile always use compact mode
-      // Desktop uses compact mode only when there are many projects
-      const isMobileOrTablet = window.innerWidth < 1024;
-      const hasManyProjects = projectData.length > 7;
-
-      setIsCompact(isMobileOrTablet || hasManyProjects);
+      // Desktop (>= 1024px) never uses compact mode
+      setIsCompact(window.innerWidth < 1024);
     };
 
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
-  }, [projectData.length]);
+  }, []);
 
   useEffect(() => {
     if (!isCompact) {

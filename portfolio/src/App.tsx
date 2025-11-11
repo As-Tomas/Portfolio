@@ -184,13 +184,24 @@ const App = () => {
     let rafId: number;
 
     const initObserver = () => {
-      const wrapper = document.querySelector('.vapi-widget-wrapper');
+      const wrapper = document.querySelector('.vapi-widget-wrapper') as HTMLElement;
       if (!wrapper) {
         rafId = window.requestAnimationFrame(initObserver);
         return;
       }
 
+      // Set widget bottom position
+      const updateWidgetPosition = () => {
+        const isMobile = window.innerWidth <= 768;
+        wrapper.style.bottom = isMobile ? '3.5rem' : '5rem';
+      };
+
+      updateWidgetPosition();
+
       const handleWidgetMutation = () => {
+        // Reapply position on each mutation to prevent library overrides
+        updateWidgetPosition();
+
         const conversationArea = wrapper.querySelector<HTMLDivElement>('.vapi-conversation-area');
         const sizedContainers = wrapper.querySelectorAll<HTMLDivElement>(
           'div[style*="width: 28rem"], div[style*="height: 40rem"]'
@@ -241,10 +252,35 @@ const App = () => {
 
     rafId = window.requestAnimationFrame(initObserver);
 
+    // Handle window resize
+    const handleResize = () => {
+      const wrapperElement = document.querySelector('.vapi-widget-wrapper') as HTMLElement;
+      if (wrapperElement) {
+        const isMobile = window.innerWidth <= 768;
+        wrapperElement.style.bottom = isMobile ? '3.5rem' : '5rem';
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Force position every 100ms to override library resets
+    const positionInterval = window.setInterval(() => {
+      const wrapperElement = document.querySelector('.vapi-widget-wrapper') as HTMLElement;
+      if (wrapperElement) {
+        const isMobile = window.innerWidth <= 768;
+        const desiredBottom = isMobile ? '3.5rem' : '5rem';
+        if (wrapperElement.style.bottom !== desiredBottom) {
+          wrapperElement.style.bottom = desiredBottom;
+        }
+      }
+    }, 100);
+
     return () => {
       if (cleanupObserver) {
         cleanupObserver.disconnect();
       }
+      window.removeEventListener('resize', handleResize);
+      window.clearInterval(positionInterval);
       window.cancelAnimationFrame(rafId);
     };
   }, [isVoiceEnabled]);
