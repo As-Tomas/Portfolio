@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import projectSavedData from '../../../public/data/ProjectsData';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import ProjectsNav from '../ProjectCard/ProjectsNav';
@@ -11,6 +11,8 @@ const Main = ({ content, setContent }) => {
   const panelRef = useRef(null);
   const panelContentRef = useRef(null);
   const projectCardRef = useRef(null);
+  const mainContentRef = useRef(null);
+  const prevContentRef = useRef(content);
 
   const handleProjectSelect = projectId => {
     setSelectedProjectId(projectId);
@@ -23,6 +25,19 @@ const Main = ({ content, setContent }) => {
   };
 
   const selectedProject = projectData.find(project => project.id === selectedProjectId);
+
+  // Scroll to content on mobile when content changes from header navigation
+  useEffect(() => {
+    if (prevContentRef.current !== content) {
+      prevContentRef.current = content;
+
+      if (window.innerWidth < 768 && mainContentRef.current) {
+        window.requestAnimationFrame(() => {
+          mainContentRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    }
+  }, [content]);
 
   // const whindoHeight = () => {
   //   console.log(window.innerHeight)
@@ -151,7 +166,7 @@ const Main = ({ content, setContent }) => {
   }, [content]);
 
   return (
-    <div className='flex flex-col gap-12'>
+    <div ref={mainContentRef} className='flex flex-col gap-12'>
       {content === 'about' && <GlassPlate setContent={setContent} />}
 
       {content === 'projects' && (

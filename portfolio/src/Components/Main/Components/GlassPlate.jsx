@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import avatar from '../../../../public/data/me.jpg';
 import About from './Content/About';
 import Technologies from './Content/Technologies';
@@ -41,6 +41,19 @@ const navItems = [
 
 const GlassPlate = ({ setContent }) => {
   const [activeComponent, setActiveComponent] = useState('AboutMe');
+  const contentSectionRef = useRef(null);
+
+  const handleNavClick = (componentId) => {
+    setActiveComponent(componentId);
+
+    // On narrow screens, scroll to content section
+    if (window.innerWidth < 768 && contentSectionRef.current) {
+      window.requestAnimationFrame(() => {
+        contentSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        contentSectionRef.current?.focus({ preventScroll: true });
+      });
+    }
+  };
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -100,7 +113,7 @@ const GlassPlate = ({ setContent }) => {
                 <button
                   key={item.id}
                   className={`flex w-full items-center gap-2 md:gap-3 rounded-2xl px-3 md:px-5 py-2 md:py-3 transition-all ${isActive(item.id)}`}
-                  onClick={() => setActiveComponent(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                 >
                   <span className='text-white h-4 w-4 md:h-5 md:w-5 [&>svg]:h-full [&>svg]:w-full'>
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512' className='h-full w-full fill-current'>
@@ -199,7 +212,11 @@ const GlassPlate = ({ setContent }) => {
           </aside>
 
           <div className='flex min-w-0 flex-col gap-8'>
-            <section className='glass-panel bg-white/10 px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10 text-white/90 overflow-visible'>
+            <section
+              ref={contentSectionRef}
+              tabIndex='-1'
+              className='glass-panel bg-white/10 px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10 text-white/90 overflow-visible outline-none focus-visible:ring-2 focus-visible:ring-cyan-400'
+            >
               <div className='pointer-events-none absolute -right-16 -top-12 h-48 w-48 rounded-full bg-[#00bbf9]/30 blur-3xl' aria-hidden='true' />
               <div className='relative z-10 space-y-6'>{renderComponent()}</div>
             </section>
