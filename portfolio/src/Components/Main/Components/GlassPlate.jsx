@@ -164,25 +164,6 @@ const GlassPlate = ({ setContent }) => {
                 </button>
               </a>
 
-              <a href='https://drive.google.com/file/d/1gwvlFMkye-hDHtL3LFysYWMBmtQH9eIp/view?usp=drive_link' target='_blank' rel='noreferrer'>
-                <button className='flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/8 px-3 md:px-4 py-2.5 md:py-3 text-white/70 transition-colors hover:text-white hover:bg-white/15'>
-                  <span className='flex items-center gap-2 md:gap-3 text-sm md:text-base font-medium'>
-                    <span className='text-white h-5 w-5 md:h-6 md:w-6 [&>svg]:h-full [&>svg]:w-full'>
-                      <svg xmlns='http://www.w3.org/2000/svg' height='1.5rem' viewBox='0 0 640 512' fill='currentColor'>
-                        <path d='M64 464H96v48H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V288H336V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16zM176 352h32c30.9 0 56 25.1 56 56s-25.1 56-56 56H192v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V448 368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H192v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H304c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H320v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V432 368z' />
-                      </svg>
-                    </span>
-                    CV
-                  </span>
-                  <span className='text-white/60'>
-                    <svg className='pl-[2px]' xmlns='http://www.w3.org/2000/svg' height='0.9rem' viewBox='0 0 60 60' fill='#ffffff'>
-                      <path d='M36.026,20.058l-21.092,0c-1.65,0 -2.989,1.339 -2.989,2.989l0,25.964c0,1.65 1.339,2.989 2.989,2.989l26.024,0c1.65,0 2.989,-1.339 2.989,-2.989l0,-20.953l3.999,0l0,21.948c0,3.308 -2.686,5.994 -5.995,5.995l-28.01,0c-3.309,0 -5.995,-2.687 -5.995,-5.995l0,-27.954c0,-3.309 2.686,-5.995 5.995,-5.995l22.085,0l0,4.001Z' />
-                      <path d='M55.925,25.32l-4.005,0l0,-10.481l-27.894,27.893l-2.832,-2.832l27.895,-27.895l-10.484,0l0,-4.005l17.318,0l0.002,0.001l0,17.319Z' />
-                    </svg>
-                  </span>
-                </button>
-              </a>
-
               <a href='https://v1.scrimba.com/certificate/uQyMggf3/gaiengineer' target='_blank' rel='noreferrer'>
                 <button className='flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/8 px-3 md:px-4 py-2.5 md:py-3 text-white/70 transition-colors hover:text-white hover:bg-white/15'>
                   <span className='flex items-center gap-2 md:gap-3 text-sm md:text-base font-medium'>
