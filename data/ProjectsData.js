@@ -107,6 +107,24 @@
     technologies: ['./assets/react.svg', './assets/docker.png', './assets/ELKStack.png', './assets/minio.png'],
     links: [],
   },
+  {
+    id: 13,
+    name: 'Accounting Operations Automation',
+    description:
+      'A safety-first accounting automation and assistant system built and validated in a dedicated test environment. I created reusable workflows for supplier invoices, bank statements, payment settlements, e-commerce CSV imports, bank reconciliation, VAT, period closing, reminders, sales invoices, and year-end controls.\n\nThe system uses explicit approval gates, duplicate protection, post-write read-back verification, and strict production read-only rules. Sensitive personal and business data is minimized before being passed to an LLM. The latest verified build passed 561 automated tests, TypeScript checks, and generated 28 working application routes.',
+    images: ['./data/Projects_Imgs/AccountingOperationsAutomation/futuristicOffice.png'],
+    technologies: ['./assets/nextjs.png', './assets/react.svg', './assets/node.svg', './assets/docker.png'],
+    links: [],
+  },
+  {
+    id: 14,
+    name: 'E-commerce Operations & Automation Platform',
+    description:
+      'A modular operations and automation platform for a WooCommerce store. I built a task queue and worker system, risk-based approval flows, a Discord bot, an administration dashboard, and a complete audit trail for every action.\n\nThe platform processes orders, prepares supplier hand-offs, collects product data, updates prices from supplier XML feeds, audits product SEO, generates metadata, analyzes website logs, and monitors search performance. Scheduled checks cover orders, website errors, SEO, and search visibility. Development and automated end-to-end testing were performed in a dedicated staging environment to protect the production store.',
+    images: ['./data/Projects_Imgs/E-commerceOperations/futuristicAcounting.png'],
+    technologies: ['./assets/node.svg', './assets/wordpress.svg', './assets/docker.png', './assets/js.svg'],
+    links: [],
+  },
 ];
 
 export default productData;
