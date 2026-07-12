@@ -175,7 +175,9 @@ const ProjectCard = ({ project }) => {
                 src={image}
                 alt={`image ${index + 1}`}
                 // ${window.innerHeight < 860 ? " max-w-[8rem] max-h-[10rem]":" max-w-[12rem] max-h-[14rem]"}
-                className={`border-1 border-purple-300 rounded-lg absolute max-w-[12rem] max-h-[14rem]  transition-transform duration-750 ease-out ${imgBorders} ${
+                className={`border-1 border-purple-300 rounded-lg absolute max-h-[14rem] ${
+                  [13, 14].includes(project.id) ? "max-w-[90%] sm:max-w-[20rem]" : "max-w-[12rem]"
+                } transition-transform duration-750 ease-out ${imgBorders} ${
                   imgPreviewIndex === index ? "shadow-neon_blue border-blue-400 " : ""
                 }
                   ${index === lastHaveShadow ? `imgPrev${index} shadow-neon_purple` : `imgPrev${index} `}`}
