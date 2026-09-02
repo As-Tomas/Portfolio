@@ -202,9 +202,9 @@ const Main = ({ content, setContent }) => {
           >
             <div
               ref={panelContentRef}
-              className='flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 w-full text-white/80'
+              className='flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 w-full text-white/80'
             >
-              <div id='project-selector-heading' className='space-y-1 lg:max-w-[280px] lg:self-start'>
+              <div id='project-selector-heading' className='space-y-1 lg:max-w-[280px]'>
                 <h3 id='project-selector-title' className='text-xl font-semibold text-white'>
                   Select a project
                 </h3>

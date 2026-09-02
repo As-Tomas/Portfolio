@@ -5,7 +5,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const MAX_ICON_SIZE = 100;
 const BASE_ICON_SIZE = 40;
@@ -23,7 +23,6 @@ export default function ProjectsNav({
     }
     return false;
   });
-  const [windowStart, setWindowStart] = useState(0);
 
   useEffect(() => {
     const update = () => {
@@ -37,58 +36,21 @@ export default function ProjectsNav({
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  useEffect(() => {
-    if (!isCompact) {
-      setWindowStart(0);
-      return;
-    }
-
-    const selectedIndex = projectData.findIndex(
-      (project) => project.id === selectedProjectId
-    );
-
-    if (selectedIndex === -1) return;
-
-    const maxVisible = 15;
-    if (selectedIndex < windowStart) {
-      setWindowStart(selectedIndex);
-    } else if (selectedIndex >= windowStart + maxVisible) {
-      setWindowStart(selectedIndex - maxVisible + 1);
-    }
-  }, [isCompact, projectData, selectedProjectId, windowStart]);
-
-  useEffect(() => {
-    if (!isCompact) return;
-    const maxVisible = 15;
-    const maxStart = Math.max(0, projectData.length - maxVisible);
-    if (windowStart > maxStart) {
-      setWindowStart(maxStart);
-    }
-  }, [isCompact, projectData.length, windowStart]);
-
-  const visibleProjects = useMemo(() => {
-    if (!isCompact) return projectData;
-    const maxVisible = 15;
-    return projectData.slice(windowStart, windowStart + maxVisible);
-  }, [isCompact, projectData, windowStart]);
-
-  const dragHintClass = isCompact ? "block" : "hidden";
-
   return (
     <div
       id="project-dock-container"
-      className={`mx-auto flex w-full flex-col items-center gap-2 ${
-        !isCompact ? "sm:w-auto sm:self-end sm:items-end" : ""
+      className={`mx-auto flex w-full min-w-0 flex-col items-center gap-2 ${
+        !isCompact ? "sm:w-auto sm:min-w-0 sm:self-end sm:items-end" : ""
       }`}
     >
       <span
         id="project-dock-hint"
-        className={`text-xs uppercase tracking-[0.3em] text-white/60 ${dragHintClass}`}
+        className="text-xs uppercase tracking-[0.3em] text-white/60"
       >
         drag to explore
       </span>
       <Dock
-        projects={visibleProjects}
+        projects={projectData}
         onProjectSelect={onProjectSelect}
         selectedProjectId={selectedProjectId}
         isCompact={isCompact}
@@ -186,14 +148,26 @@ function Dock({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [projects.length, isCompact]);
 
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) {
+      return;
+    }
+    const activeItem = list.querySelector<HTMLElement>(
+      `#project-dock-item-${selectedProjectId}`
+    );
+    activeItem?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "nearest",
+    });
+  }, [selectedProjectId]);
+
   const handleClick = (projectId: number) => {
     onProjectSelect(projectId);
   };
 
   const handlePointerDown = (event: React.PointerEvent<HTMLUListElement>) => {
-    if (!isCompact) {
-      return;
-    }
     const list = listRef.current;
     if (!list) {
       return;
@@ -209,7 +183,7 @@ function Dock({
 
   const handlePointerMove = (event: React.PointerEvent<HTMLUListElement>) => {
     // Check if this pointer is the one we're tracking
-    if (!isCompact || dragStateRef.current.pointerId !== event.pointerId) {
+    if (dragStateRef.current.pointerId !== event.pointerId) {
       return;
     }
     const list = listRef.current;
@@ -235,10 +209,6 @@ function Dock({
   };
 
   const stopDragging = (event: React.PointerEvent<HTMLUListElement>) => {
-    if (!isCompact) {
-      return;
-    }
-
     // Skip if this isn't the pointer we're tracking
     if (dragStateRef.current.pointerId !== event.pointerId) {
       return;
@@ -269,7 +239,7 @@ function Dock({
   return (
     <nav
       id="project-dock-nav"
-      className="w-full max-w-full"
+      className="w-full min-w-0 max-w-full"
       onMouseMove={(e) => {
         if (!isCompact) {
           mouseX.set(e.pageX);
@@ -284,11 +254,9 @@ function Dock({
       <ul
         ref={listRef}
         id="project-dock-list"
-        className={`flex min-h-[4rem] items-end gap-4 rounded-3xl border border-white/20 bg-white/12 px-5 pb-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl ${
-          isCompact
-            ? "justify-start overflow-x-auto overscroll-x-contain [&::-webkit-scrollbar]:hidden touch-pan-x cursor-grab active:cursor-grabbing"
-            : "justify-center sm:mx-auto"
-        } ${isDraggingList ? "cursor-grabbing" : ""}`}
+        className={`flex min-h-[4rem] max-w-full items-center justify-start gap-4 overflow-x-auto overscroll-x-contain rounded-3xl border border-white/20 bg-white/12 px-5 py-3 shadow-[0_18px_45px_rgba(15,23,42,0.35)] backdrop-blur-2xl [&::-webkit-scrollbar]:hidden touch-pan-x cursor-grab active:cursor-grabbing ${
+          isDraggingList ? "cursor-grabbing" : ""
+        }`}
         style={
           listSize
             ? {
@@ -314,7 +282,8 @@ function Dock({
               <img
                 src={project.technologies[0]}
                 alt={project.name}
-                className="h-full w-full object-contain"
+                className="h-full w-full object-contain pointer-events-none select-none"
+                draggable={false}
               />
             </AppIcon>
           </li>
@@ -360,9 +329,10 @@ function AppIcon({
     <motion.div
       ref={ref}
       style={{ width }}
-      className={`flex aspect-square w-10 items-stretch overflow-hidden rounded-2xl border p-2 transition-all duration-200 ${
+      className={`flex aspect-square w-10 select-none items-stretch overflow-hidden rounded-2xl border p-2 transition-all duration-200 ${
         isCompact ? '' : 'hover:scale-110 hover:bg-white/20'
       } ${activeClasses}`}
+      draggable={false}
       onClick={onClick}
     >
       {children}
